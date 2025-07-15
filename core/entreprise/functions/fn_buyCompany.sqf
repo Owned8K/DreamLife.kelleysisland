@@ -27,8 +27,13 @@ if (LICENSE_VALUE(_licenseVar, "civ")) exitWith {
     hint localize "STR_CompanyCreate_AlreadyOwner";
 };
 
-if (count (toArray _companyName) < 3) exitWith {
-    hint localize "STR_CompanyCreate_InvalidName";
+if (_companyName isEqualTo "") then {
+	hint localize "STR_CompanyCreate_InvalidName";
+	
+	exitWith {};
+    }else
+	{
+	if (count (toArray _companyName) < 3) exitWith { hint localize "STR_CompanyCreate_InvalidName"; };
 };
 
 // --- Appel Côté Serveur ---
