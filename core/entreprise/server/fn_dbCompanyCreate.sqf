@@ -31,7 +31,7 @@ diag_log _queryResult;
 
 // --- Exécution de l'Achat ---
 life_atmbank = life_atmbank - _price;
-_player setVariable ["life_atmbank", life_atmbank, true];
+if ((_player getVariable ["life_atmbank", 0]) < _price) exitWith {diag_log "pas assez d'argent"; [_player, "hint", localize "STR_NOTF_NotEnoughMoney"] remoteExecCall ["call", _player];};
 
 _player setVariable [_licenseName, true, true];
 

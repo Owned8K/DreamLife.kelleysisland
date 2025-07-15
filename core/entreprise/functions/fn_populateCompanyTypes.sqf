@@ -12,8 +12,7 @@ private _display = findDisplay 3700;
 private _companyList = _display displayCtrl 3701;
 lbClear _companyList;
 
-diag_log ("FN_populateCompanyTypes: Clearing the ListBox");
-   
+diag_log "FN_populateCompanyTypes: Clearing the ListBox";
 
 private _cfgCompanies = missionConfigFile >> "CfgCompanies";
 
@@ -30,6 +29,8 @@ for "_i" from 0 to (count _cfgCompanies - 1) do {
     
         _companyList lbAdd (localize _displayName);
         _companyList lbSetData [(lbSize _companyList) - 1, _companyClass];
+    };
+    else {diag_log ("life_fnc_populateCompanyTypes: NOT Found company " + _companyClass + " with display name " + _displayName);
     };
 };
 
