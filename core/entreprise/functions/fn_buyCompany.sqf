@@ -11,7 +11,7 @@ private _companyList = _display displayCtrl 3701;
 private _companyNameInput = _display displayCtrl 3703;
 
 private _selectedIndex = lbCurSel _companyList;
-if (_selectedIndex =< 0) exitWith {hint localize "STR_CompanyCreate_NoSelection";};
+if (_selectedIndex == -1) exitWith {hint localize "STR_CompanyCreate_NoSelection";};
 
 private _companyClass = _companyList lbData _selectedIndex;
 private _companyName = ctrlText _companyNameInput;

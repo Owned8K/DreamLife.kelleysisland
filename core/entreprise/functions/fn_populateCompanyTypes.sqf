@@ -6,9 +6,14 @@
 */
 disableSerialization;
 
+diag_log "FN_populateCompanyTypes called";
+
 private _display = findDisplay 3700;
 private _companyList = _display displayCtrl 3701;
 lbClear _companyList;
+
+diag_log ("FN_populateCompanyTypes: Clearing the ListBox");
+   
 
 private _cfgCompanies = missionConfigFile >> "CfgCompanies";
 
@@ -27,6 +32,9 @@ for "_i" from 0 to (count _cfgCompanies - 1) do {
         _companyList lbSetData [(lbSize _companyList) - 1, _companyClass];
     };
 };
+
+diag_log ("FN_populateCompanyTypes: Added items to ListBox");
+   
 
 // Sélectionne le premier élément par défaut pour afficher ses détails
 _companyList lbSetCurSel 0;
