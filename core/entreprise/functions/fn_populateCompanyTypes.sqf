@@ -32,7 +32,7 @@ for "_i" from 0 to (count _cfgCompanies - 1) do {
 
        _listCombos = _companyList lbSetData [-1, "mescouilles"];
 
-       diag_log(_listCombo);
+       diag_log("List Index : " + _listCombo);
         
         //_companyList lbSetData [0, _companyClass];
     }
