@@ -8,10 +8,10 @@ disableSerialization;
 
 diag_log "FN_populateCompanyTypes3 called (test statique)";
 
-private _display = findDisplay 3700;
-if (isNull _display) exitWith { diag_log "FN_populateCompanyTypes3: Display 3700 introuvable"; };
+// private _display = findDisplay 3700;
+// if (isNull _display) exitWith { diag_log "FN_populateCompanyTypes3: Display 3700 introuvable"; };
 
-private _companyList = _display displayCtrl 3701;
+private _companyList = (findDisplay 3700) displayCtrl 3701;
 if (isNull _companyList) exitWith { diag_log "FN_populateCompanyTypes3: Control 3701 introuvable"; };
 
 lbClear _companyList;
