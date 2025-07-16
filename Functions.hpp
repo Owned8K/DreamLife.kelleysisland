@@ -231,7 +231,6 @@ class Life_Client_Core {
         file = "core\entreprise\functions";
         class populateCompanyTypes {};
         class updateCompanyDetails {};
-        class buyCompany {};
     };
 
     class Gangs {
