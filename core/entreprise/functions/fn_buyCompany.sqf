@@ -27,14 +27,12 @@ if (LICENSE_VALUE(_licenseVar, "civ")) exitWith {
     hint localize "STR_CompanyCreate_AlreadyOwner";
 };
 
-if (_companyName isEqualTo "") then {
-	hint localize "STR_CompanyCreate_InvalidName";
-	
-	exitWith {true};
-    }else
-	{
-	if (count (toArray _companyName) < 3) exitWith { hint localize "STR_CompanyCreate_InvalidName"; };
-};
+if (_companyName isEqualTo "") exitWith 
+{ hint localize "STR_CompanyCreate_InvalidName"; };
+    
+if (count (toArray _companyName) < 3) exitWith 
+{ hint localize "STR_CompanyCreate_InvalidName"; };
+
 
 // --- Appel Côté Serveur ---
 // Le serveur fait les vérifications finales (nom unique, etc.) et effectue l'achat.
