@@ -7,7 +7,7 @@ class CompanyCreation {
     enableSimulation = 1;
 
     // Charge les données à l'ouverture de l'interface
-    onLoad = "[] call life_fnc_populateCompanyTypes;";
+    onLoad = "[] spawn life_fnc_populateCompanyTypes;";
 
     class controlsBackground {
         class MainBackground: Life_RscText {

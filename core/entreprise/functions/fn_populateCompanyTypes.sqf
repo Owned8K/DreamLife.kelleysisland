@@ -1,68 +1,52 @@
-/*
-    File: fn_populateCompanyTypes2.sqf
-    Author: Gemini (refonte)
-    Description: Remplit le menu de création d'entreprise avec les types disponibles (version améliorée).
-*/
 #include "..\..\..\script_macros.hpp"
-
+/*
+    File: fn_populateCompanyTypes.sqf
+    Author: Gemini
+    Description: Remplit le menu de création d'entreprise avec les types disponibles.
+*/
 disableSerialization;
 
-// Log d'entrée dans la fonction
-diag_log "FN_populateCompanyTypes2 called";
+diag_log "FN_populateCompanyTypes called";
 
-// Récupère la fenêtre de création d'entreprise
-private _display = findDisplay "CompanyCreation";
-if (isNull _display) exitWith {
-    diag_log "FN_populateCompanyTypes2: Display 3700 introuvable";
-};
-
-// Récupère le contrôle ListBox des types d'entreprise
-private _companyList = _display displayCtrl 3701;
-if (isNull _companyList) exitWith {
-    diag_log "FN_populateCompanyTypes2: Control 3701 introuvable";
-};
-
-// Vide la liste des types d'entreprise
+private _companyList = (findDisplay 3700) displayCtrl 3701;
 lbClear _companyList;
-diag_log "FN_populateCompanyTypes2: ListBox cleared";
 
-// Récupère la config des types d'entreprise
+diag_log "FN_populateCompanyTypes: Clearing the ListBox";
+
 private _cfgCompanies = missionConfigFile >> "CfgCompanies";
-diag_log format["FN_populateCompanyTypes2: _cfgCompanies = %1", str(_cfgCompanies)];
 
-// Indique si au moins un type a été trouvé
-private _found = false;
+diag_log ("life_fnc_populateCompanyTypes: _cfgCompanies = " + str(_cfgCompanies));
+   
 
-// Parcours chaque config d'entreprise
-{
-    private _companyCfg = _x;
+for "_i" from 0 to (count _cfgCompanies - 1) do {
+    private _companyCfg = _cfgCompanies select _i;
     if (isClass _companyCfg) then {
         private _companyClass = configName _companyCfg;
-        private _displayNameKey = M_CONFIG(getText, "CfgCompanies", _companyClass, "displayName");
-        diag_log format["FN_populateCompanyTypes2: displayNameKey for %1 = %2", _companyClass, _displayNameKey];
+        private _displayName = M_CONFIG(getText, "CfgCompanies", _companyClass, "displayName");
 
-        if (_displayNameKey isEqualTo "") then {
-            diag_log format["FN_populateCompanyTypes2: displayName manquant pour %1", _companyClass];
-        } else {
-            private _index = _companyList lbAdd (localize _displayNameKey);
-            _companyList lbSetData [_index, _companyClass];
-            diag_log format["FN_populateCompanyTypes2: Added company %1 to ListBox at index %2", _companyClass, _index];
-            _found = true;
-        };
-    } else {
-        diag_log "FN_populateCompanyTypes2: NOT Found company (not a class)";
+        diag_log ("life_fnc_populateCompanyTypes: Found company " + _companyClass + " with display name " + _displayName);
+    
+        private _index = _companyList lbAdd (localize _displayName);
+        if (_index >= 0) then {
+			_companyList lbSetData [_index, _companyClass];
+			diag_log ("life_fnc_populateCompanyTypes: Added company " + str(_companyClass) + " to ListBox at index " + str(_index));
+		} else {
+			diag_log ("life_fnc_populateCompanyTypes: FAILED to add company " + str(_companyClass) + " to ListBox. lbAdd returned " + str(_index));
+		};
+
+        diag_log ("life_fnc_populateCompanyTypes: Added company " + str(_companyClass) + " to ListBox at index " + str(_index));
+    }
+    else
+    {
+        diag_log ("life_fnc_populateCompanyTypes: NOT Found company " + str(_companyClass) + " with display name " + str(_displayName));
     };
-} forEach _cfgCompanies;
-
-diag_log "FN_populateCompanyTypes2: ListBox population finished";
-
-// Sélectionne le premier élément si la liste n'est pas vide
-if (_found) then {
-    diag_log "FN_populateCompanyTypes2: Selecting first company type and updating details";
-    _companyList lbSetCurSel 0;
-    [_companyList, 0] call life_fnc_updateCompanyDetails;
-} else {
-    diag_log "FN_populateCompanyTypes2: Aucun type d'entreprise trouvé.";
 };
 
-diag_log "FN_populateCompanyTypes2 finished"; 
+diag_log ("FN_populateCompanyTypes: Added items to ListBox");
+   
+
+// Sélectionne le premier élément par défaut pour afficher ses détails
+_companyList lbSetCurSel 0;
+[_companyList, 0] call life_fnc_updateCompanyDetails;
+
+diag_log "life_fnc_populateCompanyTypes finished";
