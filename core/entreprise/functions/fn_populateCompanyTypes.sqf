@@ -27,6 +27,8 @@ for "_i" from 0 to (count _cfgCompanies - 1) do {
        diag_log ("life_fnc_populateCompanyTypes: Found company " + _companyClass + " with display name " + _displayName);
     
        _listIngame = _companyList lbAdd "mescouilles";
+
+       diag_log(_listIngame);
         
         //_companyList lbSetData [0, _companyClass];
     }
