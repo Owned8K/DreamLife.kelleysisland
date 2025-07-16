@@ -28,6 +28,10 @@ for "_i" from 0 to (count _cfgCompanies - 1) do {
     
        // _companyList lbAdd [3700, _displayName];
         _companyList lbAdd localize "STR_Company_Logistics";
+        _companyList lbAdd localize "STR_Company_Logistics";
+        _companyList lbAdd localize "STR_Company_Logistics";
+        _companyList lbAdd localize "STR_Company_Logistics";
+        
         //_companyList lbSetData [0, _companyClass];
     }
     else {diag_log ("life_fnc_populateCompanyTypes: NOT Found company " + str(_companyClass) + " with display name " + str(_displayName));
