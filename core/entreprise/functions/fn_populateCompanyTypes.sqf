@@ -16,27 +16,29 @@ diag_log "FN_populateCompanyTypes: Clearing the ListBox";
 private _cfgCompanies = missionConfigFile >> "CfgCompanies";
 
 diag_log ("life_fnc_populateCompanyTypes: _cfgCompanies = " + str(_cfgCompanies));
-   
 
-for "_i" from 0 to (count _cfgCompanies - 1) do {
-    private _companyCfg = _cfgCompanies select _i;
-    if (isClass _companyCfg) then {
-        private _companyClass = configName _companyCfg;
-        private _displayName = M_CONFIG(getText, "CfgCompanies", _companyClass, "displayName");
 
-       diag_log ("life_fnc_populateCompanyTypes: Found company " + _companyClass + " with display name " + _displayName);
-    
-       // _companyList lbAdd [3700, _displayName];
-       {
+    {
         // Current result is saved in variable _x
         _companyList lbAdd format ["%1", getText(_x >> "displayName")];
         _companyList lbSetData [(lbSize _companyList) -1, configName _x];
-       } forEach _companyClass;
-        //_companyList lbSetData [0, _companyClass];
-    }
-    else {diag_log ("life_fnc_populateCompanyTypes: NOT Found company " + str(_companyClass) + " with display name " + str(_displayName));
-    };
-};
+       } forEach _cfgCompanies;
+   
+
+// for "_i" from 0 to (count _cfgCompanies - 1) do {
+//     private _companyCfg = _cfgCompanies select _i;
+//     if (isClass _companyCfg) then {
+//         private _companyClass = configName _companyCfg;
+//         private _displayName = M_CONFIG(getText, "CfgCompanies", _companyClass, "displayName");
+
+//        diag_log ("life_fnc_populateCompanyTypes: Found company " + _companyClass + " with display name " + _displayName);
+    
+//        // _companyList lbAdd [3700, _displayName];
+//         //_companyList lbSetData [0, _companyClass];
+//     }
+//     else {diag_log ("life_fnc_populateCompanyTypes: NOT Found company " + str(_companyClass) + " with display name " + str(_displayName));
+//     };
+// };
 
 diag_log ("FN_populateCompanyTypes: Added items to ListBox");
    
