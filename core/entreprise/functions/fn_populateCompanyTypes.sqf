@@ -30,9 +30,9 @@ for "_i" from 0 to (count _cfgCompanies - 1) do {
 
        diag_log(_listIngame);
 
-       _listCombos = _companyList lbSetData [_listIngame, _displayName];
+       _companyList lbSetData [_listIngame, _displayName];
 
-       diag_log("List Index : " + _listCombo);
+       diag_log("List Index : " + _companyList);
         
         //_companyList lbSetData [0, _companyClass];
     }
