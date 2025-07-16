@@ -21,13 +21,6 @@ class SpyGlass {
     };
 };
 
-class TON {
-    tag = "TON";
-    class Company {
-        file = "core\entreprise\server";
-        class dbCompanyCreate {};
-    };
-};
 
 class Life_Client_Core {
     tag = "life";
@@ -231,6 +224,7 @@ class Life_Client_Core {
         file = "core\entreprise\functions";
         class populateCompanyTypes {};
         class updateCompanyDetails {};
+        class buyCompany {};
     };
 
     class Gangs {
