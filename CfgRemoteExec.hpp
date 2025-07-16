@@ -64,6 +64,7 @@ class CfgRemoteExec {
         F(life_fnc_wireTransfer,CLIENT)
         F(life_fnc_gangBankResponse,CLIENT)
         F(life_fnc_chopShopSold,CLIENT)
+        F(life_fnc_companyCreated,CLIENT)
         F(SOCK_fnc_dataQuery,CLIENT)
         F(SOCK_fnc_insertPlayerInfo,CLIENT)
         F(SOCK_fnc_requestReceived,CLIENT)
