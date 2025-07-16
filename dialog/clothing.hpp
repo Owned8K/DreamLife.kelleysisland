@@ -40,11 +40,11 @@ class Life_Clothing {
             idc = 3101;
             text = "";
             sizeEx = 0.035;
-            onLBSelChanged = "[_this] call life_fnc_changeClothes;";
             x = 0.0842977 * safezoneW + safezoneX;
             y = 0.240498 * safezoneH + safezoneY;
             w = 0.3;
             h = 0.35;
+            onLBSelChanged = "[_this] call life_fnc_changeClothes;";
         };
 
         class PriceTag: Life_RscStructuredText {
