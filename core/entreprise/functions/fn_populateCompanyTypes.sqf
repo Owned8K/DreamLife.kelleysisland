@@ -8,8 +8,7 @@ disableSerialization;
 
 diag_log "FN_populateCompanyTypes called";
 
-private _display = findDisplay 3700;
-private _companyList = _display displayCtrl 3701;
+private _companyList = (findDisplay 3700) displayCtrl 3701;
 lbClear _companyList;
 
 diag_log "FN_populateCompanyTypes: Clearing the ListBox";
@@ -28,7 +27,7 @@ for "_i" from 0 to (count _cfgCompanies - 1) do {
        diag_log ("life_fnc_populateCompanyTypes: Found company " + _companyClass + " with display name " + _displayName);
     
        // _companyList lbAdd [3700, _displayName];
-        _companyList lbAdd _displayName;
+        _companyList lbAdd localize "STR_Company_Logistics";
         //_companyList lbSetData [0, _companyClass];
     }
     else {diag_log ("life_fnc_populateCompanyTypes: NOT Found company " + str(_companyClass) + " with display name " + str(_displayName));
