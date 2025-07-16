@@ -37,7 +37,6 @@ class CompanyCreation {
             y = 0.247 * safezoneH + safezoneY;
             w = 0.391875 * safezoneW;
             h = 0.033 * safezoneH;
-            colorText[] = {1,1,1,1};
             onLBSelChanged = "_this call life_fnc_updateCompanyDetails;";
         };
 
