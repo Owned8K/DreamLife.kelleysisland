@@ -28,7 +28,7 @@ for "_i" from 0 to (count _cfgCompanies - 1) do {
        diag_log ("life_fnc_populateCompanyTypes: Found company " + _companyClass + " with display name " + _displayName);
     
         _companyList lbAdd (localize _displayName);
-        _companyList lbSetData [(lbSize _companyList) - 1, str(_companyClass)];
+        _companyList lbSetData [3701, 0, str(_companyClass)];
     };
     else {diag_log ("life_fnc_populateCompanyTypes: NOT Found company " + str(_companyClass) + " with display name " + str(_displayName));
     };
