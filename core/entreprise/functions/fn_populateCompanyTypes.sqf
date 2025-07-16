@@ -27,9 +27,14 @@ for "_i" from 0 to (count _cfgCompanies - 1) do {
         diag_log ("life_fnc_populateCompanyTypes: Found company " + _companyClass + " with display name " + _displayName);
     
         private _index = _companyList lbAdd (localize _displayName);
-        _companyList lbSetData [_index, _companyClass];
+        if (_index >= 0) then {
+			_companyList lbSetData [_index, _companyClass];
+			diag_log ("life_fnc_populateCompanyTypes: Added company " + str(_companyClass) + " to ListBox at index " + str(_index));
+		} else {
+			diag_log ("life_fnc_populateCompanyTypes: FAILED to add company " + str(_companyClass) + " to ListBox. lbAdd returned " + str(_index));
+		};
 
-        diag_log ("life_fnc_populateCompanyTypes: Added company " + _companyClass + " to ListBox at index " + str(_index));
+        diag_log ("life_fnc_populateCompanyTypes: Added company " + str(_companyClass) + " to ListBox at index " + str(_index));
     }
     else
     {
