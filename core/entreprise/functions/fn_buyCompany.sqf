@@ -30,7 +30,7 @@ if (LICENSE_VALUE(_licenseVar, "civ")) exitWith {
 if (_companyName isEqualTo "") then {
 	hint localize "STR_CompanyCreate_InvalidName";
 	
-	exitWith {};
+	exitWith {true};
     }else
 	{
 	if (count (toArray _companyName) < 3) exitWith { hint localize "STR_CompanyCreate_InvalidName"; };
