@@ -1,52 +1,39 @@
-#include "..\..\..\script_macros.hpp"
 /*
-    File: fn_populateCompanyTypes.sqf
-    Author: Gemini
-    Description: Remplit le menu de création d'entreprise avec les types disponibles.
+    File: fn_populateCompanyTypes3.sqf
+    Description: Version de test - Ajoute 3-4 types d'entreprise en dur dans la liste pour valider l'UI.
 */
+#include "..\..\..\script_macros.hpp"
+
 disableSerialization;
 
-diag_log "FN_populateCompanyTypes called";
+diag_log "FN_populateCompanyTypes3 called (test statique)";
 
-private _companyList = (findDisplay 3700) displayCtrl 3701;
+private _display = findDisplay 3700;
+if (isNull _display) exitWith { diag_log "FN_populateCompanyTypes3: Display 3700 introuvable"; };
+
+private _companyList = _display displayCtrl 3701;
+if (isNull _companyList) exitWith { diag_log "FN_populateCompanyTypes3: Control 3701 introuvable"; };
+
 lbClear _companyList;
+diag_log "FN_populateCompanyTypes3: ListBox cleared (test statique)";
 
-diag_log "FN_populateCompanyTypes: Clearing the ListBox";
+// Ajout manuel de 3-4 types d'entreprise fictifs
+private _index1 = _companyList lbAdd "Entreprise Alpha";
+_companyList lbSetData [_index1, "alpha"];
 
-private _cfgCompanies = missionConfigFile >> "CfgCompanies";
+private _index2 = _companyList lbAdd "Entreprise Beta";
+_companyList lbSetData [_index2, "beta"];
 
-diag_log ("life_fnc_populateCompanyTypes: _cfgCompanies = " + str(_cfgCompanies));
-   
+private _index3 = _companyList lbAdd "Entreprise Gamma";
+_companyList lbSetData [_index3, "gamma"];
 
-for "_i" from 0 to (count _cfgCompanies - 1) do {
-    private _companyCfg = _cfgCompanies select _i;
-    if (isClass _companyCfg) then {
-        private _companyClass = configName _companyCfg;
-        private _displayName = M_CONFIG(getText, "CfgCompanies", _companyClass, "displayName");
+private _index4 = _companyList lbAdd "Entreprise Delta";
+_companyList lbSetData [_index4, "delta"];
 
-        diag_log ("life_fnc_populateCompanyTypes: Found company " + _companyClass + " with display name " + _displayName);
-    
-        private _index = _companyList lbAdd (localize _displayName);
-        if (_index >= 0) then {
-			_companyList lbSetData [_index, _companyClass];
-			diag_log ("life_fnc_populateCompanyTypes: Added company " + str(_companyClass) + " to ListBox at index " + str(_index));
-		} else {
-			diag_log ("life_fnc_populateCompanyTypes: FAILED to add company " + str(_companyClass) + " to ListBox. lbAdd returned " + str(_index));
-		};
+diag_log "FN_populateCompanyTypes3: 4 éléments ajoutés (test statique)";
 
-        diag_log ("life_fnc_populateCompanyTypes: Added company " + str(_companyClass) + " to ListBox at index " + str(_index));
-    }
-    else
-    {
-        diag_log ("life_fnc_populateCompanyTypes: NOT Found company " + str(_companyClass) + " with display name " + str(_displayName));
-    };
-};
-
-diag_log ("FN_populateCompanyTypes: Added items to ListBox");
-   
-
-// Sélectionne le premier élément par défaut pour afficher ses détails
+// Sélectionne le premier élément et met à jour les détails
 _companyList lbSetCurSel 0;
 [_companyList, 0] call life_fnc_updateCompanyDetails;
 
-diag_log "life_fnc_populateCompanyTypes finished";
+diag_log "FN_populateCompanyTypes3 finished (test statique)";
