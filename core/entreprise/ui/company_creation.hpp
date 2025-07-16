@@ -21,7 +21,7 @@ class CompanyCreation {
 
         class Title: Life_RscTitle {
             idc = -1;
-            text = localize "STR_CompanyCreate_Title";
+            text = "$STR_CompanyCreate_Title";
             x = 0.29375 * safezoneW + safezoneX;
             y = 0.181 * safezoneH + safezoneY;
             w = 0.4125 * safezoneW;
@@ -53,7 +53,7 @@ class CompanyCreation {
         // Champ pour entrer le nom de l'entreprise
         class CompanyNameLabel : Life_RscText {
             idc = -1;
-            text = localize "STR_CompanyCreate_NameLabel";
+            text = "$STR_CompanyCreate_NameLabel";
             x = 0.304062 * safezoneW + safezoneX;
             y = 0.621 * safezoneH + safezoneY;
             w = 0.1 * safezoneW;
@@ -71,7 +71,7 @@ class CompanyCreation {
         // Boutons
         class BuyButton: Life_RscButtonMenu {
             idc = 3704;
-            text = localize "STR_CompanyCreate_Buy";
+            text = "$STR_CompanyCreate_Buy";
             onButtonClick = "[] call life_fnc_buyCompany;";
             x = 0.45875 * safezoneW + safezoneX;
             y = 0.731 * safezoneH + safezoneY;
