@@ -24,19 +24,16 @@ for "_i" from 0 to (count _cfgCompanies - 1) do {
         private _companyClass = configName _companyCfg;
         private _displayName = M_CONFIG(getText, "CfgCompanies", _companyClass, "displayName");
 
-       diag_log ("life_fnc_populateCompanyTypes: Found company " + _companyClass + " with display name " + _displayName);
+        diag_log ("life_fnc_populateCompanyTypes: Found company " + _companyClass + " with display name " + _displayName);
     
-       _listIngame = _companyList lbAdd "mescouilles";
+        private _index = _companyList lbAdd (localize _displayName);
+        _companyList lbSetData [_index, _companyClass];
 
-       diag_log(_listIngame);
-
-       _testDial = _companyList lbSetData [-1, "Tes mes couilles"];
-
-       diag_log("List Index : " + _testDial);
-        
-        //_companyList lbSetData [0, _companyClass];
+        diag_log ("life_fnc_populateCompanyTypes: Added company " + _companyClass + " to ListBox at index " + str(_index));
     }
-    else {diag_log ("life_fnc_populateCompanyTypes: NOT Found company " + str(_companyClass) + " with display name " + str(_displayName));
+    else
+    {
+        diag_log ("life_fnc_populateCompanyTypes: NOT Found company " + str(_companyClass) + " with display name " + str(_displayName));
     };
 };
 
