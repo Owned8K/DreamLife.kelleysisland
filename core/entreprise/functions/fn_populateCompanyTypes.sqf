@@ -4,8 +4,6 @@
     Author: Gemini
     Description: Remplit le menu de création d'entreprise avec les types disponibles.
 */
-createDialog "CompanyCreation";
-
 disableSerialization;
 
 diag_log "FN_populateCompanyTypes called";
