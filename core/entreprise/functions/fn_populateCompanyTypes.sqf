@@ -30,9 +30,9 @@ for "_i" from 0 to (count _cfgCompanies - 1) do {
 
        diag_log(_listIngame);
 
-       _testDial =  lbSetData [_companyList, _listIngame, "Tes mes couilles"];
+       _testDial =  lbSetData [_companyList, -1, "Tes mes couilles"];
 
-       diag_log("List Index : " + _companyList);
+       diag_log("List Index : " + _testDial);
         
         //_companyList lbSetData [0, _companyClass];
     }
