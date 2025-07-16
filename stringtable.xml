@@ -7921,35 +7921,35 @@
             <French>Terminal de Création d'Entreprise</French>
         </Key>
         <Key ID="STR_CompanyCreate_NameLabel">
-            <Original>Company Name:</Original>
+            <Original>Nom de l'entreprise :</Original>
             <French>Nom de l'entreprise :</French>
         </Key>
         <Key ID="STR_CompanyCreate_Buy">
-            <Original>Purchase Company</Original>
+            <Original>Acheter l'Entreprise</Original>
             <French>Acheter l'Entreprise</French>
         </Key>
         <Key ID="STR_CompanyAction_Title">
-            <Original>Company Registry</Original>
+            <Original>Registre des Entreprises</Original>
             <French>Registre des Entreprises</French>
         </Key>
             <Key ID="STR_Company_Logistics">
-                <Original>Logistics Company</Original>
+                <Original>Entreprise de Logistique</Original>
                 <French>Entreprise de Logistique</French>
             </Key>
             <Key ID="STR_Company_Logistics_Desc">
-                <Original>Create your own official logistics company. This registration includes the logistician license required to start operating and gives you access to the logistics management terminal.&lt;br/&gt;&lt;br/&gt;&lt;t color='#FFD700'&gt;Price: %1&lt;/t&gt;</Original>
+                <Original>Créez votre propre entreprise de logistique officielle. Cet enregistrement inclut la &lt;t color='#8cff9b'&gt;Licence de Logisticien&lt;/t&gt; nécessaire pour commencer à opérer et vous donne accès au terminal de gestion logistique.&lt;br/&gt;&lt;br/&gt;&lt;t color='#FFD700'&gt;Prix : %1&lt;/t&gt;</Original>
                 <French>Créez votre propre entreprise de logistique officielle. Cet enregistrement inclut la &lt;t color='#8cff9b'&gt;Licence de Logisticien&lt;/t&gt; nécessaire pour commencer à opérer et vous donne accès au terminal de gestion logistique.&lt;br/&gt;&lt;br/&gt;&lt;t color='#FFD700'&gt;Prix : %1&lt;/t&gt;</French>
             </Key>
             <Key ID="STR_CompanyCreate_Success">
-                <Original>Congratulations, you have founded the company %1! You have been granted a Logistician License.</Original>
+                <Original>Félicitations, vous avez fondé l'entreprise %1 ! Une Licence de Logisticien vous a été accordée.</Original>
                 <French>Félicitations, vous avez fondé l'entreprise %1 ! Une Licence de Logisticien vous a été accordée.</French>
             </Key>
             <Key ID="STR_CompanyCreate_NameTaken">
-                <Original>This company name is already taken. Please choose another one.</Original>
+                <Original>Ce nom d'entreprise est déjà pris. Veuillez en choisir un autre.</Original>
                 <French>Ce nom d'entreprise est déjà pris. Veuillez en choisir un autre.</French>
             </Key>
             <Key ID="STR_CompanyCreate_AlreadyOwner">
-                <Original>You already own a company.</Original>
+                <Original>Vous possédez déjà une entreprise.</Original>
                 <French>Vous possédez déjà une entreprise.</French>
             </Key>
     </Package>
