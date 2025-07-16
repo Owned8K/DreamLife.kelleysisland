@@ -31,15 +31,12 @@ class CompanyCreation {
 
     class controls {
         // Liste déroulante pour les types d'entreprises
-        class CompanyTypeList: Life_RscListBox {
+        class CompanyTypeList: Life_RscCombo {
             idc = 3701;
-            text = "";
-            sizeEx = 0.035;
-            x = 0.0842977 * safezoneW + safezoneX;
-            y = 0.240498 * safezoneH + safezoneY;
-            w = 0.3;
-            h = 0.35;
-            colorBackground[] = {0,0,0,0.7};
+            x = 0.304062 * safezoneW + safezoneX;
+            y = 0.247 * safezoneH + safezoneY;
+            w = 0.391875 * safezoneW;
+            h = 0.033 * safezoneH;
             onLBSelChanged = "_this call life_fnc_updateCompanyDetails;";
         };
 
