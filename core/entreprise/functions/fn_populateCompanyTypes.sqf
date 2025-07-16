@@ -11,7 +11,7 @@ disableSerialization;
 diag_log "FN_populateCompanyTypes2 called";
 
 // Récupère la fenêtre de création d'entreprise
-private _display = findDisplay 3700;
+private _display = findDisplay "CompanyCreation";
 if (isNull _display) exitWith {
     diag_log "FN_populateCompanyTypes2: Display 3700 introuvable";
 };
