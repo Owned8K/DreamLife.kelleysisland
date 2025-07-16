@@ -5,17 +5,18 @@
     Description: Remplit le menu de création d'entreprise avec les types disponibles.
 */
 disableSerialization;
+params ["_display"];
 
-diag_log "FN_populateCompanyTypes called";
+// diag_log "FN_populateCompanyTypes called";
 
-private _companyList = (findDisplay 3700) displayCtrl 3701;
-lbClear _companyList;
+private _companyList = _display displayCtrl 3701;
+//lbClear _companyList;
 
-diag_log "FN_populateCompanyTypes: Clearing the ListBox";
+// diag_log "FN_populateCompanyTypes: Clearing the ListBox";
 
-private _cfgCompanies = missionConfigFile >> "CfgCompanies";
+private _cfgCompanies = "true" configClasses(missionConfigFile >> "CfgCompanies");
 
-diag_log ("life_fnc_populateCompanyTypes: _cfgCompanies = " + str(_cfgCompanies));
+// diag_log ("life_fnc_populateCompanyTypes: _cfgCompanies = " + str(_cfgCompanies));
 
 
     {
@@ -40,11 +41,11 @@ diag_log ("life_fnc_populateCompanyTypes: _cfgCompanies = " + str(_cfgCompanies)
 //     };
 // };
 
-diag_log ("FN_populateCompanyTypes: Added items to ListBox");
+// diag_log ("FN_populateCompanyTypes: Added items to ListBox");
    
 
 // Sélectionne le premier élément par défaut pour afficher ses détails
-_companyList lbSetCurSel 0;
-[_companyList, 0] call life_fnc_updateCompanyDetails;
+// _companyList lbSetCurSel 0;
+// [_companyList, 0] call life_fnc_updateCompanyDetails;
 
-diag_log "life_fnc_populateCompanyTypes finished";
+// diag_log "life_fnc_populateCompanyTypes finished";
