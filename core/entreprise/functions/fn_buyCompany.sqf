@@ -37,5 +37,5 @@ if (count (toArray _companyName) < 3) exitWith
 // --- Appel Côté Serveur ---
 // Le serveur fait les vérifications finales (nom unique, etc.) et effectue l'achat.
 hint "Vérification du nom de l'entreprise et finalisation de l'achat...";
-[_companyName, _companyClass] remoteExecCall ["TON_fnc_dbCompanyCreate", RSERV];
+[_companyName, _companyClass, player] remoteExecCall ["TON_fnc_dbCompanyCreate", RSERV];
 closeDialog 0;
