@@ -51,15 +51,19 @@ ctrlSetText[2009,format ["Weight: %1 / %2", life_carryWeight, life_maxWeight]];
     };
 } forEach ("true" configClasses (missionConfigFile >> "VirtualItems"));
 
+// Gestion des licences
+_struct = "";
+_licenses = "true" configClasses (missionConfigFile >> "Licenses");
 {
     _displayName = getText(_x >> "displayName");
     _varName = configName _x;
-    _varValue = missionNamespace getVariable [format ["license_%1_%2",_side,_varName],false];
+    _varString = format ["license_%1_%2", _side, _varName];
     
-    if (_varValue) then {
-        _struct = _struct + format ["%1<br/>",localize _displayName];
+    if (missionNamespace getVariable [_varString,false]) then {
+        if (_struct != "") then { _struct = _struct + "<br/>"; };
+        _struct = _struct + format ["%1",localize _displayName];
     };
-} forEach (format ["getText(_x >> 'side') isEqualTo '%1'",_side] configClasses (missionConfigFile >> "Licenses"));
+} forEach _licenses;
 
 if (_struct isEqualTo "") then {
     _struct = "No Licenses";
