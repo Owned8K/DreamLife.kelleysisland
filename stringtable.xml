@@ -96,6 +96,10 @@
             <Original>Employee</Original>
             <French>Employé</French>
         </Key>
+        <Key ID="STR_Company_No_Employee_Selected">
+            <Original>No employee selected</Original>
+            <French>Aucun employé sélectionné</French>
+        </Key>
     </Package>
     <Package name="Shop_Names">
         <Key ID="STR_Shops_C_Bruce">

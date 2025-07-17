@@ -175,6 +175,8 @@ class Life_Client_Core {
         class companyMenu {};
         class populateCompanyTypes {};
         class updateCompanyDetails {};
+        class companyDataReceived {};
+        class companyManage {};
     };
 
     class Functions {
