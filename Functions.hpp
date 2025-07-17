@@ -226,6 +226,9 @@ class Life_Client_Core {
         class updateCompanyDetails {};
         class buyCompany {};
         class companyCreated {};
+        class openCompanyMenu {};
+        class companyMenu {};
+        class companyDataReceived {};
     };
 
     class Gangs {
