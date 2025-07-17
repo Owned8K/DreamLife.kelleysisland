@@ -5,6 +5,7 @@ class company_management {
     name = "company_management";
     movingEnable = 0;
     enableSimulation = 1;
+    onLoad = "[] spawn life_fnc_initCompanyMenu;";
 
     class controlsBackground {
         class MainBackground: Life_RscText {
