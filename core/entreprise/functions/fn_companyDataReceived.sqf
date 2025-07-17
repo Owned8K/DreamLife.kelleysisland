@@ -37,7 +37,7 @@ if (!isNull _display) then {
     
     // Formater les informations de l'entreprise
     private _info = format [
-        "<t size='1.2' align='center'><b>%1</b></t><br/><br/>" +
+        "<t size='1.5' align='center'>%1</t><br/><br/>" +
         "<t align='left'>%2: %3</t><br/>" +
         "<t align='left'>%4: $%5</t><br/>" +
         "<t align='left'>%6: %7</t>",
