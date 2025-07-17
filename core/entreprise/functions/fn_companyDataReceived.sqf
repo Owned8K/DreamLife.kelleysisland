@@ -1,48 +1,39 @@
 #include "..\..\..\script_macros.hpp"
 /*
     File: fn_companyDataReceived.sqf
-    Author: Your Name
-    Description: Reçoit et traite les données de l'entreprise du serveur
+    Author: Gemini
+    Description: Reçoit les données de l'entreprise et les affiche dans le menu joueur.
 */
-
 params [
-    ["_companyData", [], [[]]],
-    ["_player", objNull, [objNull]]
+    ["_companyId", 0, [0]],
+    ["_companyName", "", [""]],
+    ["_ownerName", "", [""]],
+    ["_ownerUID", "", [""]],
+    ["_companyBank", 0, [0]]
 ];
 
-if (!(_player isEqualTo player)) exitWith {};
-if (_companyData isEqualTo []) exitWith {
+if (_companyId isEqualTo 0) exitWith {
     hint localize "STR_Company_No_Company";
 };
 
-// Structure des données:
-// _companyData = [id, name, owner_name, owner_uid, bank, employees]
-private _companyId = _companyData select 0;
-private _companyName = _companyData select 1;
-private _ownerName = _companyData select 2;
-private _ownerUID = _companyData select 3;
-private _companyBank = _companyData select 4;
-private _employees = _companyData select 5;
+// Stocker les données de l'entreprise
+life_company_data = [_companyId, _companyName, _ownerName, _ownerUID, _companyBank];
 
-// Vérifier si le joueur est le propriétaire
-private _isOwner = (getPlayerUID player) isEqualTo _ownerUID;
+// Mettre à jour l'interface du menu joueur
+private _display = findDisplay 2001;
+if (isNull _display) exitWith {};
 
-// Stocker les données avec des informations supplémentaires
-player setVariable ["company_data", [
-    _companyId,
-    _companyName,
-    _ownerName,
-    _ownerUID,
-    _companyBank,
-    _employees,
-    _isOwner
-], true];
+private _licenseList = _display displayCtrl 2014;
+private _struct = ctrlText _licenseList;
 
-// Ouvrir le menu si demandé
-if (player getVariable ["company_menu_requested", false]) then {
-    player setVariable ["company_menu_requested", false];
-    [] call life_fnc_companyMenu;
+// Ajouter les informations de l'entreprise
+_struct = _struct + format ["<br/><t size='1.1'><b>%1</b></t><br/>", _companyName];
+_struct = _struct + format ["%1: %2<br/>", localize "STR_Company_Balance", [_companyBank] call life_fnc_numberText];
+
+if (_ownerUID isEqualTo getPlayerUID player) then {
+    _struct = _struct + format ["%1: %2<br/>", localize "STR_Company_Status", localize "STR_Company_Owner"];
+} else {
+    _struct = _struct + format ["%1: %2<br/>", localize "STR_Company_Status", localize "STR_Company_Employee"];
 };
 
-// Log
-diag_log format ["[COMPANY DATA] Received company data: %1", _companyData]; 
+_licenseList ctrlSetStructuredText parseText _struct; 

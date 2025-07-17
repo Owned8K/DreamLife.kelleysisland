@@ -29,4 +29,4 @@
 #include "FuelStat.hpp"
 #include "newsStation.hpp"
 #include "..\core\entreprise\ui\company_creation.hpp"
-#include "company_management.hpp"
+#include "..\core\entreprise\ui\company_management.hpp"

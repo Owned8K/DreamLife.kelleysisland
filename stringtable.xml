@@ -63,6 +63,40 @@
             <Polish>Moja Firma</Polish>
         </Key>
     </Package>
+    <Package name="Company">
+        <Key ID="STR_Company_Management_Title">
+            <Original>Company Management</Original>
+            <French>Gestion d'Entreprise</French>
+        </Key>
+        <Key ID="STR_Company_Manage">
+            <Original>Manage Company</Original>
+            <French>Gérer l'Entreprise</French>
+        </Key>
+        <Key ID="STR_Company_Owner">
+            <Original>Owner</Original>
+            <French>Propriétaire</French>
+        </Key>
+        <Key ID="STR_Company_Balance">
+            <Original>Balance</Original>
+            <French>Solde</French>
+        </Key>
+        <Key ID="STR_Company_No_Company">
+            <Original>You don't own a company</Original>
+            <French>Vous ne possédez pas d'entreprise</French>
+        </Key>
+        <Key ID="STR_Company_Status">
+            <Original>Status</Original>
+            <French>Statut</French>
+        </Key>
+        <Key ID="STR_Company_Owner">
+            <Original>Owner</Original>
+            <French>Propriétaire</French>
+        </Key>
+        <Key ID="STR_Company_Employee">
+            <Original>Employee</Original>
+            <French>Employé</French>
+        </Key>
+    </Package>
     <Package name="Shop_Names">
         <Key ID="STR_Shops_C_Bruce">
             <Original>Bruce's Outback Outfits</Original>
