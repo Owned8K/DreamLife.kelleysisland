@@ -59,7 +59,7 @@ _licenses = "true" configClasses (missionConfigFile >> "Licenses");
     _varName = configName _x;
     _varString = format ["license_%1_%2", _side, _varName];
     
-    if (missionNamespace getVariable [_varString,false]) then {
+    if ((missionNamespace getVariable [_varString,0]) isEqualTo 1) then {
         if (_struct != "") then { _struct = _struct + "<br/>"; };
         _struct = _struct + format ["%1",localize _displayName];
     };
