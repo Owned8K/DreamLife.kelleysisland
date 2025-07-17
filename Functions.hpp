@@ -229,6 +229,7 @@ class Life_Client_Core {
         class openCompanyMenu {};
         class companyMenu {};
         class companyDataReceived {};
+        class companyOwnershipReceived {};
     };
 
     class Gangs {

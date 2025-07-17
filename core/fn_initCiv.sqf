@@ -30,3 +30,6 @@ if (life_is_alive && !life_is_arrested) then {
     };
 };
 life_is_alive = true;
+
+// Vérifier si le joueur possède une entreprise
+[player, getPlayerUID player] remoteExecCall ["life_fnc_checkCompanyOwner", RSERV];
