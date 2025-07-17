@@ -13434,6 +13434,10 @@
         </Key>
     </Package>
     <Package name="Company_Management">
+        <Key ID="STR_PM_OpenCompany">
+            <Original>Company Management</Original>
+            <French>Gestion d'Entreprise</French>
+        </Key>
         <Key ID="STR_Company_Management_Title">
             <Original>Company Management</Original>
             <French>Gestion d'Entreprise</French>

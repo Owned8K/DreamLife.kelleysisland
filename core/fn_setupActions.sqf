@@ -21,7 +21,18 @@ switch (playerSide) do {
         !isNull cursorObject && player distance cursorObject < 3.5 && isPlayer cursorObject && animationState cursorObject == "Incapacitated" && !(cursorObject getVariable ["robbed",false]) ']);
         
         //Company Menu
-        life_actions pushBack (player addAction["<t color='#FF8C00'>Gestion d'Entreprise</t>",life_fnc_openCompanyMenu,"",0,false,false,"",' !isNull cursorObject && player distance cursorObject < 3 ']);
+        life_actions pushBack (player addAction[localize "STR_PM_OpenCompany",life_fnc_openCompanyMenu,"",0,false,false,"",'
+        !dialog && 
+        {
+            private _hasLicense = false;
+            {
+                if (_x select 1 isEqualTo "civ" && {[_x select 0] call life_fnc_hasCompanyLicense}) exitWith {
+                    _hasLicense = true;
+                };
+            } forEach (getArray(missionConfigFile >> "Licenses" >> "companies"));
+            _hasLicense
+        }
+        ']);
     };
     
     //Cops
