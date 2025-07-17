@@ -18,25 +18,24 @@ if (!(_player isEqualTo player)) exitWith {
     diag_log "[ERROR] Wrong player object received";
 };
 
-// Stocker le résultat pour une utilisation ultérieure
-player setVariable ["company_ownership", _queryResult, true];
-diag_log format ["Stored company data: %1", _queryResult];
-
-// Si le joueur a une entreprise, ajouter l'action au menu Y
+// Si le joueur a une entreprise
 if !(_queryResult isEqualTo []) then {
-    diag_log "[INFO] Player has a company, adding menu action";
+    diag_log "[INFO] Player has a company, setting up data";
     
-    // Supprimer l'ancienne action si elle existe
+    // Stocker les données dans une variable globale
+    life_company_data = _queryResult;
+    
+    // Ajouter le bouton au menu Y
     if (!isNil {player getVariable "company_action"}) then {
         player removeAction (player getVariable "company_action");
-        diag_log "[INFO] Removed old action";
     };
     
-    // Ajouter la nouvelle action
     private _actionId = player addAction [
         "<t color='#FF8C00'>Gestion d'Entreprise</t>",
         {
-            [] spawn life_fnc_openCompanyMenu;
+            if (!dialog) then {
+                createDialog "company_management";
+            };
         },
         "",
         0,
@@ -46,20 +45,17 @@ if !(_queryResult isEqualTo []) then {
         "!dialog"
     ];
     
-    // Sauvegarder l'ID de l'action
     player setVariable ["company_action", _actionId];
     diag_log format ["[SUCCESS] Added menu action with ID: %1", _actionId];
     
-    // Afficher un message au joueur
     hint parseText format ["<t color='#00FF00'>Entreprise trouvée :</t><br/><br/>%1", _queryResult select 1];
 } else {
     diag_log "[INFO] No company found for player";
+    life_company_data = [];
     
-    // Supprimer l'action si elle existe
     if (!isNil {player getVariable "company_action"}) then {
         player removeAction (player getVariable "company_action");
         player setVariable ["company_action", nil];
-        diag_log "[INFO] Removed existing menu action";
     };
 };
 

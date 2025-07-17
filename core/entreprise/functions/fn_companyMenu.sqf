@@ -5,29 +5,30 @@
     Description: Affiche le menu de gestion d'entreprise
 */
 
-// Vérifier si le joueur a une entreprise
-private _companyData = player getVariable ["company_data", []];
-if (_companyData isEqualTo []) exitWith {
-    hint localize "STR_Company_No_Company";
-};
-
-// Ouvrir le dialogue
-createDialog "company_management";
+private ["_display", "_companyInfo", "_employeeList", "_manageButton"];
 disableSerialization;
 
-// Récupérer les contrôles
-private _display = findDisplay 3800;
-private _companyInfo = _display displayCtrl 3802;
-private _employeeList = _display displayCtrl 3804;
-private _manageButton = _display displayCtrl 3805;
+if (isNull (findDisplay 3800)) then {
+    if (!(createDialog "company_management")) exitWith {};
+};
+
+// Vérifier si le joueur a une entreprise
+if (count life_company_data isEqualTo 0) exitWith {
+    hint localize "STR_Company_No_Company";
+    closeDialog 0;
+};
+
+_display = findDisplay 3800;
+_companyInfo = _display displayCtrl 3802;
+_employeeList = _display displayCtrl 3804;
+_manageButton = _display displayCtrl 3805;
 
 // Extraire les données de l'entreprise
-private _companyId = _companyData select 0;
-private _companyName = _companyData select 1;
-private _ownerName = _companyData select 2;
-private _companyBank = _companyData select 4;
-private _employees = _companyData select 5;
-private _isOwner = _companyData select 6;
+private _companyId = life_company_data select 0;
+private _companyName = life_company_data select 1;
+private _ownerName = life_company_data select 2;
+private _ownerUID = life_company_data select 3;
+private _companyBank = life_company_data select 4;
 
 // Formater les informations de l'entreprise
 private _info = format [
@@ -44,17 +45,12 @@ private _info = format [
 // Afficher les informations
 _companyInfo ctrlSetStructuredText parseText _info;
 
-// Remplir la liste des employés
-{
-    private _name = _x select 0;
-    private _uid = _x select 1;
-    private _role = _x select 2;
-    private _index = _employeeList lbAdd format["%1 - %2", _name, _role];
-    _employeeList lbSetData [_index, _uid];
-} forEach _employees;
+// Vérifier si le joueur est le propriétaire
+if (_ownerUID isEqualTo getPlayerUID player) then {
+    _manageButton ctrlEnable true;
+} else {
+    _manageButton ctrlEnable false;
+};
 
-// Afficher/Cacher les boutons de gestion selon les droits
-_manageButton ctrlShow _isOwner;
-
-// Log
-diag_log format["[COMPANY MENU] %1 (%2) opened company menu for %3", profileName, getPlayerUID player, _companyName]; 
+// Demander la liste des employés au serveur
+[_companyId, player] remoteExecCall ["TON_fnc_fetchCompanyEmployees", RSERV]; 
