@@ -16,6 +16,14 @@ class CfgRemoteExec {
         mode = 1;
         jip = 0;
 
+        class TON_fnc_fetchCompanyData {
+            allowedTargets = 2;
+        };
+
+        class life_fnc_companyDataReceived {
+            allowedTargets = 1;
+        };
+
         /* Client only functions */
         F(life_fnc_AAN,CLIENT)
         F(life_fnc_addVehicle2Chain,CLIENT)
