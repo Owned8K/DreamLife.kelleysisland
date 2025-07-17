@@ -7,14 +7,13 @@
     Called by the server with the return information.
 */
 
-diag_log format ["[REQUEST RECEIVED] Data: %1", _this];
+params [
+    ["_queryResult", [], [[]]]
+];
 
-if (isNil "_this") exitWith {
-    diag_log "[REQUEST RECEIVED] Error: No data received";
-    [] call SOCK_fnc_insertPlayerInfo;
-};
+diag_log format ["[REQUEST RECEIVED] Data: %1", _queryResult];
 
-if (_this isEqualTo []) exitWith {
+if (_queryResult isEqualTo []) exitWith {
     diag_log "[REQUEST RECEIVED] Error: Empty data received";
     [] call SOCK_fnc_insertPlayerInfo;
 };
@@ -24,23 +23,23 @@ if (life_session_completed) exitWith {};
 if (life_session_tries > 3) exitWith {cutText[localize "STR_Session_Error","BLACK FADED"]; 0 cutFadeOut 999999;};
 
 // Parse basic player information
-CASH = parseNumber (_this select 2);
-BANK = parseNumber (_this select 3);
-CONST(life_adminlevel,(_this select 4));
-CONST(life_donator,(_this select 5));
+CASH = parseNumber (_queryResult select 2);
+BANK = parseNumber (_queryResult select 3);
+CONST(life_adminlevel,(_queryResult select 4));
+CONST(life_donator,(_queryResult select 5));
 
 // Parse licenses
-if ((_this select 6) isEqualType []) then {
-    {missionNamespace setVariable [(_x select 0),(_x select 1)];} forEach (_this select 6);
+if ((_queryResult select 6) isEqualType []) then {
+    {missionNamespace setVariable [(_x select 0),(_x select 1)];} forEach (_queryResult select 6);
 };
 
 // Parse gear
-life_gear = _this select 8;
+life_gear = _queryResult select 8;
 [true] call life_fnc_loadGear;
 
 // Parse company data if civilian
 if (playerSide isEqualTo civilian) then {
-    private _companyData = _this select (count _this - 1);
+    private _companyData = _queryResult select (count _queryResult - 1);
     diag_log format ["[REQUEST RECEIVED] Company Data: %1", _companyData];
     
     if (!(_companyData isEqualTo [])) then {
