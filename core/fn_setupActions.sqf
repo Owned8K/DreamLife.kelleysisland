@@ -22,8 +22,8 @@ switch (playerSide) do {
         
         //Company Menu
         life_actions pushBack (player addAction[localize "STR_PM_OpenCompany",life_fnc_openCompanyMenu,"",0,false,false,"",'
-        !dialog && {LICENSE_VALUE("logistician","civ")} && {diag_log format["[COMPANY MENU] Action condition check: license_civ_logistician = %1", (missionNamespace getVariable ["license_civ_logistician",false])]; true}
-        ']);
+        !dialog && {(license_civ_logistician)}'
+        ]);
     };
     
     //Cops
