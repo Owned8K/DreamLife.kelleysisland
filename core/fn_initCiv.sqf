@@ -55,6 +55,7 @@ life_is_alive = true;
 
 // Vérifier si le joueur possède une entreprise
 diag_log format ["[INIT CIV] Checking company ownership for player: %1 (%2)", profileName, getPlayerUID player];
+diag_log format ["[INIT CIV] RSERV value: %1", RSERV];
 [player, getPlayerUID player] remoteExecCall ["TON_fnc_checkCompanyOwner", RSERV];
 diag_log "[INIT CIV] Company ownership check sent to server";
 
