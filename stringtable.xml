@@ -50,6 +50,19 @@
 			<Chinesesimp>完成客户端设置程序...</Chinesesimp>
         </Key>
     </Package>
+    <Package name="PM_Menu">
+        <Key ID="STR_PM_MyCompany">
+            <Original>My Company</Original>
+            <Czech>Moje Společnost</Czech>
+            <Spanish>Mi Empresa</Spanish>
+            <Russian>Моя Компания</Russian>
+            <German>Meine Firma</German>
+            <Italian>La Mia Azienda</Italian>
+            <French>Mon Entreprise</French>
+            <Portuguese>Minha Empresa</Portuguese>
+            <Polish>Moja Firma</Polish>
+        </Key>
+    </Package>
     <Package name="Shop_Names">
         <Key ID="STR_Shops_C_Bruce">
             <Original>Bruce's Outback Outfits</Original>

@@ -169,6 +169,14 @@ class Life_Client_Core {
         class wireTransfer {};
     };
 
+    class Company {
+        file = "core\entreprise\functions";
+        class buyCompany {};
+        class companyMenu {};
+        class populateCompanyTypes {};
+        class updateCompanyDetails {};
+    };
+
     class Functions {
         file = "core\functions";
         class AAN {};
@@ -218,19 +226,6 @@ class Life_Client_Core {
         class teleport {};
         class whereAmI {};
         class moveIn {};
-    };
-
-    class Company {
-        file = "core\entreprise\functions";
-        class populateCompanyTypes {};
-        class updateCompanyDetails {};
-        class buyCompany {};
-        class companyCreated {};
-        class openCompanyMenu {};
-        class companyMenu {};
-        class companyDataReceived {};
-        class companyOwnershipReceived {};
-        class updateCompanyEmployees {};
     };
 
     class Gangs {

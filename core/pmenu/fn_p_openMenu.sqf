@@ -13,6 +13,7 @@ disableSerialization;
 switch (playerSide) do {
     case west: {
         ctrlShow[2011,false];
+        ctrlShow[2015,false]; // Cacher le bouton d'entreprise pour la police
     };
 
     case civilian: {
@@ -22,6 +23,7 @@ switch (playerSide) do {
     case independent: {
         ctrlShow[2012,false];
         ctrlShow[2011,false];
+        ctrlShow[2015,false]; // Cacher le bouton d'entreprise pour les médecins
     };
 };
 

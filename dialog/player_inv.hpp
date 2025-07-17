@@ -255,6 +255,16 @@ class playerSettings {
             h = (1 / 25);
         };
 
+        class ButtonCompany: Life_RscButtonMenu {
+            idc = 2015;
+            text = "$STR_PM_MyCompany";
+            onButtonClick = "[] call life_fnc_companyMenu;";
+            x = 0.58 + (6.25 / 19.8) + (1 / 250 / (safezoneW / safezoneH));
+            y = 0.8 - (1 / 25);
+            w = (6.25 / 40);
+            h = (1 / 25);
+        };
+
         class ButtonAdminMenu: Life_RscButtonMenu {
             idc = 2021;
             text = "$STR_PM_AdminMenu";
