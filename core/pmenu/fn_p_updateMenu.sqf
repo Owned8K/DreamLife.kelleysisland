@@ -53,8 +53,10 @@ ctrlSetText[2009,format ["Weight: %1 / %2", life_carryWeight, life_maxWeight]];
 
 {
     _displayName = getText(_x >> "displayName");
-
-    if (LICENSE_VALUE(configName _x,_side)) then {
+    _varName = configName _x;
+    _varValue = missionNamespace getVariable [format ["license_%1_%2",_side,_varName],false];
+    
+    if (_varValue) then {
         _struct = _struct + format ["%1<br/>",localize _displayName];
     };
 } forEach (format ["getText(_x >> 'side') isEqualTo '%1'",_side] configClasses (missionConfigFile >> "Licenses"));
