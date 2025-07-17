@@ -5,8 +5,16 @@
     Description: Ouvre le menu de gestion d'entreprise
 */
 
+diag_log "fn_companyMenu called";
+
 // Fermer le menu joueur
 closeDialog 0;
 
+diag_log "fn_companyMenu: Creating dialog";
+
 // Ouvrir le menu de gestion d'entreprise
-createDialog "company_management"; 
+if (createDialog "company_management") then {
+    diag_log "fn_companyMenu: Dialog created successfully";
+} else {
+    diag_log "fn_companyMenu: Failed to create dialog";
+}; 

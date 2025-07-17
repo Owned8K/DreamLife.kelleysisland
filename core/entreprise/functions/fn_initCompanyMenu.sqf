@@ -19,9 +19,15 @@ diag_log "fn_initCompanyMenu: Display found, setting loading message";
 private _companyInfo = _display displayCtrl 9802;
 _companyInfo ctrlSetStructuredText parseText "<t align='center'>Chargement des données...</t>";
 
-diag_log "fn_initCompanyMenu: Requesting company data";
-
-// Demander les données de l'entreprise
-[player] remoteExecCall ["TON_fnc_fetchCompanyData", RSERV];
-
-diag_log "fn_initCompanyMenu: Data request sent"; 
+// Vérifier si nous avons déjà demandé les données
+if (isNil "life_company_data_requested") then {
+    life_company_data_requested = true;
+    diag_log "fn_initCompanyMenu: Requesting company data";
+    
+    // Demander les données de l'entreprise
+    [player] remoteExecCall ["TON_fnc_fetchCompanyData", RSERV];
+    
+    diag_log "fn_initCompanyMenu: Data request sent";
+} else {
+    diag_log "fn_initCompanyMenu: Data already requested, skipping";
+}; 
