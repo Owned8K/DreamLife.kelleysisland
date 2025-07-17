@@ -259,8 +259,8 @@ class playerSettings {
             idc = 2015;
             text = "$STR_PM_MyCompany";
             onButtonClick = "[] call life_fnc_companyMenu; createDialog 'company_management';";
-            x = 0.58 + (6.25 / 40) + (1 / 250 / (safezoneW / safezoneH));
-            y = 0.8 - (1 / 25);
+            x = 0.1 + (6.25 / 40) + (1 / 250 / (safezoneW / safezoneH));
+            y = 0.805;
             w = (6.25 / 40);
             h = (1 / 25);
         };
@@ -269,7 +269,7 @@ class playerSettings {
             idc = 2021;
             text = "$STR_PM_AdminMenu";
             onButtonClick = "closeDialog 0; createDialog ""life_admin_menu"";";
-            x = 0.1 + (6.25 / 40) + (1 / 250 / (safezoneW / safezoneH));
+            x = 0.26 + (6.25 / 40) + (1 / 250 / (safezoneW / safezoneH));
             y = 0.805;
             w = (6.25 / 40);
             h = (1 / 25);

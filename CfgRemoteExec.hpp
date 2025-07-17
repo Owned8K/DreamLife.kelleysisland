@@ -92,6 +92,8 @@ class CfgRemoteExec {
         F(SPY_fnc_observe,SERVER)
         F(TON_fnc_addContainer,SERVER)
         F(TON_fnc_dbCompanyCreate,SERVER)
+        F(TON_fnc_checkCompanyOwner,SERVER)
+        F(TON_fnc_fetchCompanyData,SERVER)
         F(TON_fnc_addHouse,SERVER)
         F(TON_fnc_chopShopSell,SERVER)
         F(TON_fnc_cleanupRequest,SERVER)
