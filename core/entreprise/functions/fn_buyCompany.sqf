@@ -1,4 +1,4 @@
-#include "..\..\..\script_macros.hpp"
+#include "..\..\script_macros.hpp"
 /*
     File: fn_buyCompany.sqf
     Author: Gemini
@@ -33,9 +33,20 @@ if (_companyName isEqualTo "") exitWith
 if (count (toArray _companyName) < 3) exitWith 
 { hint localize "STR_CompanyCreate_InvalidName"; };
 
+// --- Attribution de la licence ---
+diag_log format ["[COMPANY CREATION] %1 (%2) is buying company type %3 with license %4", profileName, getPlayerUID player, _companyClass, _licenseVar];
+
+// Attribuer la licence
+missionNamespace setVariable [LICENSE_VARNAME(_licenseVar,"civ"), true];
 
 // --- Appel Côté Serveur ---
 // Le serveur fait les vérifications finales (nom unique, etc.) et effectue l'achat.
 hint "Vérification du nom de l'entreprise et finalisation de l'achat...";
-[_companyName, _companyClass, player] remoteExecCall ["TON_fnc_dbCompanyCreate", RSERV];
+[_companyName, _companyClass, player, _licenseVar] remoteExecCall ["TON_fnc_dbCompanyCreate", RSERV];
+
+// Sauvegarder les changements (licence et argent)
+[1] call SOCK_fnc_updatePartial;
+
+diag_log format ["[COMPANY CREATION] License %1 attributed to %2 (%3)", _licenseVar, profileName, getPlayerUID player];
+
 closeDialog 0;
