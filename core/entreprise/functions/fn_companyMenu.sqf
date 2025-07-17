@@ -9,15 +9,23 @@ diag_log "fn_companyMenu called";
 
 // Fermer tous les dialogues existants
 closeDialog 0;
-sleep 0.1; // Attendre un court instant pour s'assurer que le dialogue est fermé
 
 diag_log "fn_companyMenu: Creating dialog";
 
 // Ouvrir le menu de gestion d'entreprise
 if (createDialog "company_management") then {
     diag_log "fn_companyMenu: Dialog created successfully";
-    waitUntil {!isNull (findDisplay 9800)};
-    diag_log "fn_companyMenu: Dialog is now available";
+    
+    // Initialiser le menu
+    disableSerialization;
+    private _display = findDisplay 9800;
+    private _companyInfo = _display displayCtrl 9802;
+    _companyInfo ctrlSetStructuredText parseText "<t align='center'>Chargement des données...</t>";
+    
+    // Demander les données de l'entreprise
+    [player] remoteExecCall ["TON_fnc_fetchCompanyData", RSERV];
+    
+    diag_log "fn_companyMenu: Data requested";
 } else {
     diag_log "fn_companyMenu: Failed to create dialog";
 }; 

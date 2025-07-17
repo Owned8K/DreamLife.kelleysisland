@@ -5,8 +5,6 @@ class company_management {
     name = "company_management";
     movingEnable = 0;
     enableSimulation = 1;
-    onLoad = "diag_log 'company_management dialog onLoad called'; [] spawn life_fnc_initCompanyMenu;";
-    onUnload = "life_company_data_requested = nil; diag_log 'company_management dialog onUnload called';";
 
     class controlsBackground {
         class MainBackground: Life_RscText {
@@ -32,7 +30,7 @@ class company_management {
     class controls {
         class CompanyInfo: Life_RscStructuredText {
             idc = 9802;
-            text = "Chargement..."; // Texte par défaut
+            text = "Chargement...";
             x = 0.304062 * safezoneW + safezoneX;
             y = 0.247 * safezoneH + safezoneY;
             w = 0.391875 * safezoneW;
