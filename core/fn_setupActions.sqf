@@ -19,6 +19,9 @@ switch (playerSide) do {
         //Rob person
         life_actions pushBack (player addAction[localize "STR_pAct_RobPerson",life_fnc_robAction,"",0,false,false,"",'
         !isNull cursorObject && player distance cursorObject < 3.5 && isPlayer cursorObject && animationState cursorObject == "Incapacitated" && !(cursorObject getVariable ["robbed",false]) ']);
+        
+        //Company Menu
+        life_actions pushBack (player addAction["<t color='#FF8C00'>Gestion d'Entreprise</t>",life_fnc_openCompanyMenu,"",0,false,false,"",' !isNull cursorObject && player distance cursorObject < 3 ']);
     };
     
     //Cops

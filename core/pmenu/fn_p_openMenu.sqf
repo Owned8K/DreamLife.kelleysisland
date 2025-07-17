@@ -30,3 +30,14 @@ if (FETCH_CONST(life_adminlevel) < 1) then {
 };
 
 [] call life_fnc_p_updateMenu;
+
+//Company Button
+if (count (player getVariable ["company_data",[]]) > 0) then {
+    _companyButton = _display displayCtrl YOUR_CONTROL_ID;
+    _companyButton ctrlShow true;
+    _companyButton ctrlSetText (localize "STR_PM_CompanyMenu");
+    _companyButton buttonSetAction "[] call life_fnc_openCompanyMenu;";
+} else {
+    _companyButton = _display displayCtrl YOUR_CONTROL_ID;
+    _companyButton ctrlShow false;
+};
