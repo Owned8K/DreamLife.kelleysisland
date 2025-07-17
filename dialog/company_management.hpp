@@ -3,6 +3,7 @@ class company_management {
     name = "company_management";
     movingEnable = false;
     enableSimulation = true;
+    onLoad = "[] spawn life_fnc_companyMenu;";
 
     class controlsBackground {
         class MainBackground: Life_RscText {
@@ -81,7 +82,7 @@ class company_management {
         class ManageButton: Life_RscButtonMenu {
             idc = 3805;
             text = "$STR_Company_Manage_Btn";
-            onButtonClick = "[] call life_fnc_companyManage;";
+            onButtonClick = "[] spawn life_fnc_companyManage;";
             x = 0.69;
             y = 0.74;
             w = 0.1;

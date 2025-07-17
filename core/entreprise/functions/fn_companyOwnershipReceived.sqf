@@ -35,7 +35,9 @@ if !(_queryResult isEqualTo []) then {
     // Ajouter la nouvelle action
     private _actionId = player addAction [
         "<t color='#FF8C00'>Gestion d'Entreprise</t>",
-        life_fnc_openCompanyMenu,
+        {
+            [] spawn life_fnc_openCompanyMenu;
+        },
         "",
         0,
         false,
