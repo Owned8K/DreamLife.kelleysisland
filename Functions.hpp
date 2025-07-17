@@ -230,6 +230,7 @@ class Life_Client_Core {
         class companyMenu {};
         class companyDataReceived {};
         class companyOwnershipReceived {};
+        class updateCompanyEmployees {};
     };
 
     class Gangs {

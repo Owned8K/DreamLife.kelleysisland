@@ -44,6 +44,9 @@ life_storagePlacing = scriptNull;
 life_hideoutBuildings = [];
 life_firstSpawn = true;
 
+//Company System
+life_company_data = [];
+
 //Settings
 life_settings_enableNewsBroadcast = profileNamespace getVariable ["life_enableNewsBroadcast", true];
 life_settings_enableSidechannel = profileNamespace getVariable ["life_enableSidechannel", true];
