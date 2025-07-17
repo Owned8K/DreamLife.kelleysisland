@@ -6,12 +6,22 @@
 */
 disableSerialization;
 
-private _display = findDisplay 3800;
-if (isNull _display) exitWith {};
+diag_log "fn_initCompanyMenu called";
+
+private _display = findDisplay 9800;
+if (isNull _display) exitWith {
+    diag_log "fn_initCompanyMenu: Display 9800 is null!";
+};
+
+diag_log "fn_initCompanyMenu: Display found, setting loading message";
 
 // Afficher le message de chargement
-private _companyInfo = _display displayCtrl 3802;
+private _companyInfo = _display displayCtrl 9802;
 _companyInfo ctrlSetStructuredText parseText "<t align='center'>Chargement des données...</t>";
 
+diag_log "fn_initCompanyMenu: Requesting company data";
+
 // Demander les données de l'entreprise
-[player] remoteExecCall ["TON_fnc_fetchCompanyData", RSERV]; 
+[player] remoteExecCall ["TON_fnc_fetchCompanyData", RSERV];
+
+diag_log "fn_initCompanyMenu: Data request sent"; 

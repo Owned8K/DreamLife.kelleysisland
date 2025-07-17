@@ -11,6 +11,7 @@ params [
 diag_log format ["[COMPANY DATA] Received: %1", _data];
 
 if (count _data != 5) exitWith {
+    diag_log "[COMPANY DATA] Invalid data received";
     hint localize "STR_Company_No_Company";
     closeDialog 0;
 };
@@ -23,13 +24,16 @@ _data params [
     ["_companyBank", 0, [0]]
 ];
 
+diag_log format ["[COMPANY DATA] Parsed data - ID: %1, Name: %2, Owner: %3", _companyId, _companyName, _ownerName];
+
 // Stocker les données de l'entreprise
 life_company_data = _data;
 
 // Mettre à jour l'interface du menu de gestion
-private _display = findDisplay 3800;
+private _display = findDisplay 9800;
 if (!isNull _display) then {
-    private _companyInfo = _display displayCtrl 3802;
+    diag_log "[COMPANY DATA] Display found, updating info";
+    private _companyInfo = _display displayCtrl 9802;
     
     // Formater les informations de l'entreprise
     private _info = format [

@@ -1,11 +1,11 @@
 #include "..\..\..\dialog\common.hpp"
 
 class company_management {
-    idd = 3800;
+    idd = 9800; // Changement de l'IDD pour éviter les conflits
     name = "company_management";
     movingEnable = 0;
     enableSimulation = 1;
-    onLoad = "[] spawn life_fnc_initCompanyMenu;";
+    onLoad = "diag_log 'company_management dialog onLoad called'; [] spawn life_fnc_initCompanyMenu;";
 
     class controlsBackground {
         class MainBackground: Life_RscText {
@@ -29,7 +29,7 @@ class company_management {
 
     class controls {
         class CompanyInfo: Life_RscStructuredText {
-            idc = 3802;
+            idc = 9802; // Changement de l'IDC pour correspondre à l'IDD
             text = "";
             x = 0.304062 * safezoneW + safezoneX;
             y = 0.247 * safezoneH + safezoneY;
