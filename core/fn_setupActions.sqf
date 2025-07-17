@@ -6,6 +6,12 @@
     Master addAction file handler for all client-based actions.
 */
 
+// Éviter les appels multiples
+if (!isNil "life_actions_setup") exitWith {
+    diag_log "[SETUP ACTIONS] Actions already setup, skipping...";
+};
+life_actions_setup = true;
+
 diag_log "[SETUP ACTIONS] Starting setup...";
 
 life_actions = [];
@@ -24,13 +30,7 @@ switch (playerSide) do {
         life_actions pushBack (player addAction[localize "STR_pAct_RobPerson",life_fnc_robAction,"",0,false,false,"",'
         !isNull cursorObject && player distance cursorObject < 3.5 && isPlayer cursorObject && animationState cursorObject == "Incapacitated" && !(cursorObject getVariable ["robbed",false]) ']);
         
-        //Company Menu
-        life_actions pushBack (player addAction["<t color='#FF8C00'>Gestion d'Entreprise</t>",life_fnc_openCompanyMenu,"",0,false,false,"",'
-        !dialog'
-        ]);
-        
         diag_log format["[SETUP ACTIONS] Number of actions added: %1", count life_actions];
-        diag_log format["[SETUP ACTIONS] License check: %1", license_civ_logistician];
     };
     
     //Cops
