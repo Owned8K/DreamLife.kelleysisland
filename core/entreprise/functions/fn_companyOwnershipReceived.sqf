@@ -5,6 +5,11 @@
     Description: Reçoit et traite le résultat de la vérification de propriété d'entreprise
 */
 
+if (isNil "life_fnc_companyOwnershipReceived") then {
+    diag_log "[ERROR] life_fnc_companyOwnershipReceived is not defined!";
+    life_fnc_companyOwnershipReceived = _this call compile preprocessFileLineNumbers "core\entreprise\functions\fn_companyOwnershipReceived.sqf";
+};
+
 params [
     ["_queryResult", [], [[]]],
     ["_player", objNull, [objNull]]
