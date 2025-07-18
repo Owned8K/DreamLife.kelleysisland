@@ -49,7 +49,7 @@ class company_management {
         class Title: Life_RscTitle {
             colorBackground[] = {0, 0, 0, 0};
             idc = -1;
-            text = "$STR_Company_Management_Title";
+            text = "Gestion d'Entreprise";
             x = 0.1;
             y = 0.2;
             w = 0.7;
@@ -59,7 +59,7 @@ class company_management {
         // Section Info Entreprise
         class CompanyInfoHeader: Life_RscStructuredText {
             idc = 9801;
-            text = "$STR_Company_Info_Header";
+            text = "Informations de l'Entreprise";
             x = 0.11;
             y = 0.25;
             w = 0.68;
@@ -81,7 +81,7 @@ class company_management {
         // Section Employés
         class EmployeeListHeader: Life_RscStructuredText {
             idc = 9803;
-            text = "$STR_Company_Employees_Header";
+            text = "Gestion des Employés";
             x = 0.11;
             y = 0.47;
             w = 0.68;
@@ -105,7 +105,7 @@ class company_management {
         // Boutons de gestion des employés
         class HireButton: Life_RscButtonMenu {
             idc = 9805;
-            text = "$STR_Company_Hire_Btn";
+            text = "Embaucher";
             colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843])", "(profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019])", "(profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862])", 0.5};
             onButtonClick = "[] spawn life_fnc_hireEmployee;";
             x = 0.51;
@@ -116,7 +116,7 @@ class company_management {
 
         class FireButton: Life_RscButtonMenu {
             idc = 9806;
-            text = "$STR_Company_Fire_Btn";
+            text = "Licencier";
             colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843])", "(profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019])", "(profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862])", 0.5};
             onButtonClick = "[] spawn life_fnc_fireEmployee;";
             x = 0.51;
@@ -137,8 +137,8 @@ class company_management {
 
         class SetSalaryButton: Life_RscButtonMenu {
             idc = 9808;
-            text = "$";
-            tooltip = "$STR_Company_SetSalary_Tooltip";
+            text = "Définir Salaire";
+            tooltip = "Définir le salaire de l'employé";
             colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843])", "(profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019])", "(profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862])", 0.5};
             onButtonClick = "[] spawn life_fnc_setEmployeeSalary;";
             x = 0.72;
@@ -150,7 +150,7 @@ class company_management {
         // Boutons principaux
         class CloseButton: Life_RscButtonMenu {
             idc = -1;
-            text = "$STR_Global_Close";
+            text = "Fermer";
             onButtonClick = "closeDialog 0;";
             x = 0.1;
             y = 0.92;
@@ -160,7 +160,7 @@ class company_management {
 
         class ManageButton: Life_RscButtonMenu {
             idc = 9809;
-            text = "$STR_Company_Manage_Btn";
+            text = "Gérer";
             colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843])", "(profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019])", "(profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862])", 0.5};
             onButtonClick = "[] spawn life_fnc_companyManage;";
             x = 0.7;
