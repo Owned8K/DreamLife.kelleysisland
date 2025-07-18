@@ -1,5 +1,5 @@
 class company_management {
-    idd = 3800;
+    idd = 9800;
     name = "company_management";
     movingEnable = false;
     enableSimulation = true;
@@ -27,8 +27,9 @@ class company_management {
     };
 
     class controls {
+        // Section Info Entreprise
         class CompanyInfoHeader: Life_RscStructuredText {
-            idc = 3801;
+            idc = 9801;
             text = "$STR_Company_Info_Header";
             x = 0.21;
             y = 0.26;
@@ -38,8 +39,8 @@ class company_management {
         };
 
         class CompanyInfo: Life_RscStructuredText {
-            idc = 3802;
-            text = "";  // Sera rempli dynamiquement
+            idc = 9802;
+            text = "";
             x = 0.21;
             y = 0.31;
             w = 0.58;
@@ -47,8 +48,9 @@ class company_management {
             colorBackground[] = {0, 0, 0, 0.3};
         };
 
+        // Section Employés
         class EmployeeListHeader: Life_RscStructuredText {
-            idc = 3803;
+            idc = 9803;
             text = "$STR_Company_Employees_Header";
             x = 0.21;
             y = 0.47;
@@ -58,17 +60,63 @@ class company_management {
         };
 
         class EmployeeList: Life_RscListBox {
-            idc = 3804;
+            idc = 9804;
             text = "";
             x = 0.21;
             y = 0.52;
-            w = 0.58;
+            w = 0.38;
             h = 0.2;
             colorBackground[] = {0, 0, 0, 0.3};
             rowHeight = 0.04;
             sizeEx = 0.04;
+            onLBSelChanged = "_this spawn life_fnc_employeeSelected;";
         };
 
+        // Boutons de gestion des employés
+        class HireButton: Life_RscButtonMenu {
+            idc = 9805;
+            text = "$STR_Company_Hire_Btn";
+            onButtonClick = "[] spawn life_fnc_hireEmployee;";
+            x = 0.60;
+            y = 0.52;
+            w = 0.19;
+            h = 0.04;
+            colorBackground[] = {0, 0.5, 0, 1};
+        };
+
+        class FireButton: Life_RscButtonMenu {
+            idc = 9806;
+            text = "$STR_Company_Fire_Btn";
+            onButtonClick = "[] spawn life_fnc_fireEmployee;";
+            x = 0.60;
+            y = 0.57;
+            w = 0.19;
+            h = 0.04;
+            colorBackground[] = {0.5, 0, 0, 1};
+        };
+
+        class SalaryEdit: Life_RscEdit {
+            idc = 9807;
+            text = "";
+            x = 0.60;
+            y = 0.62;
+            w = 0.12;
+            h = 0.04;
+            colorBackground[] = {0, 0, 0, 0.3};
+        };
+
+        class SetSalaryButton: Life_RscButtonMenu {
+            idc = 9808;
+            text = "$";
+            tooltip = "$STR_Company_SetSalary_Tooltip";
+            onButtonClick = "[] spawn life_fnc_setEmployeeSalary;";
+            x = 0.73;
+            y = 0.62;
+            w = 0.06;
+            h = 0.04;
+        };
+
+        // Boutons principaux
         class CloseButton: Life_RscButtonMenu {
             idc = -1;
             text = "$STR_Global_Close";
@@ -80,7 +128,7 @@ class company_management {
         };
 
         class ManageButton: Life_RscButtonMenu {
-            idc = 3805;
+            idc = 9809;
             text = "$STR_Company_Manage_Btn";
             onButtonClick = "[] spawn life_fnc_companyManage;";
             x = 0.69;
