@@ -24,6 +24,7 @@ life_fnc_addLicenseAction = {
         ["_price", 0, [0]]
     ];
     
+    // Ajouter l'action d'achat de licence
     _target addAction [
         format ["%1 ($%2)", localize (getText(missionConfigFile >> "Licenses" >> _license >> "displayName")), [_price] call life_fnc_numberText],
         life_fnc_buyLicense,
