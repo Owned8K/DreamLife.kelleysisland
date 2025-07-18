@@ -20,5 +20,5 @@ missionNamespace setVariable [_varName,true];
 
 titleText[format [localize "STR_NOTF_B_1", localize _displayName,[_price] call life_fnc_numberText],"PLAIN"];
 
-// Sauvegarde immédiate et complète des données du joueur (argent et nouvelle licence).
-[] call SOCK_fnc_updatePartial;
+// Sauvegarde immédiate et complète des données du joueur (argent et nouvelle licence)
+[2] call SOCK_fnc_updatePartial; // 2 pour les licences
