@@ -36,4 +36,19 @@ _infoText ctrlSetStructuredText parseText format [
 [] call life_fnc_updateNearbyPlayers;
 
 // Mettre à jour la liste des employés
-[] call life_fnc_updateEmployeeList; 
+[] call life_fnc_updateEmployeeList;
+
+// Créer une boucle pour mettre à jour la liste des joueurs à proximité toutes les 2 secondes
+[] spawn {
+    private _display = findDisplay 9800;
+    while {!isNull _display} do {
+        [] call life_fnc_updateNearbyPlayers;
+        sleep 2;
+    };
+};
+
+// Ajouter un gestionnaire d'événement pour la fermeture du dialogue
+_display displayAddEventHandler ["Unload", {
+    params ["_display"];
+    diag_log "[COMPANY] Menu closed, cleaning up...";
+}]; 
