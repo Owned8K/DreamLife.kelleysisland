@@ -147,6 +147,18 @@ class VirtualShops {
         NoLicenseCost = 1120;
     };
 
+    class gold_unrefined {
+        variable = "goldUnrefined";
+        displayName = "STR_Item_GoldOre";
+        weight = 5;
+        buyPrice = -1;
+        sellPrice = -1;
+        illegal = false;
+        edible = -1;
+        drinkable = -1;
+        icon = "icons\ico_goldOre.paa";
+    };
+
     class diamond {
         name = "STR_Shops_Diamond";
         side = "civ";

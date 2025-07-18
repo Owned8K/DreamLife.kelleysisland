@@ -7455,6 +7455,18 @@
             <Polish>Ruda żelaza</Polish>
 			<Chinesesimp>铁矿石</Chinesesimp>
         </Key>
+        <Key ID="STR_Item_GoldOre">
+            <Original>Gold Ore</Original>
+            <Czech>Železná Ruda</Czech>
+            <Spanish>Hierro</Spanish>
+            <Russian></Russian>
+            <German>Eisenerz</German>
+            <French>Minerai de d'or</French>
+            <Italian>Minerale di Ferro</Italian>
+            <Portuguese>Pepita de Ferro</Portuguese>
+            <Polish>Ruda żelaza</Polish>
+			<Chinesesimp>铁矿石</Chinesesimp>
+        </Key>
         <Key ID="STR_Item_IronIngot">
             <Original>Iron Ingot</Original>
             <Czech>Železná cihla</Czech>
