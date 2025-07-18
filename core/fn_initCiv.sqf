@@ -34,13 +34,13 @@ if (life_is_alive && !life_is_arrested) then {
                 if (playerSide isEqualTo civilian) then {
                     _spawnPos = selectRandom (["civilian_spawn_1","civilian_spawn_2","civilian_spawn_3","civilian_spawn_4","civilian_spawn_5"]);
                     player setPos (getMarkerPos _spawnPos);
-                };
+        };
             };
 
             case 2: {
-                [] call life_fnc_spawnMenu;
-                waitUntil{!isNull (findDisplay 38500)}; //Wait for the spawn selection to be open.
-                waitUntil{isNull (findDisplay 38500)}; //Wait for the spawn selection to be done.
+        [] call life_fnc_spawnMenu;
+        waitUntil{!isNull (findDisplay 38500)}; //Wait for the spawn selection to be open.
+        waitUntil{isNull (findDisplay 38500)}; //Wait for the spawn selection to be done.
             };
         };
     } else {

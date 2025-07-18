@@ -51,7 +51,7 @@ if (playerSide isEqualTo civilian) then {
             {
                 if (!dialog) then {
                     createDialog "company_management";
-                };
+            };
             },
             "",
             0,
