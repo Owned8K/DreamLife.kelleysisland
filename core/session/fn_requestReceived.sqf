@@ -58,13 +58,24 @@ try {
         diag_log format ["[POSITION] Raw position data: %1 (Type: %2)", _positionStr, typeName _positionStr];
         
         if (_positionStr isEqualType "") then {
+            // Nettoyer la chaîne des guillemets doubles supplémentaires
+            _positionStr = _positionStr call {
+                private _str = _this;
+                // Supprimer les guillemets au début et à la fin si présents
+                if (_str select [0,1] == """") then {_str = _str select [1]};
+                if (_str select [count _str - 1] == """") then {_str = _str select [0, count _str - 1]};
+                _str
+            };
+            
+            diag_log format ["[POSITION] Cleaned position string: %1", _positionStr];
+            
             if (_positionStr != "" && _positionStr != "[]") then {
                 private _position = call compile _positionStr;
                 if (_position isEqualType [] && {count _position == 3}) then {
                     life_civ_position = _position;
                     diag_log format ["[POSITION] Successfully loaded position: %1", _position];
                 } else {
-                    throw "Invalid position array format";
+                    throw "Invalid position array format after parsing";
                 };
             } else {
                 throw "Empty position string";
