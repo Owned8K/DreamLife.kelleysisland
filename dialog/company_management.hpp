@@ -7,7 +7,7 @@ class Life_company_management {
     enableSimulation = 1;
     onLoad = "[] spawn life_fnc_companyMenu;";
 
-    class controlsBackground {
+    class controls {
         class Life_RscTitleBackground: Life_RscText {
             colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843])", "(profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019])", "(profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862])", "(profilenamespace getvariable ['GUI_BCG_RGB_A',0.7])"};
             idc = -1;
@@ -43,9 +43,7 @@ class Life_company_management {
             w = 0.68;
             h = 0.36;
         };
-    };
 
-    class controls {
         class Title: Life_RscTitle {
             colorBackground[] = {0, 0, 0, 0};
             idc = -1;
