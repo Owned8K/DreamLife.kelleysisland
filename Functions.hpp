@@ -178,6 +178,10 @@ class Life_Client_Core {
         class companyDataReceived {};
         class companyManage {};
         class initCompanyMenu {};
+        class employeeSelected {};
+        class hireEmployee {};
+        class fireEmployee {};
+        class setEmployeeSalary {};
     };
 
     class Functions {
