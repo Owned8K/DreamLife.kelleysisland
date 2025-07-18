@@ -53,9 +53,9 @@ class Life_company_management {
             x = 0.12;
             y = 0.30;
             w = 0.66;
-            h = 0.14;
+            h = 0.15;
             colorBackground[] = {0, 0, 0, 0};
-            size = 0.035;
+            size = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
             class Attributes {
                 font = "RobotoCondensed";
                 color = "#ffffff";

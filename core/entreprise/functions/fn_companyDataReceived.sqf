@@ -37,10 +37,10 @@ _data spawn {
     private _companyInfo = _display displayCtrl 9802;
     if (!isNull _companyInfo) then {
         private _info = format [
-            "<t size='1.5' align='center'>%1</t><br/><br/>" +
-            "<t align='left' size='1.2'>Propriétaire: <t color='#FFA500'>%2</t></t><br/>" +
-            "<t align='left' size='1.2'>Solde: <t color='#32CD32'>$%3</t></t><br/>" +
-            "<t align='left' size='1.2'>Statut: <t color='#87CEEB'>%4</t></t>",
+            "<t size='1.2' align='center'>%1</t><br/>" +
+            "<t align='left' size='1'>Propriétaire: <t color='#FFA500'>%2</t></t><br/>" +
+            "<t align='left' size='1'>Solde: <t color='#32CD32'>$%3</t></t><br/>" +
+            "<t align='left' size='1'>Statut: <t color='#87CEEB'>%4</t></t>",
             _companyName,
             _ownerName,
             [_companyBank] call life_fnc_numberText,
