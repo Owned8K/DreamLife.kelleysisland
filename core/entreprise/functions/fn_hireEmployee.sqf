@@ -1,7 +1,6 @@
 #include "..\..\..\script_macros.hpp"
 /*
-    File: fn_hireEmployee.sqf
-    Author: Gemini
+    Author: Owned8K
     Description: Ouvre une boîte de dialogue pour embaucher un nouvel employé
 */
 

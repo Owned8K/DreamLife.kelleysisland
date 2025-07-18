@@ -1,7 +1,6 @@
 #include "..\..\..\script_macros.hpp"
 /*
-    File: fn_companyDataReceived.sqf
-    Author: Gemini
+    Author: Owned8K
     Description: Reçoit les données de l'entreprise et les affiche dans le menu de gestion.
 */
 params [

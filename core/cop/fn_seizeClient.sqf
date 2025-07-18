@@ -1,7 +1,6 @@
 #include "..\..\script_macros.hpp"
 /*
-    File: fn_seizeClient.sqf
-    Author: Daniel "Skalicon" Larusso
+    Author: Create by Tonic modified By Owned8K for Dream Life
 
     Description:
     Removes the players weapons client side

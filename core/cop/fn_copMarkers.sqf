@@ -1,6 +1,5 @@
 /*
-    File: fn_copMarkers.sqf
-    Author: Bryan "Tonic" Boardwine
+    Author: Create by Tonic modified By Owned8K for Dream Life
 
     Description:
     Marks cops on the map for other cops. Only initializes when the actual map is open.

@@ -1,7 +1,6 @@
 #include "..\..\..\script_macros.hpp"
 /*
-    File: fn_companyCreated.sqf
-    Author: Gemini
+    Author: Owned8K
     Description: Fonction appelée par le serveur après création réussie d'une entreprise.
                  Met à jour l'argent du joueur et affiche le message de succès.
 */

@@ -1,7 +1,6 @@
 #include "..\..\..\script_macros.hpp"
 /*
-    File: fn_populateCompanyTypes.sqf
-    Author: Gemini
+    Author: Owned8K
     Description: Remplit le menu de création d'entreprise avec les types disponibles.
 */
 disableSerialization;

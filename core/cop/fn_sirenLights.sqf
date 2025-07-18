@@ -1,7 +1,6 @@
 #include "..\..\script_macros.hpp"
 /*
-    File: fn_sirenLights.sqf
-    Author: Bryan "Tonic" Boardwine
+    Author: Create by Tonic modified By Owned8K for Dream Life
 
     Description:
     Lets play a game! Can you guess what it does? I have faith in you, if you can't

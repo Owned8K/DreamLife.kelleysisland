@@ -1,8 +1,6 @@
 #include "..\..\script_macros.hpp"
 /*
-    File: fn_containerInvSearch.sqf
-    Author: NiiRoZz
-    Inspired : Bryan "Tonic" Boardwine
+    Author: Create by Tonic modified By Owned8K for Dream Life
 
     Description:
     Searches the container for illegal items.

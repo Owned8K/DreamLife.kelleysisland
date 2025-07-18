@@ -1,7 +1,6 @@
 #include "..\..\script_macros.hpp"
 /*
-    File: fn_wantedGrab.sqf
-    Author: ColinM
+    Author: Create by Tonic modified By Owned8K for Dream Life
 
     Description:
     Prepare the array to query the crimes.

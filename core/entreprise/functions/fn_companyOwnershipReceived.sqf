@@ -1,7 +1,6 @@
 #include "..\..\..\script_macros.hpp"
 /*
-    File: fn_companyOwnershipReceived.sqf
-    Author: Your Name
+    Author: Owned8K
     Description: Reçoit et traite le résultat de la vérification de propriété d'entreprise
 */
 

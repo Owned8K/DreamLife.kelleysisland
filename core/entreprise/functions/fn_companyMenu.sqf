@@ -1,7 +1,6 @@
 #include "..\..\..\script_macros.hpp"
 /*
-    File: fn_companyMenu.sqf
-    Author: Gemini
+    Author: Owned8K
     Description: Initialise le menu de gestion d'entreprise
 */
 
@@ -9,7 +8,7 @@
 closeDialog 0;
 
 // Créer le dialogue
-if (createDialog "company_management") then {
+if (createDialog "Life_company_management") then {
     disableSerialization;
     
     // Ajouter un message de chargement dans les deux cadres

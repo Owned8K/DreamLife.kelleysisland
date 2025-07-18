@@ -1,7 +1,6 @@
 #include "..\..\..\script_macros.hpp"
 /*
-    File: fn_initCompanyMenu.sqf
-    Author: Gemini
+    Author: Owned8K
     Description: Initialise le menu de gestion d'entreprise
 */
 disableSerialization;

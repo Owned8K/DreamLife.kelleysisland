@@ -1,7 +1,6 @@
 #include "..\..\..\script_macros.hpp"
 /*
-    File: fn_updateCompanyEmployees.sqf
-    Author: Your Name
+    Author: Owned8K
     Description: Met à jour la liste des employés dans l'interface
 */
 

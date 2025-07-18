@@ -1,7 +1,6 @@
 #include "..\..\..\script_macros.hpp"
 /*
-    File: fn_setEmployeeSalary.sqf
-    Author: Gemini
+    Author: Owned8K
     Description: Définit le salaire de l'employé sélectionné
 */
 

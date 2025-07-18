@@ -1,7 +1,6 @@
 /*
-    File: fn_civMarkers.sqf
-    Author:
-
+    Author: Create by Tonic modified By Owned8K for Dream Life
+    
     Description:
     Add markers for civilians in groups.
 */

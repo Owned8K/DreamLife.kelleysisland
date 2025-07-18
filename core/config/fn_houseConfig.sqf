@@ -1,6 +1,5 @@
 /*
-    File: fn_houseConfig.sqf
-    Author: BoGuu
+    Author: Create by Tonic modified By Owned8K for Dream Life
 
     Description:
     Fetch data from Config_Housing/Garages

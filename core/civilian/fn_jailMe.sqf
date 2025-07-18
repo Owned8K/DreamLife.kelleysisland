@@ -1,7 +1,6 @@
 #include "..\..\script_macros.hpp"
 /*
-    File: fn_jailMe.sqf
-    Author Bryan "Tonic" Boardwine
+    Author: Create by Tonic modified By Owned8K for Dream Life
 
     Description:
     Once word is received by the server the rest of the jail execution is completed.

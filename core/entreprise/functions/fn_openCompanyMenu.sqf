@@ -1,7 +1,6 @@
 #include "..\..\..\script_macros.hpp"
 /*
-    File: fn_openCompanyMenu.sqf
-    Author: Your Name
+    Author: Owned8K
     Description: Ouvre le menu de gestion d'entreprise
 */
 

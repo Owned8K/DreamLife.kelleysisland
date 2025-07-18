@@ -1,7 +1,6 @@
 #include "..\..\..\script_macros.hpp"
 /*
-    File: fn_updateCompanyDetails.sqf
-    Author: Gemini
+    Author: Owned8K
     Description: Met à jour le panneau de détails en fonction du type d'entreprise sélectionné.
 */
 disableSerialization;

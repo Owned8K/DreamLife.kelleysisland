@@ -1,7 +1,6 @@
 #include "..\..\..\script_macros.hpp"
 /*
-    File: fn_buyCompany.sqf
-    Author: Gemini
+    Author: Owned8K
     Description: Gère la logique côté client pour l'achat d'une entreprise.
 */
 disableSerialization;

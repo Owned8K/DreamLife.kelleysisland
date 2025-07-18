@@ -1,7 +1,6 @@
 #include "..\..\script_macros.hpp"
 /*
-    File: fn_copInteractionMenu.sqf
-    Author: Bryan "Tonic" Boardwine
+    Author: Create by Tonic modified By Owned8K for Dream Life
 
     Description:
     Replaces the mass addactions for various cop actions towards another player.

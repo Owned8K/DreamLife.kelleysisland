@@ -1,7 +1,6 @@
 #include "..\..\..\script_macros.hpp"
 /*
-    File: fn_companyManage.sqf
-    Author: Gemini
+    Author: Owned8K
     Description: Gère les actions de gestion d'entreprise (embauche, licenciement, etc.)
 */
 private ["_display", "_employeeList", "_selectedIndex", "_selectedEmployee"];

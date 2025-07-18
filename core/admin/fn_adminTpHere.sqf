@@ -1,7 +1,6 @@
 #include "..\..\script_macros.hpp"
 /*
-    File: fn_adminTpHere.sqf
-    Author: ColinM9991
+    Author: Create by Tonic modified By Owned8K for Dream Life
 
     Description:
     Teleport selected player to you.

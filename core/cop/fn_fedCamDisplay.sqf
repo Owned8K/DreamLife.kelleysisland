@@ -1,7 +1,6 @@
 #include "..\..\script_macros.hpp"
 /*
-    File: fn_fedCamDisplay.sqf
-    Author: Bryan "Tonic" Boardwine
+    Author: Create by Tonic modified By Owned8K for Dream Life
 
     Description:
     Turns on and displays a security cam like feed via PiP to the laptop display.

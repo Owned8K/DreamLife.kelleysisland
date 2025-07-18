@@ -1,7 +1,5 @@
 /*
-    File: fn_arrestAction.sqf
     Author: Create by Tonic modified By Owned8K for Dream Life
-
     Description:
     Starts the searching process.
 */

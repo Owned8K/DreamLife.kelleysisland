@@ -1,7 +1,5 @@
 /*
-    File: fn_copLights.sqf
-    Author: mindstorm, modified by Adanteh
-    Link: http://forums.bistudio.com/showthread.php?157474-Offroad-Police-sirens-lights-and-underglow
+    Author: Create by Tonic modified By Owned8K for Dream Life
     
     Description:
     Adds the light effect to cop vehicles.

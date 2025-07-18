@@ -1,8 +1,7 @@
 #include "..\..\script_macros.hpp"
 /*
-    File: fn_adminTeleport.sqf
-    Author: ColinM9991
-    Credits: To original script author(s)
+    Author: Create by Tonic modified By Owned8K for Dream Life
+    
     Description:
     Teleport to chosen position.
 */

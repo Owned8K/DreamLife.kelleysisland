@@ -1,7 +1,6 @@
 #include "..\..\script_macros.hpp"
 /*
-    File: fn_adminGodMode.sqf
-    Author: Tobias 'Xetoxyc' Sittenauer
+    Author: Create by Tonic modified By Owned8K for Dream Life
 
     Description: Enables God mode for Admin
 */

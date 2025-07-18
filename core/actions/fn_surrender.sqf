@@ -1,6 +1,5 @@
 #include "..\..\script_macros.hpp"
 /*
-    File: fn_arrestAction.sqf
     Author: Create by Tonic modified By Owned8K for Dream Life
 
     Description: Causes player to put their hands on their head.

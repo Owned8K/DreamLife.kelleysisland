@@ -1,10 +1,10 @@
 #include "common.hpp"
 
-class company_management {
+class Life_company_management {
     idd = 9800;
-    name = "company_management";
-    movingEnable = false;
-    enableSimulation = true;
+    name = "life_company_menu";
+    movingEnable = 0;
+    enableSimulation = 1;
     onLoad = "[] spawn life_fnc_companyMenu;";
 
     class controlsBackground {
@@ -65,7 +65,7 @@ class company_management {
             w = 0.68;
             h = 0.04;
             colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843])", "(profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019])", "(profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862])", 0.5};
-            style = 0x02;
+            style = ST_CENTER;
         };
 
         class CompanyInfo: Life_RscStructuredText {
@@ -77,6 +77,13 @@ class company_management {
             h = 0.14;
             colorBackground[] = {0, 0, 0, 0};
             size = 0.035;
+            class Attributes {
+                font = "RobotoCondensed";
+                color = "#ffffff";
+                colorLink = "#D09B43";
+                align = "left";
+                shadow = 1;
+            };
         };
 
         // Section Employés
@@ -88,7 +95,7 @@ class company_management {
             w = 0.68;
             h = 0.04;
             colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843])", "(profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019])", "(profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862])", 0.5};
-            style = 0x02;
+            style = ST_CENTER;
         };
 
         class EmployeeList: Life_RscListBox {
@@ -150,7 +157,7 @@ class company_management {
         };
 
         // Boutons principaux
-        class CloseButton: Life_RscButtonMenu {
+        class CloseButtonKey: Life_RscButtonMenu {
             idc = -1;
             text = "Fermer";
             onButtonClick = "closeDialog 0;";

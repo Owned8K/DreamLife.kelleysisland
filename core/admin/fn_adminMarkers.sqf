@@ -1,7 +1,7 @@
 #include "..\..\script_macros.hpp"
 /*
-    File: fn_adminMarkers.sqf
-    Author: Jason_000
+    Author: Create by Tonic modified By Owned8K for Dream Life
+    
     Description: Display markers for all players
 */
 

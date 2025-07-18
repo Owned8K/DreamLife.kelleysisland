@@ -1,6 +1,5 @@
 /*
-    File: fn_radar.sqf
-    Author: Silly Aussie kid named Jaydon
+    Author: Create by Tonic modified By Owned8K for Dream Life
 
     Description:
     Looks like weird but radar?

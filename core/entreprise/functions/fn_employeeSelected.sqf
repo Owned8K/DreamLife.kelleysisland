@@ -1,7 +1,6 @@
 #include "..\..\..\script_macros.hpp"
 /*
-    File: fn_employeeSelected.sqf
-    Author: Gemini
+    Author: Owned8K
     Description: Appelé quand un employé est sélectionné dans la liste
 */
 params [

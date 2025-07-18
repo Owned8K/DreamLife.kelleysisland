@@ -1,6 +1,5 @@
 /*
-    File: fn_licensesRead.sqf
-    Author: Bryan "Tonic" Boardwine
+    Author: Create by Tonic modified By Owned8K for Dream Life
 
     Description:
     Outprints the licenses.

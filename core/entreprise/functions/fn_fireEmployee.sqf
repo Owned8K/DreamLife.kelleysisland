@@ -1,7 +1,6 @@
 #include "..\..\..\script_macros.hpp"
 /*
-    File: fn_fireEmployee.sqf
-    Author: Gemini
+    Author: Owned8K
     Description: Licencie l'employé sélectionné
 */
 

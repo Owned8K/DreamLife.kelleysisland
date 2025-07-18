@@ -1,7 +1,6 @@
 #include "..\..\script_macros.hpp"
 /*
-    File: fn_freezePlayer.sqf
-    Author: ColinM9991
+    Author: Create by Tonic modified By Owned8K for Dream Life
 
     Description:
     Freezes selected player.
