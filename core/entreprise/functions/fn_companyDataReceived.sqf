@@ -25,6 +25,8 @@ _data params [
 // Stocker les données de l'entreprise
 life_company_data = _data;
 
+disableSerialization;
+
 // Vérifier si le dialogue est toujours ouvert
 private _display = findDisplay 9800;
 if (isNull _display) exitWith {
