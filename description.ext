@@ -5,7 +5,6 @@ unsafeCVL = 1; // Allows createVehicleLocal to be executed in Multiplayer
 #include "config\Config_SpyGlass.hpp"
 #include "CfgRemoteExec.hpp"
 #include "dialog\MasterHandler.hpp"
-#include "core\entreprise\ui\company_management.hpp"
 #include "config\Config_Master.hpp"
 
 class CfgServer {
@@ -26,6 +25,11 @@ class RscTitles {
 
 class CfgFunctions {
     #include "Functions.hpp"
+};
+
+class CfgDialogs {
+    #include "dialog\company_management.hpp"
+    #include "dialog\company_creation.hpp"
 };
 
 class CfgSounds {

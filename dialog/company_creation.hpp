@@ -1,4 +1,4 @@
-#include "..\..\..\dialog\common.hpp"
+#include "common.hpp"
 
 class CompanyCreation {
     idd = 3700; // IDD unique pour cette interface
