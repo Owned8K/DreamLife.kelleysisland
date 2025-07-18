@@ -52,19 +52,30 @@ life_gear = _queryResult select 8;
 [true] call life_fnc_loadGear;
 
 // Parse position if available (should be civ_position)
-private _positionStr = _queryResult param [7, "[]"];
-diag_log format ["[POSITION] Raw position data: %1", _positionStr];
+private _rawPosition = _queryResult param [7, "[]"];
+diag_log format ["[POSITION] Raw position data: %1 (Type: %2)", _rawPosition, typeName _rawPosition];
 
-if (_positionStr != "[]" && _positionStr != "") then {
-    private _position = parseSimpleArray _positionStr;
-    if (_position isEqualType [] && {count _position == 3} && {_position select 0 isEqualType 0} && {_position select 1 isEqualType 0} && {_position select 2 isEqualType 0}) then {
-        player setPosATL _position;
-        diag_log format ["[POSITION] Setting player position to %1", _position];
-    } else {
-        diag_log format ["[POSITION] Invalid position data format: %1", _position];
+private _position = [];
+if (_rawPosition isEqualType "") then {
+    // Si c'est une chaîne, essayons de la parser
+    if (_rawPosition != "[]" && _rawPosition != "") then {
+        _position = parseSimpleArray _rawPosition;
     };
 } else {
-    diag_log "[POSITION] No position data available";
+    if (_rawPosition isEqualType []) then {
+        _position = _rawPosition;
+    };
+};
+
+// Vérifier si la position est valide
+if (_position isEqualType [] && {count _position == 3} && 
+    {_position select 0 isEqualType 0} && 
+    {_position select 1 isEqualType 0} && 
+    {_position select 2 isEqualType 0}) then {
+    player setPosATL _position;
+    diag_log format ["[POSITION] Setting player position to %1", _position];
+} else {
+    diag_log format ["[POSITION] Invalid position data, using default spawn: %1", _position];
 };
 
 // Parse company data if civilian
