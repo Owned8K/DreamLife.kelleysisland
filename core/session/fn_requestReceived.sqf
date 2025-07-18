@@ -63,7 +63,6 @@ if (playerSide isEqualTo civilian) then {
         player setVariable ["company_action", _actionId];
         
         diag_log format ["[SESSION] Company data received: %1", _companyData];
-        hint parseText format ["<t color='#00FF00'>Entreprise chargée :</t><br/><br/>%1", _companyData select 1];
     };
 };
 
