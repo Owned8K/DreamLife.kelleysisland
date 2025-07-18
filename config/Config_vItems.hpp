@@ -156,7 +156,7 @@ class VirtualShops {
         illegal = false;
         edible = -1;
         drinkable = -1;
-        icon = "icons\ico_goldOre.paa";
+        //icon = "icons\ico_goldOre.paa";
     };
 
     class diamond {

@@ -16,6 +16,27 @@ diag_log "[SETUP ACTIONS] Starting setup...";
 
 life_actions = [];
 
+// Fonction pour ajouter l'action d'achat de licence
+life_fnc_addLicenseAction = {
+    params [
+        ["_target", objNull, [objNull]],
+        ["_license", "", [""]],
+        ["_price", 0, [0]]
+    ];
+    
+    _target addAction [
+        format ["%1 ($%2)", localize (getText(missionConfigFile >> "Licenses" >> _license >> "displayName")), [_price] call life_fnc_numberText],
+        life_fnc_buyLicense,
+        _license,
+        1.5,
+        true,
+        true,
+        "",
+        "true",
+        5
+    ];
+};
+
 switch (playerSide) do {
 
     //Civilian
