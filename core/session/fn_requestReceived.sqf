@@ -77,7 +77,7 @@ try {
                     // Attendre que le joueur soit complètement initialisé
                     [] spawn {
                         waitUntil {!isNull player && {!isNull (findDisplay 46)}};
-                        sleep 1;
+                        sleep 0.5; // Réduit à 0.5 seconde
                         
                         if (life_is_alive && !life_is_arrested) then {
                             player setPosATL life_civ_position;
