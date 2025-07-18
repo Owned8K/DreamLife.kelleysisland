@@ -138,10 +138,11 @@ class VirtualShops {
         NoLicenseCost = 1120;
     };
 
-    class gold_minerals {
+    class gold {
         MaterialsReq[] = {{"gold_unrefined",1}};
         MaterialsGive[] = {{"gold_refined",1}};
         Text = "STR_Process_Gold";
+        items[] = { "gold" };
         //ScrollText = "Refine Gold";
         NoLicenseCost = 1120;
     };
@@ -167,7 +168,7 @@ class VirtualShops {
         items[] = { "cement" };
     };
 
-    class gold {
+    class gold_bar {
         name = "STR_Shops_Gold";
         side = "civ";
         conditions = "";
