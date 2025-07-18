@@ -4,9 +4,9 @@
     Description: Initialise le menu de gestion d'entreprise
 */
 
-// Fermer tous les dialogues existants
-if (dialog) then {closeDialog 0};
-sleep 0.01;
+// Vérifier si nous sommes déjà en train de charger les données
+if (!isNil "life_company_loading") exitWith {};
+life_company_loading = true;
 
 // Créer le dialogue
 if (createDialog "Life_company_management") then {
@@ -17,6 +17,7 @@ if (createDialog "Life_company_management") then {
     private _display = findDisplay 9800;
     
     if (isNull _display) exitWith {
+        life_company_loading = nil;
         hint "Erreur: Impossible de créer le dialogue";
     };
     
@@ -25,8 +26,6 @@ if (createDialog "Life_company_management") then {
     if (!isNull _companyInfo) then {
         _companyInfo ctrlSetStructuredText parseText "<t align='center' size='1.2'>Chargement des informations...</t>";
         _companyInfo ctrlCommit 0;
-    } else {
-        hint "Erreur: Control 9802 non trouvé";
     };
     
     // Message de chargement pour la liste des employés
@@ -35,8 +34,6 @@ if (createDialog "Life_company_management") then {
         lbClear _employeeList;
         _employeeList lbAdd "Chargement des employés...";
         _employeeList ctrlCommit 0;
-    } else {
-        hint "Erreur: Control 9804 non trouvé";
     };
     
     // Désactiver les boutons pendant le chargement
@@ -51,5 +48,6 @@ if (createDialog "Life_company_management") then {
     // Demander les données au serveur
     [player] remoteExec ["TON_fnc_fetchCompanyData", RSERV];
 } else {
+    life_company_loading = nil;
     hint "Erreur lors de l'ouverture du menu de gestion d'entreprise";
 }; 

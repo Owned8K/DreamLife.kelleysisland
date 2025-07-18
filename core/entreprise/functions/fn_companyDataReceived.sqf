@@ -7,14 +7,12 @@ params [
     ["_data", [], [[]]]
 ];
 
-// Debug pour voir les données reçues
-hint format ["Données reçues: %1", _data];
 diag_log format ["[COMPANY DATA] Received: %1", _data];
 
 if (count _data < 6) exitWith {
-    diag_log "[COMPANY DATA] Invalid data received";
     hint "Vous n'avez pas d'entreprise";
     closeDialog 0;
+    life_company_loading = nil;
 };
 
 _data params [
@@ -26,9 +24,6 @@ _data params [
     ["_employees", [], [[]]]
 ];
 
-// Debug pour voir les données parsées
-hint format ["ID: %1\nNom: %2\nPropriétaire: %3", _companyId, _companyName, _ownerName];
-
 // Stocker les données de l'entreprise
 life_company_data = _data;
 
@@ -37,14 +32,12 @@ waitUntil {!isNull findDisplay 9800};
 private _display = findDisplay 9800;
 
 if (isNull _display) exitWith {
-    hint "Erreur: Impossible de trouver le dialogue 9800";
+    life_company_loading = nil;
 };
 
 // Mise à jour des informations de l'entreprise
 private _companyInfo = _display displayCtrl 9802;
-if (isNull _companyInfo) then {
-    hint "Erreur: Impossible de trouver le contrôle 9802 (Info)";
-} else {
+if (!isNull _companyInfo) then {
     private _info = format [
         "<t size='1.5' align='center'>%1</t><br/><br/>" +
         "<t align='left' size='1.2'>Propriétaire: <t color='#FFA500'>%2</t></t><br/>" +
@@ -66,16 +59,12 @@ if (isNull _companyInfo) then {
 
 // Mise à jour de la liste des employés
 private _employeeList = _display displayCtrl 9804;
-if (isNull _employeeList) then {
-    hint "Erreur: Impossible de trouver le contrôle 9804 (Liste)";
-} else {
+if (!isNull _employeeList) then {
     lbClear _employeeList;
     
     if (count _employees == 0) then {
-        // Message si aucun employé
-        private _noEmpInfo = _display displayCtrl 9802;
-        _noEmpInfo ctrlSetStructuredText parseText "<t align='center' size='1.2'>Aucun employé dans l'entreprise</t>";
-        _noEmpInfo ctrlCommit 0;
+        _employeeList lbAdd "Aucun employé dans l'entreprise";
+        _employeeList ctrlEnable false;
     } else {
         {
             _x params [
@@ -107,7 +96,9 @@ private _isOwner = _ownerUID isEqualTo getPlayerUID player;
         if (!_isOwner) then {
             _ctrl ctrlSetTextColor [0.5, 0.5, 0.5, 1];
         };
-    } else {
-        hint format ["Erreur: Impossible de trouver le contrôle %1", _x];
+        _ctrl ctrlCommit 0;
     };
-} forEach [9805, 9806, 9807, 9808]; 
+} forEach [9805, 9806, 9807, 9808];
+
+// Fin du chargement
+life_company_loading = nil; 
