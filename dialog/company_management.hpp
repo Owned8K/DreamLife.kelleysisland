@@ -102,16 +102,15 @@ class Life_company_management {
             style = ST_CENTER;
         };
 
-        class NearbyPlayersList: Life_RscListBox {
+        class NearbyPlayersCombo: Life_RscCombo {
             idc = 9811;
-            text = "";
-            sizeEx = 0.035;
             x = 0.51;
             y = 0.52;
             w = 0.27;
-            h = 0.15;
+            h = 0.03;
             colorBackground[] = {0, 0, 0, 0.3};
-            rowHeight = 0.04;
+            onLBSelChanged = "";
+            onMouseButtonClick = "[] call life_fnc_updateNearbyPlayers;";
         };
 
         // Boutons de gestion des employés
