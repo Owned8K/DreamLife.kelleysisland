@@ -1,35 +1,44 @@
 #include "..\..\..\script_macros.hpp"
 /*
-    Author: Owned8K
-    Description: Ouvre une boîte de dialogue pour embaucher un nouvel employé
+    File: fn_hireEmployee.sqf
+    Author: Your Name
+    
+    Description:
+    Embauche un joueur dans l'entreprise
 */
 
-if !(call life_isCompanyOwner) exitWith {
-    hint localize "STR_Company_NotOwner";
+private ["_display", "_listbox", "_selectedIndex", "_selectedPlayer", "_companyData"];
+
+// Vérifier si le joueur est propriétaire d'une entreprise
+if (count life_company_data == 0) exitWith {
+    hint "Vous n'êtes pas propriétaire d'une entreprise.";
 };
 
-// Créer la boîte de dialogue de sélection de joueur
-private _players = playableUnits select {_x != player};
-if (_players isEqualTo []) exitWith {
-    hint localize "STR_Company_NoPlayersToHire";
+// Récupérer l'interface et la listbox
+_display = findDisplay 9800;
+_listbox = _display displayCtrl 9811;
+_selectedIndex = lbCurSel _listbox;
+
+// Vérifier si un joueur est sélectionné
+if (_selectedIndex == -1) exitWith {
+    hint "Veuillez sélectionner un joueur à embaucher.";
 };
 
-private _display = findDisplay 9800;
-private _list = [
-    "Sélectionner un joueur",
-    "Embaucher un employé",
-    {
-        params ["_selectedPlayer"];
-        if (isNull _selectedPlayer) exitWith {};
-        
-        private _uid = getPlayerUID _selectedPlayer;
-        private _name = name _selectedPlayer;
-        
-        // Envoyer la demande au serveur
-        [player, _uid, _name] remoteExec ["TON_fnc_hireEmployee", RSERV];
-    }
-] call BIS_fnc_listBox;
+// Récupérer les données du joueur sélectionné
+_selectedPlayer = _listbox lbData _selectedIndex;
+_selectedPlayer = call compile _selectedPlayer;
 
-if (isNull _list) then {
-    hint localize "STR_Company_HireError";
-}; 
+if (isNull _selectedPlayer) exitWith {
+    hint "Erreur: Joueur invalide.";
+};
+
+// Récupérer les données de l'entreprise
+_companyData = life_company_data;
+private _companyId = _companyData select 0;
+private _playerUID = getPlayerUID _selectedPlayer;
+private _playerName = name _selectedPlayer;
+
+// Envoyer la requête au serveur
+[_companyId, _playerUID, _playerName, player] remoteExec ["TON_fnc_hireEmployee", RSERV];
+
+hint format ["Demande d'embauche envoyée pour %1...", _playerName]; 

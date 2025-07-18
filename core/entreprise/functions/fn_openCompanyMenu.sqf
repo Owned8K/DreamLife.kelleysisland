@@ -1,26 +1,39 @@
 #include "..\..\..\script_macros.hpp"
 /*
-    Author: Owned8K
-    Description: Ouvre le menu de gestion d'entreprise
+    File: fn_openCompanyMenu.sqf
+    Author: Your Name
+    
+    Description:
+    Ouvre le menu de gestion d'entreprise
 */
 
-private ["_display", "_companyData"];
-
-if (dialog) exitWith {};
-
-diag_log "[COMPANY MENU] Attempting to open company menu...";
-
-// Récupérer les données de l'entreprise
-_companyData = player getVariable ["company_ownership", []];
-if (_companyData isEqualTo []) exitWith {
-    diag_log "[COMPANY MENU] No company data found";
-    hint parseText "<t color='#FF0000'>Erreur</t><br/><br/>Impossible de trouver les données de votre entreprise.";
+if (count life_company_data == 0) exitWith {
+    hint "Vous n'avez pas d'entreprise.";
 };
 
-createDialog "Life_company_management";
-waitUntil {!isNull (findDisplay 3800)};
+if (!createDialog "Life_company_management") exitWith {
+    hint "Erreur lors de l'ouverture du menu.";
+};
 
-// Demander les données détaillées au serveur
-[player, _companyData select 0] remoteExecCall ["TON_fnc_fetchCompanyData", RSERV];
+// Mettre à jour les informations de l'entreprise
+private _display = findDisplay 9800;
+private _infoText = _display displayCtrl 9802;
 
-diag_log format ["[COMPANY MENU] Requested detailed data for company ID: %1", _companyData select 0]; 
+private _companyId = life_company_data select 0;
+private _companyName = life_company_data select 1;
+private _companyBank = life_company_data select 2;
+
+_infoText ctrlSetStructuredText parseText format [
+    "<t size='1.2'>%1</t><br/><br/>" +
+    "<t>ID: %2</t><br/>" +
+    "<t>Compte: $%3</t>",
+    _companyName,
+    _companyId,
+    [_companyBank] call life_fnc_numberText
+];
+
+// Initialiser la liste des joueurs à proximité
+[] call life_fnc_updateNearbyPlayers;
+
+// Mettre à jour la liste des employés
+[] call life_fnc_updateEmployeeList; 

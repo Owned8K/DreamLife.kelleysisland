@@ -182,6 +182,9 @@ class Life_Client_Core {
         class hireEmployee {};
         class fireEmployee {};
         class setEmployeeSalary {};
+        class updateNearbyPlayers {};
+        class openCompanyMenu {};
+        class updateEmployeeList {};
     };
 
     class Functions {
