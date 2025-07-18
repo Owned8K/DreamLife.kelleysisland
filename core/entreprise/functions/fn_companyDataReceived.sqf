@@ -12,7 +12,7 @@ diag_log format ["[COMPANY DATA] Received: %1", _data];
 
 if (count _data < 6) exitWith {
     diag_log "[COMPANY DATA] Invalid data received";
-    hint localize "STR_Company_No_Company";
+    hint "Vous n'avez pas d'entreprise";
     closeDialog 0;
 };
 
@@ -43,19 +43,16 @@ life_company_data = _data;
             private _companyInfo = _display displayCtrl 9802;
             private _info = format [
                 "<t size='1.5' align='center'>%1</t><br/><br/>" +
-                "<t align='left' size='1.2'>%2: <t color='#FFA500'>%3</t></t><br/>" +
-                "<t align='left' size='1.2'>%4: <t color='#32CD32'>$%5</t></t><br/>" +
-                "<t align='left' size='1.2'>%6: <t color='#87CEEB'>%7</t></t>",
+                "<t align='left' size='1.2'>Propriétaire: <t color='#FFA500'>%2</t></t><br/>" +
+                "<t align='left' size='1.2'>Solde: <t color='#32CD32'>$%3</t></t><br/>" +
+                "<t align='left' size='1.2'>Statut: <t color='#87CEEB'>%4</t></t>",
                 _companyName,
-                localize "STR_Company_Owner",
                 _ownerName,
-                localize "STR_Company_Balance",
                 [_companyBank] call life_fnc_numberText,
-                localize "STR_Company_Status",
                 if (_ownerUID isEqualTo getPlayerUID player) then {
-                    "<t color='#FFD700'>" + (localize "STR_Company_Owner") + "</t>"
+                    "<t color='#FFD700'>Propriétaire</t>"
                 } else {
-                    "<t color='#87CEEB'>" + (localize "STR_Company_Employee") + "</t>"
+                    "<t color='#87CEEB'>Employé</t>"
                 }
             ];
             
