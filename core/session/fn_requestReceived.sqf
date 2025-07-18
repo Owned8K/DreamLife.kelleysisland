@@ -51,13 +51,20 @@ if (_licenses isEqualType []) then {
 life_gear = _queryResult select 8;
 [true] call life_fnc_loadGear;
 
-// Parse position if available (should be index 9)
-private _position = _queryResult param [9, [], [[]]];
-if !(_position isEqualTo []) then {
-    if (count _position == 3) then {
+// Parse position if available (should be civ_position)
+private _positionStr = _queryResult param [7, "[]"];
+diag_log format ["[POSITION] Raw position data: %1", _positionStr];
+
+if (_positionStr != "[]" && _positionStr != "") then {
+    private _position = parseSimpleArray _positionStr;
+    if (_position isEqualType [] && {count _position == 3} && {_position select 0 isEqualType 0} && {_position select 1 isEqualType 0} && {_position select 2 isEqualType 0}) then {
         player setPosATL _position;
         diag_log format ["[POSITION] Setting player position to %1", _position];
+    } else {
+        diag_log format ["[POSITION] Invalid position data format: %1", _position];
     };
+} else {
+    diag_log "[POSITION] No position data available";
 };
 
 // Parse company data if civilian
@@ -70,5 +77,9 @@ if (playerSide isEqualTo civilian) then {
         diag_log format ["[SESSION] Company data received: %1", _companyData];
     };
 };
+
+// Mise à jour de l'interface pour afficher les licences
+[] call life_fnc_hudUpdate;
+[] call life_fnc_updateLicenseList;
 
 life_session_completed = true;

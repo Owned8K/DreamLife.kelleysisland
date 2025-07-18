@@ -29,4 +29,7 @@ titleText[format [localize "STR_NOTF_B_1", localize _displayName,[_price] call l
 [0] call SOCK_fnc_updatePartial; // Save money
 [2] call SOCK_fnc_updatePartial; // Save licenses
 
+// Update license display
+[] call life_fnc_updateLicenseList;
+
 diag_log format ["[LICENSE] Bought license %1 (%2) for %3", _type, _varName, _price];
