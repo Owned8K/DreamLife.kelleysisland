@@ -58,8 +58,11 @@ _licenses = "true" configClasses (missionConfigFile >> "Licenses");
     _displayName = getText(_x >> "displayName");
     _varName = configName _x;
     _varString = format ["license_%1_%2", _side, _varName];
-
-    if ((missionNamespace getVariable [_varString,0]) isEqualTo 1) then {
+    
+    private _hasLicense = missionNamespace getVariable [_varString,false];
+    diag_log format ["[LICENSE_DISPLAY] Checking license %1: %2", _varString, _hasLicense];
+    
+    if (_hasLicense) then {
         if (_struct != "") then { _struct = _struct + "<br/>"; };
         _struct = _struct + format ["%1",localize _displayName];
     };
