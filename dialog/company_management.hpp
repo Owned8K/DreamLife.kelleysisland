@@ -138,22 +138,23 @@ class Life_company_management {
         // Boutons principaux
         class CloseButtonKey: Life_RscButtonMenu {
             idc = -1;
-            text = "Fermer";
+            text = "FERMER";
             onButtonClick = "closeDialog 0;";
             x = 0.11;
-            y = 0.85;
-            w = (6.25 / 40);
+            y = 0.83;
+            w = 0.15;
             h = (1 / 25);
+            colorBackground[] = {0, 0, 0, 0.8};
         };
 
         class ManageButton: Life_RscButtonMenu {
             idc = 9809;
-            text = "Gérer";
+            text = "GÉRER";
             colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843])", "(profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019])", "(profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862])", 0.5};
             onButtonClick = "[] spawn life_fnc_companyManage;";
-            x = 0.73;
-            y = 0.85;
-            w = (6.25 / 40);
+            x = 0.64;
+            y = 0.83;
+            w = 0.15;
             h = (1 / 25);
         };
     };
