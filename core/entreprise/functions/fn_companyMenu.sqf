@@ -9,10 +9,15 @@ if (!isNil "life_company_loading") exitWith {};
 life_company_loading = true;
 
 // Créer le dialogue
-if (createDialog "Life_company_management") then {
+if (!createDialog "Life_company_management") exitWith {
+    life_company_loading = nil;
+    hint "Erreur lors de l'ouverture du menu de gestion d'entreprise";
+};
+
+[] spawn {
     disableSerialization;
     
-    // Attendre que le dialogue soit créé
+    // Attendre que le dialogue soit créé et complètement initialisé
     waitUntil {!isNull (findDisplay 9800)};
     private _display = findDisplay 9800;
     
@@ -45,9 +50,8 @@ if (createDialog "Life_company_management") then {
         };
     } forEach [9805, 9806, 9807, 9808]; // HireButton, FireButton, SalaryEdit, SetSalaryButton
     
+    sleep 0.1; // Petit délai pour s'assurer que l'interface est prête
+    
     // Demander les données au serveur
     [player] remoteExec ["TON_fnc_fetchCompanyData", RSERV];
-} else {
-    life_company_loading = nil;
-    hint "Erreur lors de l'ouverture du menu de gestion d'entreprise";
 }; 
