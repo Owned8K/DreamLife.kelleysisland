@@ -19,34 +19,32 @@ waitUntil {!(isNull (findDisplay 46))};
 
 if (life_is_alive && !life_is_arrested) then {
     /* Spawn at our last position */
-    player setVehiclePosition [life_civ_position, [], 0, "CAN_COLLIDE"];
-} else {
-    if (!life_is_arrested) then {
-        switch (LIFE_SETTINGS(getNumber,"spawn_method")) do {
-            case 0: {
-                if (playerSide isEqualTo civilian) then {
-                    _spawnPos = selectRandom (["civilian_spawn_1","civilian_spawn_2","civilian_spawn_3","civilian_spawn_4","civilian_spawn_5"]);
-                    player setPos (getMarkerPos _spawnPos);
-                };
-            };
-
-            case 1: {
-                if (playerSide isEqualTo civilian) then {
-                    _spawnPos = selectRandom (["civilian_spawn_1","civilian_spawn_2","civilian_spawn_3","civilian_spawn_4","civilian_spawn_5"]);
-                    player setPos (getMarkerPos _spawnPos);
-        };
-            };
-
-            case 2: {
-        [] call life_fnc_spawnMenu;
-        waitUntil{!isNull (findDisplay 38500)}; //Wait for the spawn selection to be open.
-        waitUntil{isNull (findDisplay 38500)}; //Wait for the spawn selection to be done.
-            };
-        };
+    if !(life_civ_position isEqualTo []) then {
+        diag_log format ["[INIT CIV] Teleporting to last position: %1", life_civ_position];
+        player setPosATL life_civ_position;
     } else {
-        if (life_is_arrested) then {
-            life_is_arrested = false;
-            [player,true] spawn life_fnc_jail;
+        diag_log "[INIT CIV] No valid last position, using default spawn";
+        if (LIFE_SETTINGS(getNumber,"spawn_method") isEqualTo 2) then {
+            [] call life_fnc_spawnMenu;
+            waitUntil{!isNull (findDisplay 38500)}; //Wait for the spawn selection to be open.
+            waitUntil{isNull (findDisplay 38500)}; //Wait for the spawn selection to be done.
+        } else {
+            _spawnPos = selectRandom (["civilian_spawn_1","civilian_spawn_2","civilian_spawn_3","civilian_spawn_4","civilian_spawn_5"]);
+            player setPos (getMarkerPos _spawnPos);
+        };
+    };
+} else {
+    if (life_is_arrested) then {
+        life_is_arrested = false;
+        [player,true] spawn life_fnc_jail;
+    } else {
+        if (LIFE_SETTINGS(getNumber,"spawn_method") isEqualTo 2) then {
+            [] call life_fnc_spawnMenu;
+            waitUntil{!isNull (findDisplay 38500)}; //Wait for the spawn selection to be open.
+            waitUntil{isNull (findDisplay 38500)}; //Wait for the spawn selection to be done.
+        } else {
+            _spawnPos = selectRandom (["civilian_spawn_1","civilian_spawn_2","civilian_spawn_3","civilian_spawn_4","civilian_spawn_5"]);
+            player setPos (getMarkerPos _spawnPos);
         };
     };
 };
@@ -55,7 +53,6 @@ life_is_alive = true;
 
 // Vérifier si le joueur possède une entreprise
 diag_log format ["[INIT CIV] Checking company ownership for player: %1 (%2)", profileName, getPlayerUID player];
-diag_log format ["[INIT CIV] RSERV value: %1", RSERV];
 [player, getPlayerUID player] remoteExecCall ["TON_fnc_checkCompanyOwner", RSERV];
 diag_log "[INIT CIV] Company ownership check sent to server";
 
