@@ -5,14 +5,17 @@
     Description:
     Called when purchasing a license. May need to be revised.
 */
-private ["_type","_varName","_displayName","_sideFlag","_price"];
+private ["_type","_varName","_displayName","_sideFlag","_price","_varConfig"];
 _type = _this select 3;
 
 if (!isClass (missionConfigFile >> "Licenses" >> _type)) exitWith {}; //Bad entry?
 _displayName = M_CONFIG(getText,"Licenses",_type,"displayName");
 _price = M_CONFIG(getNumber,"Licenses",_type,"price");
 _sideFlag = M_CONFIG(getText,"Licenses",_type,"side");
-_varName = LICENSE_VARNAME(_type,_sideFlag);
+_varConfig = M_CONFIG(getText,"Licenses",_type,"variable");
+
+// Construction du nom de variable de licence en utilisant la variable du fichier de configuration
+_varName = format ["license_%1_%2", _sideFlag, _varConfig];
 
 if (CASH < _price) exitWith {hint format [localize "STR_NOTF_NE_1",[_price] call life_fnc_numberText,localize _displayName];};
 CASH = CASH - _price;
