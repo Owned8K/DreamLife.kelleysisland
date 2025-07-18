@@ -29,13 +29,36 @@ CONST(life_adminlevel,(_queryResult select 4));
 CONST(life_donator,(_queryResult select 5));
 
 // Parse licenses
-if ((_queryResult select 6) isEqualType []) then {
-    {missionNamespace setVariable [(_x select 0),(_x select 1)];} forEach (_queryResult select 6);
+private _licenses = _queryResult select 6;
+if (_licenses isEqualType []) then {
+    {
+        if (_x isEqualType []) then {
+            if (count _x == 2) then {
+                private _varName = _x select 0;
+                private _value = _x select 1;
+                if (_value isEqualType 0) then {
+                    missionNamespace setVariable [_varName, (_value isEqualTo 1)];
+                } else {
+                    missionNamespace setVariable [_varName, _value];
+                };
+                diag_log format ["[LICENSE] Setting %1 to %2", _varName, _value];
+            };
+        };
+    } forEach _licenses;
 };
 
 // Parse gear
 life_gear = _queryResult select 8;
 [true] call life_fnc_loadGear;
+
+// Parse position if available (should be index 9)
+private _position = _queryResult param [9, [], [[]]];
+if !(_position isEqualTo []) then {
+    if (count _position == 3) then {
+        player setPosATL _position;
+        diag_log format ["[POSITION] Setting player position to %1", _position];
+    };
+};
 
 // Parse company data if civilian
 if (playerSide isEqualTo civilian) then {
@@ -44,24 +67,6 @@ if (playerSide isEqualTo civilian) then {
     
     if (!(_companyData isEqualTo [])) then {
         life_company_data = _companyData;
-        
-        // Ajouter le bouton de gestion d'entreprise
-        private _actionId = player addAction [
-            "<t color='#FF8C00'>Gestion d'Entreprise</t>",
-            {
-                if (!dialog) then {
-                    createDialog "Life_company_management";
-            };
-            },
-            "",
-            0,
-            false,
-            false,
-            "",
-            "!dialog"
-        ];
-        player setVariable ["company_action", _actionId];
-        
         diag_log format ["[SESSION] Company data received: %1", _companyData];
     };
 };
