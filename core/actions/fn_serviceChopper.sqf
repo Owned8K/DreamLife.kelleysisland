@@ -1,7 +1,7 @@
 #include "..\..\script_macros.hpp"
 /*
-    File: fn_serviceChopper.sqf
-    Author: Bryan "Tonic" Boardwine
+    File: fn_arrestAction.sqf
+    Author: Create by Tonic modified By Owned8K for Dream Life
 
     Description:
     Main functionality for the chopper service paid, to be replaced in later version.

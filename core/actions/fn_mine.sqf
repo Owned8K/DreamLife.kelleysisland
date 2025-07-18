@@ -1,8 +1,7 @@
 #include "..\..\script_macros.hpp"
     /*
-        File: fn_mine.sqf
-        Author: Devilfloh
-        Editor: Dardo
+        File: fn_arrestAction.sqf
+        Author: Create by Tonic modified By Owned8K for Dream Life
 
         Description:
         Same as fn_gather,but it allows use of probabilities for mining.

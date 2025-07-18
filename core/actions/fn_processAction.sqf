@@ -1,8 +1,7 @@
 #include "..\..\script_macros.hpp"
 /*
-    File: fn_processAction.sqf
-    Author: Bryan "Tonic" Boardwine
-    Modified : NiiRoZz
+    File: fn_arrestAction.sqf
+    Author: Create by Tonic modified By Owned8K for Dream Life
 
     Description:
     Master handling for processing an item.

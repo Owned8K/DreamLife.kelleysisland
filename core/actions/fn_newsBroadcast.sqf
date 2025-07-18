@@ -1,7 +1,7 @@
 #include "..\..\script_macros.hpp"
 /*
-    File: fn_newsBroadcast.sqf
-    Author: Jesse "tkcjesse" Schultz
+    File: fn_arrestAction.sqf
+    Author: Create by Tonic modified By Owned8K for Dream Life
 
     Description:
     Creates the dialog and handles the data in the Channel 7 News Dialog.

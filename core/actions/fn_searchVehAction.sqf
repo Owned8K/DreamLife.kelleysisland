@@ -1,8 +1,8 @@
 #include "..\..\script_macros.hpp"
 /*
-    File: fn_searchVehAction.sqf
-    Author:
-
+    File: fn_arrestAction.sqf
+    Author: Create by Tonic modified By Owned8K for Dream Life
+    
     Description:
 
 */

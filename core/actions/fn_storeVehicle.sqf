@@ -1,7 +1,7 @@
 #include "..\..\script_macros.hpp"
 /*
-    File: fn_storeVehicle.sqf
-    Author: Bryan "Tonic" Boardwine
+    File: fn_arrestAction.sqf
+    Author: Create by Tonic modified By Owned8K for Dream Life
 
     Description:
     Stores the vehicle in the garage.

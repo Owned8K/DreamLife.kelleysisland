@@ -1,7 +1,7 @@
 #include "..\..\script_macros.hpp"
 /*
-    File: fn_gather.sqf
-    Author: Devilfloh
+    File: fn_arrestAction.sqf
+    Author: Create by Tonic modified By Owned8K for Dream Life
 
     Description:
     Main functionality for gathering.

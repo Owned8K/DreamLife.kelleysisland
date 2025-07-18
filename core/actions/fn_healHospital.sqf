@@ -1,8 +1,7 @@
 #include "..\..\script_macros.hpp"
 /*
-    File: fn_healHospital.sqf
-    Author: Bryan "Tonic" Boardwine
-    Reworked: Jesse "TKCJesse" Schultz
+    File: fn_arrestAction.sqf
+    Author: Create by Tonic modified By Owned8K for Dream Life
 
     Description:
     Prompts user with a confirmation dialog to heal themselves.

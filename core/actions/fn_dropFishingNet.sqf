@@ -1,6 +1,6 @@
 /*
-    File: fn_dropFishingNet.sqf
-    Author: Bryan "Tonic" Boardwine
+    File: fn_arrestAction.sqf
+    Author: Create by Tonic modified By Owned8K for Dream Life
 
     Description:
     Drops a virtual fishing net from the boat.
