@@ -1,32 +1,39 @@
 #include "..\..\..\script_macros.hpp"
 /*
     Author: Owned8K
-    Description: Initialise le menu de gestion d'entreprise
+    Description: Initialise le menu de gestion d'entreprise (appelé par onLoad)
 */
-disableSerialization;
+params [
+    ["_display", displayNull, [displayNull]]
+];
 
-diag_log "fn_initCompanyMenu called";
+// Vérifier si nous sommes déjà en train de charger les données
+if (!isNil "life_company_loading") exitWith {};
+life_company_loading = true;
 
-private _display = findDisplay 9800;
-if (isNull _display) exitWith {
-    diag_log "fn_initCompanyMenu: Display 9800 is null!";
+// Message de chargement pour les infos de l'entreprise
+private _companyInfo = _display displayCtrl 9802;
+if (!isNull _companyInfo) then {
+    _companyInfo ctrlSetStructuredText parseText "<t align='center' size='1.2'>Chargement des informations...</t>";
+    _companyInfo ctrlCommit 0;
 };
 
-diag_log "fn_initCompanyMenu: Display found, setting loading message";
+// Message de chargement pour la liste des employés
+private _employeeList = _display displayCtrl 9804;
+if (!isNull _employeeList) then {
+    lbClear _employeeList;
+    _employeeList lbAdd "Chargement des employés...";
+    _employeeList ctrlCommit 0;
+};
 
-// Afficher le message de chargement
-private _companyInfo = _display displayCtrl 9802;
-_companyInfo ctrlSetStructuredText parseText "<t align='center'>Chargement des données...</t>";
+// Désactiver les boutons pendant le chargement
+{
+    private _ctrl = _display displayCtrl _x;
+    if (!isNull _ctrl) then {
+        _ctrl ctrlEnable false;
+        _ctrl ctrlCommit 0;
+    };
+} forEach [9805, 9806, 9807, 9808];
 
-// Vérifier si nous avons déjà demandé les données
-if (isNil "life_company_data_requested") then {
-    life_company_data_requested = true;
-    diag_log "fn_initCompanyMenu: Requesting company data";
-    
-    // Demander les données de l'entreprise
-    [player] remoteExecCall ["TON_fnc_fetchCompanyData", RSERV];
-    
-    diag_log "fn_initCompanyMenu: Data request sent";
-} else {
-    diag_log "fn_initCompanyMenu: Data already requested, skipping";
-}; 
+// Demander les données au serveur
+[player] remoteExec ["TON_fnc_fetchCompanyData", RSERV]; 
