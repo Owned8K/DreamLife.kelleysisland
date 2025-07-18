@@ -61,7 +61,8 @@ _data spawn {
         lbClear _employeeList;
         
         if (count _employees == 0) then {
-            _employeeList lbAdd "Aucun employé dans l'entreprise";
+            private _index = _employeeList lbAdd "Aucun employé dans l'entreprise";
+            _employeeList lbSetColor [_index, [1, 1, 1, 1]]; // Blanc
             _employeeList ctrlEnable false;
         } else {
             {

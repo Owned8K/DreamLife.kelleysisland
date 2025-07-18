@@ -140,8 +140,8 @@ class Life_company_management {
             idc = -1;
             text = "Fermer";
             onButtonClick = "closeDialog 0;";
-            x = 0.1;
-            y = 0.92;
+            x = 0.11;
+            y = 0.85;
             w = (6.25 / 40);
             h = (1 / 25);
         };
@@ -151,8 +151,8 @@ class Life_company_management {
             text = "Gérer";
             colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843])", "(profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019])", "(profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862])", 0.5};
             onButtonClick = "[] spawn life_fnc_companyManage;";
-            x = 0.7;
-            y = 0.92;
+            x = 0.73;
+            y = 0.85;
             w = (6.25 / 40);
             h = (1 / 25);
         };
