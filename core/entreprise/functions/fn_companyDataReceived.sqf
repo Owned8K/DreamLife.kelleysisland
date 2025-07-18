@@ -7,17 +7,15 @@ params [
     ["_data", [], [[]]]
 ];
 
-[] spawn {
+if (count _data < 6) exitWith {
+    hint "Vous n'avez pas d'entreprise";
+    closeDialog 0;
+    life_company_loading = nil;
+};
+
+_data spawn {
     disableSerialization;
-    _data = _this select 0;
-
-    if (count _data < 6) exitWith {
-        hint "Vous n'avez pas d'entreprise";
-        closeDialog 0;
-        life_company_loading = nil;
-    };
-
-    _data params [
+    params [
         ["_companyId", 0, [0]],
         ["_companyName", "", [""]],
         ["_ownerName", "", [""]],
@@ -27,7 +25,7 @@ params [
     ];
 
     // Stocker les données de l'entreprise
-    life_company_data = _data;
+    life_company_data = _this;
 
     // Vérifier si le dialogue est toujours ouvert
     private _display = findDisplay 9800;
