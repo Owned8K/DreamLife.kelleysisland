@@ -53,26 +53,31 @@ life_gear = _queryResult select 8;
 
 // Parse position if available (should be civ_position)
 try {
-    private _rawPosition = _queryResult param [7, "[]"];
-    diag_log format ["[POSITION] Raw position data: %1 (Type: %2)", _rawPosition, typeName _rawPosition];
-
-    if (_rawPosition isEqualType "") then {
-        if (_rawPosition != "[]" && _rawPosition != "") then {
-            private _position = call compile _rawPosition;
-            if (_position isEqualType [] && {count _position == 3}) then {
-                player setPosATL _position;
-                diag_log format ["[POSITION] Successfully set position to %1", _position];
+    if (count _queryResult > 9) then {
+        private _positionStr = _queryResult select 9;
+        diag_log format ["[POSITION] Raw position data: %1 (Type: %2)", _positionStr, typeName _positionStr];
+        
+        if (_positionStr isEqualType "") then {
+            if (_positionStr != "" && _positionStr != "[]") then {
+                private _position = call compile _positionStr;
+                if (_position isEqualType [] && {count _position == 3}) then {
+                    life_civ_position = _position;
+                    diag_log format ["[POSITION] Successfully loaded position: %1", _position];
+                } else {
+                    throw "Invalid position array format";
+                };
             } else {
-                throw "Invalid position array format";
+                throw "Empty position string";
             };
         } else {
-            throw "Empty position data";
+            throw format ["Unexpected position data type: %1", typeName _positionStr];
         };
     } else {
-        throw format ["Unexpected position data type: %1", typeName _rawPosition];
+        throw "No position data in query result";
     };
 } catch {
     diag_log format ["[POSITION] Error handling position: %1", _exception];
+    life_civ_position = [0,0,0];
 };
 
 // Parse company data if civilian
