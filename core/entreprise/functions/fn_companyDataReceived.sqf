@@ -43,16 +43,20 @@ life_company_data = _data;
             private _companyInfo = _display displayCtrl 9802;
             private _info = format [
                 "<t size='1.5' align='center'>%1</t><br/><br/>" +
-                "<t align='left'>%2: %3</t><br/>" +
-                "<t align='left'>%4: $%5</t><br/>" +
-                "<t align='left'>%6: %7</t>",
+                "<t align='left' size='1.2'>%2: <t color='#FFA500'>%3</t></t><br/>" +
+                "<t align='left' size='1.2'>%4: <t color='#32CD32'>$%5</t></t><br/>" +
+                "<t align='left' size='1.2'>%6: <t color='#87CEEB'>%7</t></t>",
                 _companyName,
                 localize "STR_Company_Owner",
                 _ownerName,
                 localize "STR_Company_Balance",
                 [_companyBank] call life_fnc_numberText,
                 localize "STR_Company_Status",
-                if (_ownerUID isEqualTo getPlayerUID player) then {localize "STR_Company_Owner"} else {localize "STR_Company_Employee"}
+                if (_ownerUID isEqualTo getPlayerUID player) then {
+                    "<t color='#FFD700'>" + (localize "STR_Company_Owner") + "</t>"
+                } else {
+                    "<t color='#87CEEB'>" + (localize "STR_Company_Employee") + "</t>"
+                }
             ];
             
             _companyInfo ctrlSetStructuredText parseText _info;
@@ -68,8 +72,15 @@ life_company_data = _data;
                     ["_empSalary", 0, [0]]
                 ];
                 
-                private _index = _employeeList lbAdd format ["%1 - $%2", _empName, [_empSalary] call life_fnc_numberText];
+                private _index = _employeeList lbAdd format ["%1", _empName];
                 _employeeList lbSetData [_index, str [_empUID, _empName, _empSalary]];
+                _employeeList lbSetTextRight [_index, format ["$%1", [_empSalary] call life_fnc_numberText]];
+                
+                // Colorer différemment le propriétaire
+                if (_empUID isEqualTo _ownerUID) then {
+                    _employeeList lbSetColor [_index, [1, 0.843, 0, 1]]; // Gold color
+                    _employeeList lbSetColorRight [_index, [1, 0.843, 0, 1]];
+                };
             } forEach _employees;
             
             // Activer/désactiver les boutons selon les permissions
@@ -77,6 +88,11 @@ life_company_data = _data;
             {
                 private _ctrl = _display displayCtrl _x;
                 _ctrl ctrlEnable _isOwner;
+                
+                // Ajuster la couleur des boutons selon les permissions
+                if (!_isOwner) then {
+                    _ctrl ctrlSetTextColor [0.5, 0.5, 0.5, 1];
+                };
             } forEach [9805, 9806, 9807, 9808]; // HireButton, FireButton, SalaryEdit, SetSalaryButton
             
             true
