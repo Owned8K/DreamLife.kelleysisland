@@ -27,11 +27,6 @@ class CfgFunctions {
     #include "Functions.hpp"
 };
 
-class CfgDialogs {
-    #include "dialog\company_management.hpp"
-    #include "dialog\company_creation.hpp"
-};
-
 class CfgSounds {
     sounds[] = {};
     class sirenLong {
