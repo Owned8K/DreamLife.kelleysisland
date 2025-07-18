@@ -57,6 +57,14 @@ class ProcessAction {
         NoLicenseCost = 1120;
     };
 
+    class gold {
+        MaterialsReq[] = {{"gold_unrefined",1}};
+        MaterialsGive[] = {{"gold_refined",1}};
+        Text = "STR_Process_Gold";
+        //ScrollText = "Refine Gold";
+        NoLicenseCost = 1120;
+    };
+
     class sand {
         MaterialsReq[] = {{"sand",1}};
         MaterialsGive[] = {{"glass",1}};

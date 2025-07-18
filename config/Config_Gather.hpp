@@ -86,6 +86,14 @@ Example 2:
             zoneSize = 30;
         };
 
+        class gold_unrefined {
+            amount = 2;
+            zones[] = { "gold_mine" };
+            item = "pickaxe";
+            mined[] = { "gold_unrefined" };
+            zoneSize = 30;
+        };
+
         class salt_unrefined {
             amount = 2;
             zones[] = { "salt_mine" };

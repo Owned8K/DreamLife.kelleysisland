@@ -130,11 +130,20 @@ class VirtualShops {
         items[] = { "glass" };
     };
 
-    class iron  {
-        name = "STR_Shops_Minerals";
-        side = "civ";
-        conditions = "";
-        items[] = { "iron_refined", "copper_refined" };
+    class iron {
+        MaterialsReq[] = {{"iron_unrefined",1}};
+        MaterialsGive[] = {{"iron_refined",1}};
+        Text = "STR_Process_Iron";
+        //ScrollText = "Refine Iron";
+        NoLicenseCost = 1120;
+    };
+
+    class gold_minerals {
+        MaterialsReq[] = {{"gold_unrefined",1}};
+        MaterialsGive[] = {{"gold_refined",1}};
+        Text = "STR_Process_Gold";
+        //ScrollText = "Refine Gold";
+        NoLicenseCost = 1120;
     };
 
     class diamond {

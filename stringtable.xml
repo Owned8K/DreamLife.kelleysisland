@@ -10657,6 +10657,18 @@
             <Polish>Huta żelaza</Polish>
 			<Chinesesimp>铁矿加工</Chinesesimp>
         </Key>
+        <Key ID="STR_MAR_Gold_processing">
+            <Original>Gold Processing</Original>
+            <Czech>Zpracování Gold</Czech>
+            <French>Traitement du Or</French>
+            <Spanish>Procesador de Hierro</Spanish>
+            <Italian>Processo del ferro</Italian>
+            <Russian></Russian>
+            <German>Eisenschmelze</German>
+            <Portuguese>Processador de Ferro</Portuguese>
+            <Polish>Huta żelaza</Polish>
+			<Chinesesimp>铁矿加工</Chinesesimp>
+        </Key>
         <Key ID="STR_MAR_Sand_Mine">
             <Original>Sand Mine</Original>
             <Czech>písek Mine</Czech>

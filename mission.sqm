@@ -5,21 +5,21 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=1026;
+	toggles=2;
 	class ItemIDProvider
 	{
-		nextID=1183;
+		nextID=1186;
 	};
 	class Camera
 	{
-		pos[]={3627.3418,17.079012,3341.9338};
-		dir[]={-0.51820445,-0.84454608,0.13492976};
-		up[]={-0.81729513,0.53548288,0.21280681};
-		aside[]={0.25197774,0,0.96773303};
+		pos[]={4559.7896,101.5649,3871.0415};
+		dir[]={-0.060198266,-0.57431084,-0.81642336};
+		up[]={-0.04223188,0.81863666,-0.57275707};
+		aside[]={-0.99729359,1.0417716e-07,0.073534839};
 	};
 };
 binarizationWanted=0;
-sourceName="DreamLife2";
+sourceName="DreamLife";
 addons[]=
 {
 	"A3_Ui_F",
@@ -253,7 +253,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=875;
+		items=877;
 		class Item0
 		{
 			dataType="Marker";
@@ -358,13 +358,12 @@ class Mission
 		class Item11
 		{
 			dataType="Marker";
-			position[]={2202.77,10.378294,1973.333};
+			position[]={4457.041,34.47646,3738.5681};
 			name="iron_mine";
 			text="@STR_MAR_Iron_Mine";
 			type="mil_triangle";
 			colorName="ColorBrown";
 			id=13;
-			atlOffset=9.5367432e-07;
 		};
 		class Item12
 		{
@@ -510,7 +509,7 @@ class Mission
 		class Item25
 		{
 			dataType="Marker";
-			position[]={2255.4187,10.378293,2007.4038};
+			position[]={4376.833,53.476311,3694.7126};
 			name="copper_mine";
 			text="@STR_MAR_Copper_Mine";
 			type="mil_triangle";
@@ -530,13 +529,12 @@ class Mission
 		class Item27
 		{
 			dataType="Marker";
-			position[]={2283.2463,15,2072.1055};
+			position[]={4300.7109,23.047487,3794.6018};
 			name="diamond_mine";
 			text="@STR_MAR_Diamond_Mine";
 			type="mil_triangle";
 			colorName="ColorBrown";
 			id=29;
-			atlOffset=4.621707;
 		};
 		class Item28
 		{
@@ -809,7 +807,7 @@ class Mission
 			text="DP 3";
 			type="mil_box";
 			colorName="ColorYellow";
-			angle=220.83226;
+			angle=220.83223;
 			id=56;
 		};
 		class Item54
@@ -1336,7 +1334,7 @@ class Mission
 			text="@STR_MAR_Market";
 			type="c_unknown";
 			colorName="ColorGreen";
-			angle=216.26933;
+			angle=216.2693;
 			id=106;
 		};
 		class Item104
@@ -1895,12 +1893,12 @@ class Mission
 		class Item155
 		{
 			dataType="Marker";
-			position[]={1380.5918,88.323875,724.10645};
+			position[]={1362.2043,88.323975,741.76074};
 			name="turtle_1_name";
 			text="@STR_MAR_Turtle_Poaching";
 			type="mil_dot";
 			id=158;
-			atlOffset=156.64545;
+			atlOffset=154.88293;
 		};
 		class Item156
 		{
@@ -2437,11 +2435,10 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={2963.3386,-0.45259061,6374.5527};
+				position[]={2963.3386,0.050157044,6374.5527};
 				angles[]={6.0936217,0,5.93293};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
 				skill=0.60000002;
@@ -2449,7 +2446,7 @@ class Mission
 			};
 			id=210;
 			type="Land_Garbage_line_F";
-			atlOffset=0.01733017;
+			atlOffset=0.52007782;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -34132,6 +34129,27 @@ class Mission
 			};
 			id=1181;
 			atlOffset=0.05047226;
+		};
+		class Item875
+		{
+			dataType="Marker";
+			position[]={4525.3018,34.647987,3747.0642};
+			name="gold_mine";
+			text="@STR_MAR_Gold_Mine";
+			type="mil_triangle";
+			colorName="ColorBrown";
+			id=1184;
+		};
+		class Item876
+		{
+			dataType="Marker";
+			position[]={4451.7012,29.838326,3750.1411};
+			name="gold_processing";
+			text="@STR_MAR_Gold_processing";
+			type="mil_box";
+			colorName="ColorBrown";
+			id=1185;
+			atlOffset=-4.5526733;
 		};
 	};
 };
