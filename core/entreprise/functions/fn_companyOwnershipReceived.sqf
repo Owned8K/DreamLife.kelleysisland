@@ -42,7 +42,7 @@ if !(_queryResult isEqualTo []) then {
         "<t color='#FF8C00'>Gestion d'Entreprise</t>",
         {
             if (!dialog) then {
-                createDialog "company_management";
+                createDialog "Life_company_management";
             };
         },
         "",

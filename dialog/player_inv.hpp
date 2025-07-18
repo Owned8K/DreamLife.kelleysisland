@@ -258,7 +258,7 @@ class playerSettings {
         class ButtonCompany: Life_RscButtonMenu {
             idc = 2015;
             text = "$STR_PM_MyCompany";
-            onButtonClick = "[] call life_fnc_companyMenu; createDialog 'company_management';";
+            onButtonClick = "[] call life_fnc_companyMenu; createDialog 'Life_company_management';";
             x = 0.1 + (6.25 / 40) + (1 / 250 / (safezoneW / safezoneH));
             y = 0.805;
             w = (6.25 / 40);

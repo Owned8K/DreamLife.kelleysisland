@@ -17,7 +17,7 @@ if (_companyData isEqualTo []) exitWith {
     hint parseText "<t color='#FF0000'>Erreur</t><br/><br/>Impossible de trouver les données de votre entreprise.";
 };
 
-createDialog "company_management";
+createDialog "Life_company_management";
 waitUntil {!isNull (findDisplay 3800)};
 
 // Demander les données détaillées au serveur
