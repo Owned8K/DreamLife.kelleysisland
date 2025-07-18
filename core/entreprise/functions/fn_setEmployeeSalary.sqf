@@ -1,44 +1,56 @@
 #include "..\..\..\script_macros.hpp"
 /*
-    Author: Owned8K
-    Description: Définit le salaire de l'employé sélectionné
+    File: fn_setEmployeeSalary.sqf
+    Author: Your Name
+    
+    Description:
+    Définit le salaire d'un employé sélectionné
 */
 
-if !(call life_isCompanyOwner) exitWith {
-    hint localize "STR_Company_NotOwner";
+private ["_display", "_combo", "_selectedIndex", "_employeeUID", "_companyId", "_salaryEdit", "_salary"];
+
+// Vérifier si le joueur a une entreprise
+if (count life_company_data == 0) exitWith {
+    hint "Vous n'avez pas d'entreprise.";
 };
 
-private _display = findDisplay 9800;
-private _list = _display displayCtrl 9804;
-private _selectedIndex = lbCurSel _list;
+_companyId = life_company_data select 0;
 
-if (_selectedIndex == -1) exitWith {
-    hint localize "STR_Company_NoEmployeeSelected";
+// Récupérer la combobox et la sélection
+_display = findDisplay 9800;
+if (isNull _display) exitWith {};
+
+_combo = _display displayCtrl 9813;
+_selectedIndex = lbCurSel _combo;
+
+// Vérifier si un employé est sélectionné
+if (_selectedIndex < 1) exitWith {
+    hint "Veuillez sélectionner un employé.";
 };
 
-private _salaryEdit = _display displayCtrl 9807;
-private _newSalary = parseNumber ctrlText _salaryEdit;
+// Récupérer l'UID de l'employé
+_employeeUID = _combo lbData _selectedIndex;
 
-if (_newSalary < 0) exitWith {
-    hint localize "STR_Company_InvalidSalary";
+if (_employeeUID == "") exitWith {
+    hint "Erreur: Impossible de récupérer les données de l'employé.";
 };
 
-private _employeeData = _list lbData _selectedIndex;
-_employeeData = parseSimpleArray _employeeData;
-_employeeData params [
-    ["_uid", "", [""]],
-    ["_name", "", [""]],
-    ["_salary", 0, [0]]
-];
+// Récupérer le salaire saisi
+_salaryEdit = _display displayCtrl 9807;
+_salary = ctrlText _salaryEdit;
 
-// Confirmation
-private _action = [
-    format [localize "STR_Company_Salary_Confirm", _name, [_newSalary] call life_fnc_numberText],
-    localize "STR_Company_Salary_Title",
-    localize "STR_Global_Yes",
-    localize "STR_Global_No"
-] call BIS_fnc_guiMessage;
+if (!([_salary] call TON_fnc_isnumber)) exitWith {
+    hint "Le salaire doit être un nombre.";
+};
 
-if (_action) then {
-    [player, _uid, _newSalary] remoteExec ["TON_fnc_setEmployeeSalary", RSERV];
-}; 
+_salary = parseNumber _salary;
+
+if (_salary < 0) exitWith {
+    hint "Le salaire ne peut pas être négatif.";
+};
+
+// Envoyer la demande de modification de salaire au serveur
+[_companyId, _employeeUID, _salary, player] remoteExec ["TON_fnc_setEmployeeSalary", RSERV];
+
+// Message de confirmation
+hint "Demande de modification de salaire envoyée..."; 

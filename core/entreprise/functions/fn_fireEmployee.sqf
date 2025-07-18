@@ -1,37 +1,42 @@
 #include "..\..\..\script_macros.hpp"
 /*
-    Author: Owned8K
-    Description: Licencie l'employé sélectionné
+    File: fn_fireEmployee.sqf
+    Author: Your Name
+    
+    Description:
+    Licencie un employé sélectionné dans la combobox
 */
 
-if !(call life_isCompanyOwner) exitWith {
-    hint localize "STR_Company_NotOwner";
+private ["_display", "_combo", "_selectedIndex", "_employeeUID", "_companyId"];
+
+// Vérifier si le joueur a une entreprise
+if (count life_company_data == 0) exitWith {
+    hint "Vous n'avez pas d'entreprise.";
 };
 
-private _display = findDisplay 9800;
-private _list = _display displayCtrl 9804;
-private _selectedIndex = lbCurSel _list;
+_companyId = life_company_data select 0;
 
-if (_selectedIndex == -1) exitWith {
-    hint localize "STR_Company_NoEmployeeSelected";
+// Récupérer la combobox et la sélection
+_display = findDisplay 9800;
+if (isNull _display) exitWith {};
+
+_combo = _display displayCtrl 9813;
+_selectedIndex = lbCurSel _combo;
+
+// Vérifier si un employé est sélectionné
+if (_selectedIndex < 1) exitWith {
+    hint "Veuillez sélectionner un employé à licencier.";
 };
 
-private _employeeData = _list lbData _selectedIndex;
-_employeeData = parseSimpleArray _employeeData;
-_employeeData params [
-    ["_uid", "", [""]],
-    ["_name", "", [""]],
-    ["_salary", 0, [0]]
-];
+// Récupérer l'UID de l'employé
+_employeeUID = _combo lbData _selectedIndex;
 
-// Confirmation
-private _action = [
-    format [localize "STR_Company_Fire_Confirm", _name],
-    localize "STR_Company_Fire_Title",
-    localize "STR_Global_Yes",
-    localize "STR_Global_No"
-] call BIS_fnc_guiMessage;
+if (_employeeUID == "") exitWith {
+    hint "Erreur: Impossible de récupérer les données de l'employé.";
+};
 
-if (_action) then {
-    [player, _uid] remoteExec ["TON_fnc_fireEmployee", RSERV];
-}; 
+// Envoyer la demande de licenciement au serveur
+[_companyId, _employeeUID, player] remoteExec ["TON_fnc_fireEmployee", RSERV];
+
+// Message de confirmation
+hint "Demande de licenciement envoyée..."; 

@@ -185,6 +185,8 @@ class Life_Client_Core {
         class updateNearbyPlayers {};
         class openCompanyMenu {};
         class updateEmployeeList {};
+        class updateEmployeeCombo {};
+        class updateEmployeeComboList {};
     };
 
     class Functions {

@@ -77,25 +77,12 @@ class Life_company_management {
             style = ST_CENTER;
         };
 
-        class EmployeeList: Life_RscListBox {
-            idc = 9804;
-            text = "";
-            sizeEx = 0.035;
-            x = 0.12;
-            y = 0.52;
-            w = 0.38;
-            h = 0.30;
-            colorBackground[] = {0, 0, 0, 0.3};
-            rowHeight = 0.04;
-            onLBSelChanged = "_this spawn life_fnc_employeeSelected;";
-        };
-
-        // Section Joueurs à proximité
+        // Section Recrutement
         class NearbyPlayersHeader: Life_RscText {
             idc = 9810;
-            text = "Joueurs à proximité";
+            text = "Recrutement";
             x = 0.51;
-            y = 0.47;
+            y = 0.52;
             w = 0.27;
             h = 0.04;
             colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843])", "(profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019])", "(profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862])", 0.5};
@@ -105,7 +92,7 @@ class Life_company_management {
         class NearbyPlayersCombo: Life_RscCombo {
             idc = 9811;
             x = 0.51;
-            y = 0.52;
+            y = 0.57;
             w = 0.27;
             h = 0.03;
             colorBackground[] = {0, 0, 0, 0.3};
@@ -113,16 +100,48 @@ class Life_company_management {
             onMouseButtonClick = "[] call life_fnc_updateNearbyPlayers;";
         };
 
-        // Boutons de gestion des employés
         class HireButton: Life_RscButtonMenu {
             idc = 9805;
             text = "Embaucher";
             colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843])", "(profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019])", "(profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862])", 0.5};
             onButtonClick = "[] spawn life_fnc_hireEmployee;";
             x = 0.51;
-            y = 0.68;
+            y = 0.61;
             w = 0.27;
             h = (1 / 25);
+        };
+
+        // Section Gestion des Employés
+        class EmployeeManagementHeader: Life_RscText {
+            idc = 9812;
+            text = "Gestion des Employés";
+            x = 0.51;
+            y = 0.66;
+            w = 0.27;
+            h = 0.04;
+            colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843])", "(profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019])", "(profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862])", 0.5};
+            style = ST_CENTER;
+        };
+
+        class EmployeeCombo: Life_RscCombo {
+            idc = 9813;
+            x = 0.51;
+            y = 0.71;
+            w = 0.27;
+            h = 0.03;
+            colorBackground[] = {0, 0, 0, 0.3};
+            onLBSelChanged = "";
+            onMouseButtonClick = "[] call life_fnc_updateEmployeeCombo;";
+        };
+
+        class SalaryEdit: Life_RscEdit {
+            idc = 9807;
+            text = "";
+            x = 0.51;
+            y = 0.75;
+            w = 0.27;
+            h = (1 / 25);
+            colorBackground[] = {0, 0, 0, 0.3};
         };
 
         class FireButton: Life_RscButtonMenu {
@@ -131,19 +150,9 @@ class Life_company_management {
             colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843])", "(profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019])", "(profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862])", 0.5};
             onButtonClick = "[] spawn life_fnc_fireEmployee;";
             x = 0.51;
-            y = 0.74;
-            w = 0.27;
+            y = 0.79;
+            w = 0.13;
             h = (1 / 25);
-        };
-
-        class SalaryEdit: Life_RscEdit {
-            idc = 9807;
-            text = "";
-            x = 0.51;
-            y = 0.80;
-            w = 0.20;
-            h = (1 / 25);
-            colorBackground[] = {0, 0, 0, 0.3};
         };
 
         class SetSalaryButton: Life_RscButtonMenu {
@@ -152,9 +161,9 @@ class Life_company_management {
             tooltip = "Définir le salaire de l'employé";
             colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843])", "(profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019])", "(profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862])", 0.5};
             onButtonClick = "[] spawn life_fnc_setEmployeeSalary;";
-            x = 0.72;
-            y = 0.80;
-            w = 0.06;
+            x = 0.65;
+            y = 0.79;
+            w = 0.13;
             h = (1 / 25);
         };
 
