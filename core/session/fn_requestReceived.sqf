@@ -73,6 +73,20 @@ try {
                 private _position = call compile _positionStr;
                 if (_position isEqualType [] && {count _position == 3}) then {
                     life_civ_position = _position;
+                    
+                    // Attendre que le joueur soit complètement initialisé
+                    [] spawn {
+                        waitUntil {!isNull player && {!isNull (findDisplay 46)}};
+                        sleep 1;
+                        
+                        if (life_is_alive && !life_is_arrested) then {
+                            player setPosATL life_civ_position;
+                            diag_log format ["[POSITION] Teleported player to: %1", life_civ_position];
+                        } else {
+                            diag_log "[POSITION] Player is dead or arrested, skipping teleport";
+                        };
+                    };
+                    
                     diag_log format ["[POSITION] Successfully loaded position: %1", _position];
                 } else {
                     throw "Invalid position array format after parsing";
