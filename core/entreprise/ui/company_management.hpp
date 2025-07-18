@@ -57,7 +57,7 @@ class company_management {
         };
 
         // Section Info Entreprise
-        class CompanyInfoHeader: Life_RscStructuredText {
+        class CompanyInfoHeader: RscText {
             idc = 9801;
             text = "Informations de l'Entreprise";
             x = 0.11;
@@ -65,9 +65,13 @@ class company_management {
             w = 0.68;
             h = 0.04;
             colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843])", "(profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019])", "(profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862])", 0.5};
+            colorText[] = {1, 1, 1, 1};
+            font = "RobotoCondensed";
+            sizeEx = 0.035;
+            style = 0x02;
         };
 
-        class CompanyInfo: Life_RscStructuredText {
+        class CompanyInfo: RscStructuredText {
             idc = 9802;
             text = "";
             x = 0.12;
@@ -75,11 +79,19 @@ class company_management {
             w = 0.66;
             h = 0.14;
             colorBackground[] = {0, 0, 0, 0};
-            size = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+            size = 0.035;
+            shadow = 0;
+            class Attributes {
+                font = "RobotoCondensed";
+                color = "#ffffff";
+                colorLink = "#D09B43";
+                align = "left";
+                shadow = 1;
+            };
         };
 
         // Section Employés
-        class EmployeeListHeader: Life_RscStructuredText {
+        class EmployeeListHeader: RscText {
             idc = 9803;
             text = "Gestion des Employés";
             x = 0.11;
@@ -87,6 +99,10 @@ class company_management {
             w = 0.68;
             h = 0.04;
             colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843])", "(profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019])", "(profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862])", 0.5};
+            colorText[] = {1, 1, 1, 1};
+            font = "RobotoCondensed";
+            sizeEx = 0.035;
+            style = 0x02;
         };
 
         class EmployeeList: Life_RscListBox {
