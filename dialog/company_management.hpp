@@ -1,4 +1,4 @@
-#include "..\..\..\dialog\common.hpp"
+#include "common.hpp"
 
 class company_management {
     idd = 9800;
@@ -68,7 +68,7 @@ class company_management {
             style = 0x02;
         };
 
-        class CompanyInfo: Life_RscStructuredText {
+        class CompanyInfo: Life_RscText {
             idc = 9802;
             text = "";
             x = 0.12;
@@ -76,7 +76,7 @@ class company_management {
             w = 0.66;
             h = 0.14;
             colorBackground[] = {0, 0, 0, 0};
-            size = 0.035;
+            style = 0x10;
         };
 
         // Section Employés
