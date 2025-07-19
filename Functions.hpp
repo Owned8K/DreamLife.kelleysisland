@@ -187,6 +187,8 @@ class Life_Client_Core {
         class updateEmployeeList {};
         class updateEmployeeCombo {};
         class updateEmployeeComboList {};
+        class updatePaymentHistory {};
+        class updatePaymentHistoryList {};
     };
 
     class Functions {

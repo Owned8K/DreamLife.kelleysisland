@@ -167,6 +167,31 @@ class Life_company_management {
             h = (1 / 25);
         };
 
+        // Section Historique des Paiements
+        class PaymentHistoryHeader: Life_RscText {
+            idc = 9814;
+            text = "Historique des Paiements";
+            x = 0.12;
+            y = 0.52;
+            w = 0.38;
+            h = 0.04;
+            colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843])", "(profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019])", "(profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862])", 0.5};
+            style = ST_CENTER;
+        };
+
+        class PaymentHistoryList: Life_RscListBox {
+            idc = 9815;
+            text = "";
+            sizeEx = 0.035;
+            x = 0.12;
+            y = 0.57;
+            w = 0.38;
+            h = 0.25;
+            colorBackground[] = {0, 0, 0, 0.3};
+            rowHeight = 0.04;
+            onLBSelChanged = "";
+        };
+
         // Boutons principaux
         class CloseButtonKey: Life_RscButtonMenu {
             idc = -1;
