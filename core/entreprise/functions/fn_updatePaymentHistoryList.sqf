@@ -13,30 +13,35 @@ params [
 
 disableSerialization;
 
-diag_log format ["[COMPANY] Received %1 payments to display", count _payments];
-diag_log format ["[COMPANY] Raw payments data: %1", _payments];
+diag_log "=== life_fnc_updatePaymentHistoryList START ===";
+diag_log format ["Received payments array type: %1", typeName _payments];
+diag_log format ["Received payments count: %1", count _payments];
+diag_log format ["Raw payments data: %1", _payments];
 
 // Récupérer l'interface et la listbox
 private _display = findDisplay 9800;
 if (isNull _display) exitWith {
-    diag_log "[COMPANY] ERROR: Display 9800 not found";
+    diag_log "[COMPANY] ERROR: Display 9800 not found in updatePaymentHistoryList";
     hint "Erreur: Interface non trouvée";
 };
 
 private _listbox = _display displayCtrl 9815;
 if (isNull _listbox) exitWith {
-    diag_log "[COMPANY] ERROR: Control 9815 (PaymentHistoryList) not found";
+    diag_log "[COMPANY] ERROR: Control 9815 (PaymentHistoryList) not found in updatePaymentHistoryList";
     hint "Erreur: Liste des paiements non trouvée";
 };
 
+diag_log format ["Display found: %1, ListBox control found: %2", !isNull _display, !isNull _listbox];
+
 // Vider la listbox
 lbClear _listbox;
+diag_log "[COMPANY] Cleared listbox";
 
 // Si aucun paiement
 if (_payments isEqualTo []) exitWith {
     _listbox lbAdd "Aucun paiement effectué";
     _listbox lbSetColor [(lbSize _listbox) - 1, [1, 1, 1, 1]];
-    diag_log "[COMPANY] No payments to display";
+    diag_log "[COMPANY] No payments to display - Added default message";
 };
 
 {
@@ -45,6 +50,8 @@ if (_payments isEqualTo []) exitWith {
         ["_amount", 0, [0]],
         ["_date", "", [""]]
     ];
+    
+    diag_log format ["Processing payment entry - Name: %1, Amount: %2, Date: %3", _name, _amount, _date];
     
     if (_name != "" && _amount != 0) then {
         private _displayText = format ["%1 - %2 - $%3", _date, _name, [_amount] call life_fnc_numberText];
@@ -56,7 +63,7 @@ if (_payments isEqualTo []) exitWith {
         // Colorer en vert
         _listbox lbSetColor [_index, [0, 1, 0, 1]];
         
-        diag_log format ["[COMPANY] Added payment to list: %1", _displayText];
+        diag_log format ["[COMPANY] Added payment to list at index %1: %2", _index, _displayText];
     } else {
         diag_log format ["[COMPANY] Skipped invalid payment data: Name='%1', Amount=%2, Date='%3'", _name, _amount, _date];
     };
@@ -70,4 +77,6 @@ if (lbSize _listbox > 0) then {
     diag_log "[COMPANY] WARNING: No valid payments were added to the list";
     _listbox lbAdd "Aucun paiement valide trouvé";
     _listbox lbSetColor [(lbSize _listbox) - 1, [1, 0, 0, 1]];
-}; 
+};
+
+diag_log "=== life_fnc_updatePaymentHistoryList END ==="; 
