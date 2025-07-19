@@ -7,6 +7,16 @@
     Met à jour la liste des paiements effectués aux employés
 */
 
+if (!isNil "life_payment_history_update_lock") exitWith {
+    diag_log "[COMPANY] Payment history update already in progress, skipping...";
+};
+
+life_payment_history_update_lock = true;
+[] spawn {
+    sleep 2;
+    life_payment_history_update_lock = nil;
+};
+
 disableSerialization;
 
 diag_log "=== life_fnc_updatePaymentHistory START ===";
@@ -18,18 +28,21 @@ private _display = findDisplay 9800;
 if (isNull _display) exitWith {
     diag_log "[COMPANY] ERROR: Display 9800 not found in updatePaymentHistory";
     hint "Erreur: Interface non trouvée";
+    life_payment_history_update_lock = nil;
 };
 
 private _listbox = _display displayCtrl 9815;
 if (isNull _listbox) exitWith {
     diag_log "[COMPANY] ERROR: Control 9815 not found in updatePaymentHistory";
     hint "Erreur: Liste des paiements non trouvée";
+    life_payment_history_update_lock = nil;
 };
 
 // Vérifier si le joueur a une entreprise
 if (life_company_data isEqualTo []) exitWith {
     diag_log "[COMPANY] No company data found";
     hint "Vous n'avez pas d'entreprise.";
+    life_payment_history_update_lock = nil;
 };
 
 private _companyId = life_company_data select 0;

@@ -14,6 +14,8 @@ params [
 disableSerialization;
 
 diag_log "=== life_fnc_updatePaymentHistoryList START ===";
+diag_log format ["Function called by: %1", remoteExecutedOwner];
+diag_log format ["Current player: %1", player];
 diag_log format ["Received payments array type: %1", typeName _payments];
 diag_log format ["Received payments count: %1", count _payments];
 diag_log format ["Raw payments data: %1", _payments];
