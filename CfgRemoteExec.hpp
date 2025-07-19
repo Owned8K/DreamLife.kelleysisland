@@ -73,6 +73,8 @@ class CfgRemoteExec {
         F(life_fnc_gangBankResponse,CLIENT)
         F(life_fnc_chopShopSold,CLIENT)
         F(life_fnc_companyCreated,CLIENT)
+        F(life_fnc_updateEmployeeComboList,CLIENT)
+        F(life_fnc_updatePaymentHistoryList,CLIENT)
         F(SOCK_fnc_dataQuery,CLIENT)
         F(SOCK_fnc_insertPlayerInfo,CLIENT)
         F(SOCK_fnc_requestReceived,CLIENT)
@@ -130,6 +132,7 @@ class CfgRemoteExec {
         F(TON_fnc_fireEmployee,SERVER)
         F(TON_fnc_setEmployeeSalary,SERVER)
         F(TON_fnc_getCompanyEmployees,SERVER)
+        F(TON_fnc_getPaymentHistory,SERVER)
 
         /* HeadlessClient only functions */
         F(HC_fnc_addContainer,HC)
