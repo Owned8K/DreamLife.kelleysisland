@@ -216,8 +216,8 @@ switch (_code) do {
 
     //Y Player Menu
     case 21: {
-        if (!_alt && !_ctrlKey && !dialog && !(player getVariable ["restrained",false]) && {!life_action_inUse}) then {
-            [] call life_fnc_p_openMenu;
+        if (!_alt && !_ctrlKey && !_shift && !dialog && !(player getVariable ["restrained",false]) && {!life_action_inUse}) then {
+            [] spawn life_fnc_openSmartphone;
         };
     };
 
@@ -264,6 +264,13 @@ switch (_code) do {
                 1 fadeSound 0.1;
                 systemChat localize "STR_MISC_soundfade";
             };
+        };
+    };
+
+    //P Key (Phone)
+    case 25: {
+        if (!_alt && !_ctrlKey && !_shift && !dialog && !(player getVariable ["restrained",false]) && {!life_action_inUse}) then {
+            [] spawn life_fnc_openSmartphone;
         };
     };
 
@@ -399,6 +406,13 @@ switch (_code) do {
                     };
                 };
             };
+        };
+    };
+
+    //Y Player Menu
+    case 21: { // Y
+        if (!_alt && !_ctrlKey && !_shift && !dialog) then {
+            [] spawn life_fnc_openSmartphone;
         };
     };
 };
