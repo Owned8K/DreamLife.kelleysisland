@@ -20,8 +20,6 @@ life_payment_history_update_lock = true;
 disableSerialization;
 
 diag_log "=== life_fnc_updatePaymentHistory START ===";
-diag_log format ["life_company_data: %1", life_company_data];
-diag_log format ["Current Display: %1", findDisplay 9800];
 
 // Récupérer l'interface et la listbox
 private _display = findDisplay 9800;
@@ -46,20 +44,24 @@ if (life_company_data isEqualTo []) exitWith {
 };
 
 private _companyId = life_company_data select 0;
-diag_log format ["[COMPANY] Company ID from life_company_data: %1", _companyId];
-diag_log format ["[COMPANY] Full company data: %1", life_company_data];
+private _companyName = life_company_data select 1;
+private _ownerName = life_company_data select 2;
+private _ownerUID = life_company_data select 3;
+private _companyBank = life_company_data select 4;
+
+diag_log format ["[COMPANY] Updating payment history for company: %1 (ID: %2)", _companyName, _companyId];
 
 // Vider la listbox
 lbClear _listbox;
 diag_log "[COMPANY] Cleared payment history listbox";
 
 // Ajouter un message temporaire
-_listbox lbAdd "Chargement de l'historique...";
+_listbox lbAdd format ["Chargement de l'historique pour %1...", _companyName];
 _listbox lbSetColor [(lbSize _listbox) - 1, [1, 1, 1, 1]];
 diag_log "[COMPANY] Added loading message to listbox";
 
 // Demander l'historique au serveur
-[_companyId, player] remoteExec ["TON_fnc_getPaymentHistory", RSERV];
+[_companyId, player] remoteExecCall ["TON_fnc_getPaymentHistory", RSERV];
 diag_log format ["[COMPANY] Sent request to server for company ID: %1", _companyId];
 diag_log format ["[COMPANY] Player object: %1", player];
 diag_log format ["[COMPANY] Player UID: %1", getPlayerUID player];

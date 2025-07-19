@@ -20,6 +20,13 @@ diag_log format ["Received payments array type: %1", typeName _payments];
 diag_log format ["Received payments count: %1", count _payments];
 diag_log format ["Raw payments data: %1", _payments];
 
+// Vérifier si le joueur a une entreprise
+if (life_company_data isEqualTo []) exitWith {
+    diag_log "[COMPANY] No company data found in updatePaymentHistoryList";
+};
+
+private _companyName = life_company_data select 1;
+
 // Récupérer l'interface et la listbox
 private _display = findDisplay 9800;
 if (isNull _display) exitWith {
@@ -41,7 +48,7 @@ diag_log "[COMPANY] Cleared listbox";
 
 // Si aucun paiement
 if (_payments isEqualTo []) exitWith {
-    _listbox lbAdd "Aucun paiement effectué";
+    _listbox lbAdd format ["Aucun paiement effectué pour %1", _companyName];
     _listbox lbSetColor [(lbSize _listbox) - 1, [1, 1, 1, 1]];
     diag_log "[COMPANY] No payments to display - Added default message";
 };
@@ -77,7 +84,7 @@ if (lbSize _listbox > 0) then {
     diag_log format ["[COMPANY] Payment list populated with %1 items", lbSize _listbox];
 } else {
     diag_log "[COMPANY] WARNING: No valid payments were added to the list";
-    _listbox lbAdd "Aucun paiement valide trouvé";
+    _listbox lbAdd format ["Aucun paiement valide trouvé pour %1", _companyName];
     _listbox lbSetColor [(lbSize _listbox) - 1, [1, 0, 0, 1]];
 };
 
