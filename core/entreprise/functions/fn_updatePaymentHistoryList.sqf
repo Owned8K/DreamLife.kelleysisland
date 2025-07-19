@@ -54,14 +54,20 @@ if (_paymentHistory isEqualTo []) then {
             _date
         ];
         
-        _listbox lbAdd _text;
-        _listbox lbSetData [(lbSize _listbox) - 1, _employeeUID];
-        _listbox lbSetColor [(lbSize _listbox) - 1, [1, 1, 1, 1]];
+        private _index = _listbox lbAdd _text;
+        _listbox lbSetData [_index, _employeeUID];
+        _listbox lbSetColor [_index, [1, 1, 1, 1]];
         
-        diag_log format ["[COMPANY] Added payment entry to listbox: %1", _text];
+        diag_log format ["[COMPANY] Added payment entry to listbox at index %1: %2", _index, _text];
     } forEach _paymentHistory;
     
     diag_log format ["[COMPANY] Added %1 payment entries to listbox", count _paymentHistory];
+    
+    // Sélectionner le premier élément
+    if (lbSize _listbox > 0) then {
+        _listbox lbSetCurSel 0;
+        diag_log "[COMPANY] Selected first payment entry";
+    };
 };
 
 diag_log "=== life_fnc_updatePaymentHistoryList END ==="; 
