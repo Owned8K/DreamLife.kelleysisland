@@ -4,10 +4,10 @@
     Author: Your Name
     
     Description:
-    Définit le salaire d'un employé
+    Définit et verse le salaire d'un employé
 */
 
-private ["_display", "_combo", "_salaryEdit", "_selectedIndex", "_selectedUID", "_salary", "_companyId"];
+private ["_display", "_combo", "_salaryEdit", "_selectedIndex", "_selectedUID", "_salary", "_companyId", "_companyBank"];
 
 disableSerialization;
 
@@ -50,9 +50,18 @@ if (count life_company_data == 0) exitWith {
 };
 
 _companyId = life_company_data select 0;
+_companyBank = life_company_data select 4;
+
+// Vérifier si l'entreprise a assez d'argent
+if (_companyBank < _salary) exitWith {
+    hint format ["Fonds insuffisants ! Il manque $%1", [(_salary - _companyBank)] call life_fnc_numberText];
+};
 
 // Envoyer la demande au serveur
 [_companyId, _selectedUID, _salary, player] remoteExec ["TON_fnc_setEmployeeSalary", RSERV];
 
 // Vider le champ de salaire
-_salaryEdit ctrlSetText ""; 
+_salaryEdit ctrlSetText "";
+
+// Message de confirmation
+hint format ["Versement d'un salaire de $%1 en cours...", [_salary] call life_fnc_numberText]; 
