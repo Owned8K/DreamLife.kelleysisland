@@ -31,6 +31,7 @@ if (count life_company_data == 0) exitWith {
 };
 
 _companyId = life_company_data select 0;
+private _employees = life_company_data select 5;
 
 // Sauvegarder la sélection actuelle
 private _currentSelection = lbCurSel _combo;
@@ -42,7 +43,32 @@ lbClear _combo;
 _combo lbAdd "-- Sélectionner un employé --";
 _combo lbSetData [0, ""];
 
-diag_log format ["[COMPANY] Requesting employees for company ID: %1", _companyId];
+// Si nous avons des données d'employés locales, les utiliser
+if (count _employees > 0) then {
+    diag_log format ["[COMPANY] Using local employee data: %1", _employees];
+    
+    {
+        _x params [
+            ["_uid", "", [""]],
+            ["_name", "", [""]],
+            ["_salary", 0, [0]]
+        ];
+        
+        private _displayText = format ["%1 - $%2", _name, [_salary] call life_fnc_numberText];
+        private _index = _combo lbAdd _displayText;
+        _combo lbSetData [_index, _uid];
+        diag_log format ["[COMPANY] Added employee from local data: %1 (UID: %2, Salary: %3)", _displayText, _uid, _salary];
+    } forEach _employees;
+} else {
+    diag_log format ["[COMPANY] No local employee data, requesting from server for company ID: %1", _companyId];
+    
+    // Demander la liste des employés au serveur
+    [_companyId, player] remoteExec ["TON_fnc_getCompanyEmployees", RSERV];
+};
 
-// Demander la liste des employés au serveur
-[_companyId, player] remoteExec ["TON_fnc_getCompanyEmployees", RSERV]; 
+// Restaurer la sélection si possible
+if (_currentSelection > 0 && _currentSelection < lbSize _combo) then {
+    _combo lbSetCurSel _currentSelection;
+} else {
+    _combo lbSetCurSel 0;
+}; 
