@@ -15,6 +15,8 @@ private ["_display", "_combo"];
 
 disableSerialization;
 
+diag_log format ["[COMPANY] Received %1 employees to display", count _employees];
+
 // Récupérer l'interface et la combobox
 _display = findDisplay 9800;
 if (isNull _display) exitWith {
@@ -52,10 +54,16 @@ if (count _employees == 0) exitWith {
         ["_role", "", [""]]
     ];
     
-    private _displayText = format ["%1 - %2", _name, _role];
+    // Extraire le salaire du rôle (format: "salary_X")
+    private _salary = 0;
+    if (_role select [0,7] == "salary_") then {
+        _salary = parseNumber (_role select [7]);
+    };
+    
+    private _displayText = format ["%1 - $%2", _name, [_salary] call life_fnc_numberText];
     private _index = _combo lbAdd _displayText;
     _combo lbSetData [_index, _uid];
-    diag_log format ["[COMPANY] Added employee to combo: %1 (%2)", _name, _uid];
+    diag_log format ["[COMPANY] Added employee to combo: %1 (UID: %2)", _displayText, _uid];
 } forEach _employees;
 
 // Restaurer la sélection si possible

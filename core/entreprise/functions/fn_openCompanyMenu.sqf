@@ -15,6 +15,8 @@ if (!createDialog "Life_company_management") exitWith {
     hint "Erreur lors de l'ouverture du menu.";
 };
 
+diag_log "[COMPANY] Opening company management menu...";
+
 // Mettre à jour les informations de l'entreprise
 private _display = findDisplay 9800;
 private _infoText = _display displayCtrl 9802;
@@ -32,8 +34,9 @@ _infoText ctrlSetStructuredText parseText format [
     [_companyBank] call life_fnc_numberText
 ];
 
-// Initialiser la liste des joueurs à proximité
+// Initialiser toutes les listes
 [] call life_fnc_updateNearbyPlayers;
+[] call life_fnc_updateEmployeeCombo;
+[] call life_fnc_updatePaymentHistory;
 
-// Mettre à jour la liste des employés
-[] call life_fnc_updateEmployeeList; 
+diag_log "[COMPANY] Company management menu initialized"; 
