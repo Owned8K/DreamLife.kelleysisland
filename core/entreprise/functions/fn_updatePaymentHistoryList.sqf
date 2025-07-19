@@ -4,30 +4,18 @@
     Author: Your Name
     
     Description:
-    Met à jour la liste des paiements avec les données reçues du serveur
+    Met à jour la liste des paiements dans l'interface
 */
 
 params [
-    ["_payments", [], [[]]]
+    ["_paymentHistory", [], [[]]]
 ];
+
+diag_log "=== life_fnc_updatePaymentHistoryList START ===";
+diag_log format ["[COMPANY] Received payment history data: %1", _paymentHistory];
 
 disableSerialization;
 
-diag_log "=== life_fnc_updatePaymentHistoryList START ===";
-diag_log format ["Function called by: %1", remoteExecutedOwner];
-diag_log format ["Current player: %1", player];
-diag_log format ["Received payments array type: %1", typeName _payments];
-diag_log format ["Received payments count: %1", count _payments];
-diag_log format ["Raw payments data: %1", _payments];
-
-// Vérifier si le joueur a une entreprise
-if (life_company_data isEqualTo []) exitWith {
-    diag_log "[COMPANY] No company data found in updatePaymentHistoryList";
-};
-
-private _companyName = life_company_data select 1;
-
-// Récupérer l'interface et la listbox
 private _display = findDisplay 9800;
 if (isNull _display) exitWith {
     diag_log "[COMPANY] ERROR: Display 9800 not found in updatePaymentHistoryList";
@@ -36,56 +24,44 @@ if (isNull _display) exitWith {
 
 private _listbox = _display displayCtrl 9815;
 if (isNull _listbox) exitWith {
-    diag_log "[COMPANY] ERROR: Control 9815 (PaymentHistoryList) not found in updatePaymentHistoryList";
+    diag_log "[COMPANY] ERROR: Control 9815 not found in updatePaymentHistoryList";
     hint "Erreur: Liste des paiements non trouvée";
 };
 
-diag_log format ["Display found: %1, ListBox control found: %2", !isNull _display, !isNull _listbox];
-
 // Vider la listbox
 lbClear _listbox;
-diag_log "[COMPANY] Cleared listbox";
+diag_log "[COMPANY] Cleared payment history listbox";
 
-// Si aucun paiement
-if (_payments isEqualTo []) exitWith {
-    _listbox lbAdd format ["Aucun paiement effectué pour %1", _companyName];
-    _listbox lbSetColor [(lbSize _listbox) - 1, [1, 1, 1, 1]];
-    diag_log "[COMPANY] No payments to display - Added default message";
-};
-
-{
-    _x params [
-        ["_name", "", [""]],
-        ["_amount", 0, [0]],
-        ["_date", "", [""]]
-    ];
-    
-    diag_log format ["Processing payment entry - Name: %1, Amount: %2, Date: %3", _name, _amount, _date];
-    
-    if (_name != "" && _amount != 0) then {
-        private _displayText = format ["%1 - %2 - $%3", _date, _name, [_amount] call life_fnc_numberText];
-        private _index = _listbox lbAdd _displayText;
-        
-        // Stocker les données pour référence
-        _listbox lbSetData [_index, format ["%1|%2|%3", _name, _amount, _date]];
-        
-        // Colorer en vert
-        _listbox lbSetColor [_index, [0, 1, 0, 1]];
-        
-        diag_log format ["[COMPANY] Added payment to list at index %1: %2", _index, _displayText];
-    } else {
-        diag_log format ["[COMPANY] Skipped invalid payment data: Name='%1', Amount=%2, Date='%3'", _name, _amount, _date];
-    };
-} forEach _payments;
-
-// Sélectionner le premier élément
-if (lbSize _listbox > 0) then {
-    _listbox lbSetCurSel 0;
-    diag_log format ["[COMPANY] Payment list populated with %1 items", lbSize _listbox];
+if (_paymentHistory isEqualTo []) then {
+    _listbox lbAdd "Aucun paiement trouvé";
+    _listbox lbSetColor [(lbSize _listbox) - 1, [1, 0.5, 0, 1]];
+    diag_log "[COMPANY] No payments found, added message to listbox";
 } else {
-    diag_log "[COMPANY] WARNING: No valid payments were added to the list";
-    _listbox lbAdd format ["Aucun paiement valide trouvé pour %1", _companyName];
-    _listbox lbSetColor [(lbSize _listbox) - 1, [1, 0, 0, 1]];
+    {
+        _x params [
+            ["_employeeUID", "", [""]],
+            ["_employeeName", "", [""]],
+            ["_amount", 0, [0]],
+            ["_date", "", [""]]
+        ];
+        
+        diag_log format ["[COMPANY] Processing payment entry - Employee: %1 (%2), Amount: $%3, Date: %4", 
+            _employeeName, _employeeUID, [_amount] call life_fnc_numberText, _date];
+        
+        private _text = format ["%1 - $%2 - %3", 
+            _employeeName,
+            [_amount] call life_fnc_numberText,
+            _date
+        ];
+        
+        _listbox lbAdd _text;
+        _listbox lbSetData [(lbSize _listbox) - 1, _employeeUID];
+        _listbox lbSetColor [(lbSize _listbox) - 1, [1, 1, 1, 1]];
+        
+        diag_log format ["[COMPANY] Added payment entry to listbox: %1", _text];
+    } forEach _paymentHistory;
+    
+    diag_log format ["[COMPANY] Added %1 payment entries to listbox", count _paymentHistory];
 };
 
 diag_log "=== life_fnc_updatePaymentHistoryList END ==="; 
