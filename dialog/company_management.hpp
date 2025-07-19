@@ -5,7 +5,7 @@ class Life_company_management {
     name = "life_company_menu";
     movingEnable = 0;
     enableSimulation = 1;
-    onLoad = "[] spawn { sleep 0.5; if (!isNull findDisplay 9800) then { [] spawn life_fnc_updateEmployeeCombo; [] spawn life_fnc_updatePaymentHistory; }; };";
+    onLoad = "[] spawn { sleep 1; if (!isNull findDisplay 9800) then { [] spawn life_fnc_updateEmployeeCombo; sleep 0.5; [] spawn life_fnc_updatePaymentHistory; }; };";
 
     class controls {
         class RscTitleBackground: Life_RscText {

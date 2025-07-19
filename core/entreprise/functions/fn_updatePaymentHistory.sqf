@@ -7,19 +7,24 @@
     Met à jour la liste des paiements effectués aux employés
 */
 
-if (!isNil "life_payment_history_update_lock") exitWith {
-    diag_log "[COMPANY] Payment history update already in progress, skipping...";
+diag_log "=== life_fnc_updatePaymentHistory START ===";
+diag_log format ["Lock status: %1", !isNil "life_payment_history_update_lock"];
+
+if (!isNil "life_payment_history_update_lock") then {
+    life_payment_history_update_lock = nil;
+    diag_log "[COMPANY] Removed existing lock";
 };
 
 life_payment_history_update_lock = true;
+diag_log "[COMPANY] Set new lock";
+
 [] spawn {
-    sleep 2;
+    sleep 3;
     life_payment_history_update_lock = nil;
+    diag_log "[COMPANY] Lock released after timeout";
 };
 
 disableSerialization;
-
-diag_log "=== life_fnc_updatePaymentHistory START ===";
 
 // Récupérer l'interface et la listbox
 private _display = findDisplay 9800;
