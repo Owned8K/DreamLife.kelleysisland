@@ -7,7 +7,7 @@
     Met à jour la liste des employés dans la combobox
 */
 
-private ["_display", "_combo", "_companyId"];
+private ["_display", "_combo", "_companyId", "_employees"];
 
 disableSerialization;
 
@@ -31,7 +31,15 @@ if (count life_company_data == 0) exitWith {
 };
 
 _companyId = life_company_data select 0;
-private _employees = life_company_data select 5;
+_employees = [];
+
+// Récupérer les données des employés si disponibles
+if (count life_company_data >= 6) then {
+    _employees = life_company_data select 5;
+    diag_log format ["[COMPANY] Found employees in company data: %1", _employees];
+} else {
+    diag_log "[COMPANY] No employee data in company_data";
+};
 
 // Sauvegarder la sélection actuelle
 private _currentSelection = lbCurSel _combo;
