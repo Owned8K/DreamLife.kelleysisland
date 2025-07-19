@@ -75,6 +75,7 @@ class CfgRemoteExec {
         F(life_fnc_companyCreated,CLIENT)
         F(life_fnc_updateEmployeeComboList,CLIENT)
         F(life_fnc_updatePaymentHistoryList,CLIENT)
+        F(life_fnc_updatePaymentHistory,CLIENT)
         F(SOCK_fnc_dataQuery,CLIENT)
         F(SOCK_fnc_insertPlayerInfo,CLIENT)
         F(SOCK_fnc_requestReceived,CLIENT)
