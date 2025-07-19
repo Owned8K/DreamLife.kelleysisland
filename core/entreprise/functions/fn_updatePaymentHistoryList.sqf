@@ -39,29 +39,23 @@ if (_paymentHistory isEqualTo []) then {
 } else {
     {
         _x params [
-            ["_employeeUID", "", [""]],
-            ["_employeeName", "", [""]],
+            ["_playerUID", "", [""]],
+            ["_playerName", "", [""]],
             ["_amount", 0, [0]],
             ["_date", "", [""]]
         ];
         
-        // Formater la date
-        private _formattedDate = _date;
-        if (_date != "") then {
-            _formattedDate = [_date, "YYYY-MM-DD HH:MM:SS"] call BIS_fnc_timeToString;
-        };
-        
         diag_log format ["[COMPANY] Processing payment entry - Employee: %1 (%2), Amount: $%3, Date: %4", 
-            _employeeName, _employeeUID, [_amount] call life_fnc_numberText, _formattedDate];
+            _playerName, _playerUID, [_amount] call life_fnc_numberText, _date];
         
         private _text = format ["%1 - $%2 - %3", 
-            _employeeName,
+            _playerName,
             [_amount] call life_fnc_numberText,
-            _formattedDate
+            _date
         ];
         
         private _index = _listbox lbAdd _text;
-        _listbox lbSetData [_index, _employeeUID];
+        _listbox lbSetData [_index, _playerUID];
         _listbox lbSetColor [_index, [1, 1, 1, 1]];
         
         diag_log format ["[COMPANY] Added payment entry to listbox at index %1: %2", _index, _text];
