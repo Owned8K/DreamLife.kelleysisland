@@ -23,20 +23,24 @@ private _infoText = _display displayCtrl 9802;
 
 private _companyId = life_company_data select 0;
 private _companyName = life_company_data select 1;
-private _companyBank = life_company_data select 2;
+private _ownerName = life_company_data select 2;
+private _ownerUID = life_company_data select 3;
+private _companyBank = life_company_data select 4;
 
 _infoText ctrlSetStructuredText parseText format [
     "<t size='1.2'>%1</t><br/><br/>" +
     "<t>ID: %2</t><br/>" +
-    "<t>Compte: $%3</t>",
+    "<t>Propriétaire: %3</t><br/>" +
+    "<t>Compte: $%4</t>",
     _companyName,
     _companyId,
+    _ownerName,
     [_companyBank] call life_fnc_numberText
 ];
 
-// Initialiser toutes les listes
+// Initialiser la liste des joueurs à proximité
 [] call life_fnc_updateNearbyPlayers;
-[] call life_fnc_updateEmployeeCombo;
-[] call life_fnc_updatePaymentHistory;
+
+// Les listes d'employés et de paiements seront initialisées automatiquement par l'onLoad du dialogue
 
 diag_log "[COMPANY] Company management menu initialized"; 
