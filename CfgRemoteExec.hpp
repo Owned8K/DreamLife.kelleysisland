@@ -15,7 +15,7 @@ class CfgRemoteExec {
     class Functions {
         mode = 1;
         jip = 0;
-
+        
         class TON_fnc_fetchCompanyData {
             allowedTargets = 2;
         };
@@ -129,6 +129,7 @@ class CfgRemoteExec {
         F(TON_fnc_hireEmployee,SERVER)
         F(TON_fnc_fireEmployee,SERVER)
         F(TON_fnc_setEmployeeSalary,SERVER)
+        F(TON_fnc_getCompanyEmployees,SERVER)
 
         /* HeadlessClient only functions */
         F(HC_fnc_addContainer,HC)
@@ -181,11 +182,11 @@ class CfgRemoteExec {
         F(life_fnc_simDisable,ANYONE)
         F(SPY_fnc_notifyAdmins,ANYONE)
     };
-
+    
     class Commands {
         mode = 1;
         jip = 0;
-
+        
         F(addHandgunItem,ANYONE)
         F(addMagazine,ANYONE)
         F(addPrimaryWeaponItem,ANYONE)
