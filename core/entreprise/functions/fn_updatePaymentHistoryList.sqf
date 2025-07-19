@@ -45,13 +45,19 @@ if (_paymentHistory isEqualTo []) then {
             ["_date", "", [""]]
         ];
         
+        // Formater la date
+        private _formattedDate = _date;
+        if (_date != "") then {
+            _formattedDate = [_date, "YYYY-MM-DD HH:MM:SS"] call BIS_fnc_timeToString;
+        };
+        
         diag_log format ["[COMPANY] Processing payment entry - Employee: %1 (%2), Amount: $%3, Date: %4", 
-            _employeeName, _employeeUID, [_amount] call life_fnc_numberText, _date];
+            _employeeName, _employeeUID, [_amount] call life_fnc_numberText, _formattedDate];
         
         private _text = format ["%1 - $%2 - %3", 
             _employeeName,
             [_amount] call life_fnc_numberText,
-            _date
+            _formattedDate
         ];
         
         private _index = _listbox lbAdd _text;
