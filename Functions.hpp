@@ -244,7 +244,6 @@ class Life_Client_Core {
         class whereAmI {};
         class moveIn {};
         class updateLicenseList {};
-        class openSmartphone {};
     };
 
     class Gangs {
