@@ -1,3 +1,5 @@
+#include "common.hpp"
+
 class Life_Smartphone {
     idd = 88800;
     name = "Life_Smartphone";
@@ -5,7 +7,7 @@ class Life_Smartphone {
     enableSimulation = true;
     
     class controlsBackground {
-        class PhoneBackground: Life_RscPicture {
+        class PhoneBackground: RscPicture {
             idc = -1;
             text = "textures\phone\phone.paa";
             x = 0.318499 * safezoneW + safezoneX;
@@ -16,7 +18,7 @@ class Life_Smartphone {
     };
     
     class controls {
-        class MainContent: Life_RscControlsGroup {
+        class MainContent: RscControlsGroup {
             idc = 88801;
             x = 0.3425 * safezoneW + safezoneX;
             y = 0.225 * safezoneH + safezoneY;
@@ -28,7 +30,7 @@ class Life_Smartphone {
             };
         };
         
-        class CloseButton: Life_RscButtonInvisible {
+        class CloseButton: RscButtonSilent {
             idc = -1;
             text = "";
             onButtonClick = "closeDialog 0;";
@@ -37,6 +39,10 @@ class Life_Smartphone {
             w = 0.0257812 * safezoneW;
             h = 0.044 * safezoneH;
             tooltip = "Fermer";
+            colorBackground[] = {0,0,0,0};
+            colorBackgroundActive[] = {0,0,0,0};
+            colorBackgroundDisabled[] = {0,0,0,0};
+            colorFocused[] = {0,0,0,0};
         };
     };
 }; 
