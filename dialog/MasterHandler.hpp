@@ -24,12 +24,8 @@
 #include "vehicleShop.hpp"
 #include "settings.hpp"
 #include "federalReserve.hpp"
-#include "smartphone.hpp"  // Ajout de l'interface smartphone
 #include "compensate.hpp"
 #include "FuelStat.hpp"
 #include "newsStation.hpp"
 #include "company_creation.hpp"
 #include "company_management.hpp"
-#include "progress.hpp"
-#include "hud_nameTags.hpp"
-#include "vehicleShop3D.hpp"
