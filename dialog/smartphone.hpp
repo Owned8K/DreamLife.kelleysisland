@@ -58,7 +58,8 @@ class Life_Smartphone {
 
         class MessageButton: Life_RscButtonMenu {
             idc = 88806;
-            style = 2;
+            type = 16;
+            style = "0x02 + 0xC0";
             x = (0.6 + 0.24) * safezoneW + safezoneX;
             y = (0.418 + 0.42) * safezoneH + safezoneY;
             w = 0.035 * safezoneW;
@@ -72,11 +73,8 @@ class Life_Smartphone {
             colorBackgroundDisabled[] = {0,0,0,0};
             onButtonClick = "hint 'Application Messages'";
             tooltip = "Messages";
-            offsetX = 0;
-            offsetY = 0;
-            offsetPressedX = 0;
-            offsetPressedY = 0;
-            borderSize = 0;
+            default = 0;
+            text = "";
         };
 
         class MainContent: Life_RscControlsGroup {
