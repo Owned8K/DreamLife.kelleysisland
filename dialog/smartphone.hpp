@@ -30,19 +30,19 @@ class Life_Smartphone {
                 class PhoneIcon: life_RscPicture {
                     idc = 88803;
                     text = "textures\phone\telephone.paa";
-                    x = 0.01 * safezoneW;
-                    y = 0.01 * safezoneH;
-                    w = 0.08 * safezoneW;
-                    h = 0.08 * safezoneH;
+                    x = 0.05 * w;
+                    y = 0.05 * h;
+                    w = 0.15 * w;
+                    h = 0.15 * h;
                     colorText[] = {1,1,1,1};
                 };
 
                 class PhoneButton: Life_RscButtonMenu {
                     idc = 88804;
-                    x = 0.01 * safezoneW;
-                    y = 0.01 * safezoneH;
-                    w = 0.08 * safezoneW;
-                    h = 0.08 * safezoneH;
+                    x = 0.05 * w;
+                    y = 0.05 * h;
+                    w = 0.15 * w;
+                    h = 0.15 * h;
                     colorBackground[] = {0,0,0,0};
                     colorBackgroundFocused[] = {0,0,0,0};
                     colorBackground2[] = {0,0,0,0};
@@ -55,19 +55,19 @@ class Life_Smartphone {
                 class MessageIcon: life_RscPicture {
                     idc = 88805;
                     text = "textures\phone\messages.paa";
-                    x = 0.11 * safezoneW;
-                    y = 0.01 * safezoneH;
-                    w = 0.08 * safezoneW;
-                    h = 0.08 * safezoneH;
+                    x = 0.25 * w;
+                    y = 0.05 * h;
+                    w = 0.15 * w;
+                    h = 0.15 * h;
                     colorText[] = {1,1,1,1};
                 };
 
                 class MessageButton: Life_RscButtonMenu {
                     idc = 88806;
-                    x = 0.11 * safezoneW;
-                    y = 0.01 * safezoneH;
-                    w = 0.08 * safezoneW;
-                    h = 0.08 * safezoneH;
+                    x = 0.25 * w;
+                    y = 0.05 * h;
+                    w = 0.15 * w;
+                    h = 0.15 * h;
                     colorBackground[] = {0,0,0,0};
                     colorBackgroundFocused[] = {0,0,0,0};
                     colorBackground2[] = {0,0,0,0};
