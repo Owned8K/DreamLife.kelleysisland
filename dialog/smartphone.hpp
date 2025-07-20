@@ -24,6 +24,15 @@ class Life_Smartphone {
             w = 0.362969 * safezoneW;
             h = 0.682 * safezoneH - (22 / 250);
         };
+
+        class PhoneBackground: Life_RscPictureKeepAspect {
+            idc = -1;
+            text = "textures\phone\phone.paa";
+            x = 0.318499 * safezoneW + safezoneX;
+            y = 0.159 * safezoneH + safezoneY;
+            w = 0.362969 * safezoneW;
+            h = 0.682 * safezoneH;
+        };
     };
     
     class controls {
@@ -45,6 +54,18 @@ class Life_Smartphone {
             y = 0.159 * safezoneH + safezoneY + (1 / 25);
             w = (6.25 / 40);
             h = (1 / 25);
+        };
+
+        class MainContent: Life_RscControlsGroup {
+            idc = 88802;
+            x = 0.318499 * safezoneW + safezoneX + (0.362969 * safezoneW * 0.1);
+            y = 0.159 * safezoneH + safezoneY + (0.682 * safezoneH * 0.2);
+            w = 0.362969 * safezoneW * 0.8;
+            h = 0.682 * safezoneH * 0.6;
+            
+            class Controls {
+                // Ici nous ajouterons les contrôles pour les différentes applications
+            };
         };
     };
 }; 
