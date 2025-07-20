@@ -79,6 +79,7 @@ class Life_Smartphone {
             y = 0.464 * safezoneH + safezoneY;
             w = 0.46 * safezoneW;
             h = 0.45 * safezoneH;
+            colorBackground[] = {1,1,1,1};
             
             class Controls {
             };
