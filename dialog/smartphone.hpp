@@ -75,10 +75,10 @@ class Life_Smartphone {
 
         class MainContent: Life_RscControlsGroup {
             idc = 88802;
-            x = 0.6 * safezoneW + safezoneX;
-            y = 0.418 * safezoneH + safezoneY;
-            w = 0.5 * safezoneW;
-            h = 0.582 * safezoneH;
+            x = 1 * safezoneW + safezoneX;
+            y = 1 * safezoneH + safezoneY;
+            w = 1 * safezoneW;
+            h = 1 * safezoneH;
             
             class Controls {
             };
