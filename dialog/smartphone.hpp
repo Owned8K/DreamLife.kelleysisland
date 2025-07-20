@@ -29,7 +29,7 @@ class Life_Smartphone {
             colorText[] = {1,1,1,1};
         };
 
-        class PhoneButton: RscButtonInvisible {
+        class PhoneButton: Life_RscButtonInvisible {
             idc = 88804;
             x = (0.6 + 0.18) * safezoneW + safezoneX;
             y = (0.418 + 0.42) * safezoneH + safezoneY;
@@ -37,7 +37,6 @@ class Life_Smartphone {
             h = 0.035 * safezoneH;
             onButtonClick = "hint 'Application Téléphone'";
             tooltip = "Téléphone";
-            default = 0;
         };
 
         class MessageIcon: life_RscPicture {
@@ -50,7 +49,7 @@ class Life_Smartphone {
             colorText[] = {1,1,1,1};
         };
 
-        class MessageButton: RscButtonInvisible {
+        class MessageButton: Life_RscButtonInvisible {
             idc = 88806;
             x = (0.6 + 0.22) * safezoneW + safezoneX;
             y = (0.418 + 0.42) * safezoneH + safezoneY;
@@ -58,7 +57,6 @@ class Life_Smartphone {
             h = 0.035 * safezoneH;
             onButtonClick = "hint 'Application Messages'";
             tooltip = "Messages";
-            default = 0;
         };
 
         class MainContent: Life_RscControlsGroup {
