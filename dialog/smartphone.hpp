@@ -6,9 +6,7 @@ class Life_Smartphone {
     movingEnable = false;
     enableSimulation = true;
     
-    class controlsBackground {};
-    
-    class controls {
+    class controlsBackground {
         class PhoneBackground: life_RscPicture {
             idc = -1;
             text = "textures\phone\phone.paa";
@@ -17,6 +15,58 @@ class Life_Smartphone {
             w = 0.5 * safezoneW;
             h = 0.582 * safezoneH;
             colorText[] = {1,1,1,1};
+        };
+    };
+    
+    class controls {
+        class PhoneIcon: life_RscPicture {
+            idc = 88803;
+            text = "textures\phone\telephone.paa";
+            x = (0.6 + 0.1) * safezoneW + safezoneX;
+            y = (0.418 + 0.1) * safezoneH + safezoneY;
+            w = 0.06 * safezoneW;
+            h = 0.06 * safezoneH;
+            colorText[] = {1,1,1,1};
+        };
+
+        class PhoneButton: Life_RscButtonMenu {
+            idc = 88804;
+            x = (0.6 + 0.1) * safezoneW + safezoneX;
+            y = (0.418 + 0.1) * safezoneH + safezoneY;
+            w = 0.06 * safezoneW;
+            h = 0.06 * safezoneH;
+            colorBackground[] = {0,0,0,0};
+            colorBackgroundFocused[] = {0,0,0,0};
+            colorBackground2[] = {0,0,0,0};
+            colorFocused[] = {0,0,0,0};
+            colorText[] = {0,0,0,0};
+            onButtonClick = "hint 'Application Téléphone'";
+            tooltip = "Téléphone";
+        };
+
+        class MessageIcon: life_RscPicture {
+            idc = 88805;
+            text = "textures\phone\messages.paa";
+            x = (0.6 + 0.2) * safezoneW + safezoneX;
+            y = (0.418 + 0.1) * safezoneH + safezoneY;
+            w = 0.06 * safezoneW;
+            h = 0.06 * safezoneH;
+            colorText[] = {1,1,1,1};
+        };
+
+        class MessageButton: Life_RscButtonMenu {
+            idc = 88806;
+            x = (0.6 + 0.2) * safezoneW + safezoneX;
+            y = (0.418 + 0.1) * safezoneH + safezoneY;
+            w = 0.06 * safezoneW;
+            h = 0.06 * safezoneH;
+            colorBackground[] = {0,0,0,0};
+            colorBackgroundFocused[] = {0,0,0,0};
+            colorBackground2[] = {0,0,0,0};
+            colorFocused[] = {0,0,0,0};
+            colorText[] = {0,0,0,0};
+            onButtonClick = "hint 'Application Messages'";
+            tooltip = "Messages";
         };
 
         class MainContent: Life_RscControlsGroup {
@@ -27,55 +77,6 @@ class Life_Smartphone {
             h = 0.45 * safezoneH;
             
             class Controls {
-                class PhoneIcon: life_RscPicture {
-                    idc = 88803;
-                    text = "textures\phone\telephone.paa";
-                    x = 0.05 * w;
-                    y = 0.05 * h;
-                    w = 0.15 * w;
-                    h = 0.15 * h;
-                    colorText[] = {1,1,1,1};
-                };
-
-                class PhoneButton: Life_RscButtonMenu {
-                    idc = 88804;
-                    x = 0.05 * w;
-                    y = 0.05 * h;
-                    w = 0.15 * w;
-                    h = 0.15 * h;
-                    colorBackground[] = {0,0,0,0};
-                    colorBackgroundFocused[] = {0,0,0,0};
-                    colorBackground2[] = {0,0,0,0};
-                    colorFocused[] = {0,0,0,0};
-                    colorText[] = {0,0,0,0};
-                    onButtonClick = "hint 'Application Téléphone'";
-                    tooltip = "Téléphone";
-                };
-
-                class MessageIcon: life_RscPicture {
-                    idc = 88805;
-                    text = "textures\phone\messages.paa";
-                    x = 0.25 * w;
-                    y = 0.05 * h;
-                    w = 0.15 * w;
-                    h = 0.15 * h;
-                    colorText[] = {1,1,1,1};
-                };
-
-                class MessageButton: Life_RscButtonMenu {
-                    idc = 88806;
-                    x = 0.25 * w;
-                    y = 0.05 * h;
-                    w = 0.15 * w;
-                    h = 0.15 * h;
-                    colorBackground[] = {0,0,0,0};
-                    colorBackgroundFocused[] = {0,0,0,0};
-                    colorBackground2[] = {0,0,0,0};
-                    colorFocused[] = {0,0,0,0};
-                    colorText[] = {0,0,0,0};
-                    onButtonClick = "hint 'Application Messages'";
-                    tooltip = "Messages";
-                };
             };
         };
     };
