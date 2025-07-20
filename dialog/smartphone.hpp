@@ -62,7 +62,7 @@ class Life_Smartphone {
             y = (0.418 + 0.42) * safezoneH + safezoneY;
             w = 0.035 * safezoneW;
             h = 0.035 * safezoneH;
-            colorBackground[] = {1,1,1,1};
+            colorBackground[] = {0,0,0,0};
             colorBackgroundFocused[] = {0,0,0,0};
             colorBackground2[] = {0,0,0,0};
             colorFocused[] = {0,0,0,0};
@@ -75,10 +75,10 @@ class Life_Smartphone {
 
         class MainContent: Life_RscControlsGroup {
             idc = 88802;
-            x = 20 * safezoneW + safezoneX;
-            y = 20 * safezoneH + safezoneY;
-            w = 20 * safezoneW;
-            h = 20 * safezoneH;
+            x = 0.6 * safezoneW + safezoneX;
+            y = 0.418 * safezoneH + safezoneY;
+            w = 0.5 * safezoneW;
+            h = 0.582 * safezoneH;
             
             class Controls {
             };
