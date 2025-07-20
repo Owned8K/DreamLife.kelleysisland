@@ -24,8 +24,8 @@ class Life_Smartphone {
             text = "textures\phone\telephone.paa";
             x = (0.6 + 0.15) * safezoneW + safezoneX;
             y = (0.418 + 0.1) * safezoneH + safezoneY;
-            w = 0.025 * safezoneW;
-            h = 0.025 * safezoneH;
+            w = 0.035 * safezoneW;
+            h = 0.035 * safezoneH;
             colorText[] = {1,1,1,1};
         };
 
@@ -33,8 +33,8 @@ class Life_Smartphone {
             idc = 88804;
             x = (0.6 + 0.15) * safezoneW + safezoneX;
             y = (0.418 + 0.1) * safezoneH + safezoneY;
-            w = 0.025 * safezoneW;
-            h = 0.025 * safezoneH;
+            w = 0.035 * safezoneW;
+            h = 0.035 * safezoneH;
             colorBackground[] = {0,0,0,0};
             colorBackgroundFocused[] = {0,0,0,0};
             colorBackground2[] = {0,0,0,0};
@@ -49,8 +49,8 @@ class Life_Smartphone {
             text = "textures\phone\messages.paa";
             x = (0.6 + 0.2) * safezoneW + safezoneX;
             y = (0.418 + 0.1) * safezoneH + safezoneY;
-            w = 0.025 * safezoneW;
-            h = 0.025 * safezoneH;
+            w = 0.035 * safezoneW;
+            h = 0.035 * safezoneH;
             colorText[] = {1,1,1,1};
         };
 
@@ -58,8 +58,8 @@ class Life_Smartphone {
             idc = 88806;
             x = (0.6 + 0.2) * safezoneW + safezoneX;
             y = (0.418 + 0.1) * safezoneH + safezoneY;
-            w = 0.025 * safezoneW;
-            h = 0.025 * safezoneH;
+            w = 0.035 * safezoneW;
+            h = 0.035 * safezoneH;
             colorBackground[] = {0,0,0,0};
             colorBackgroundFocused[] = {0,0,0,0};
             colorBackground2[] = {0,0,0,0};
