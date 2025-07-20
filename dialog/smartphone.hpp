@@ -22,19 +22,19 @@ class Life_Smartphone {
         class PhoneIcon: life_RscPicture {
             idc = 88803;
             text = "textures\phone\telephone.paa";
-            x = (0.6 + 0.1) * safezoneW + safezoneX;
+            x = (0.6 + 0.15) * safezoneW + safezoneX;
             y = (0.418 + 0.1) * safezoneH + safezoneY;
-            w = 0.06 * safezoneW;
-            h = 0.06 * safezoneH;
+            w = 0.025 * safezoneW;
+            h = 0.025 * safezoneH;
             colorText[] = {1,1,1,1};
         };
 
         class PhoneButton: Life_RscButtonMenu {
             idc = 88804;
-            x = (0.6 + 0.1) * safezoneW + safezoneX;
+            x = (0.6 + 0.15) * safezoneW + safezoneX;
             y = (0.418 + 0.1) * safezoneH + safezoneY;
-            w = 0.06 * safezoneW;
-            h = 0.06 * safezoneH;
+            w = 0.025 * safezoneW;
+            h = 0.025 * safezoneH;
             colorBackground[] = {0,0,0,0};
             colorBackgroundFocused[] = {0,0,0,0};
             colorBackground2[] = {0,0,0,0};
@@ -49,8 +49,8 @@ class Life_Smartphone {
             text = "textures\phone\messages.paa";
             x = (0.6 + 0.2) * safezoneW + safezoneX;
             y = (0.418 + 0.1) * safezoneH + safezoneY;
-            w = 0.06 * safezoneW;
-            h = 0.06 * safezoneH;
+            w = 0.025 * safezoneW;
+            h = 0.025 * safezoneH;
             colorText[] = {1,1,1,1};
         };
 
@@ -58,8 +58,8 @@ class Life_Smartphone {
             idc = 88806;
             x = (0.6 + 0.2) * safezoneW + safezoneX;
             y = (0.418 + 0.1) * safezoneH + safezoneY;
-            w = 0.06 * safezoneW;
-            h = 0.06 * safezoneH;
+            w = 0.025 * safezoneW;
+            h = 0.025 * safezoneH;
             colorBackground[] = {0,0,0,0};
             colorBackgroundFocused[] = {0,0,0,0};
             colorBackground2[] = {0,0,0,0};
