@@ -71,10 +71,15 @@ class Life_Smartphone {
             colorText[] = {0,0,0,0};
             colorDisabled[] = {0,0,0,0};
             colorBackgroundDisabled[] = {0,0,0,0};
-            onButtonClick = "hint 'Application Messages'";
+            onMouseEnter = "diag_log 'Message Button: Mouse Enter'";
+            onMouseExit = "diag_log 'Message Button: Mouse Exit'";
+            onButtonClick = "diag_log 'Message Button: Clicked'; hint 'Application Messages'";
             tooltip = "Messages";
             default = 0;
             text = "";
+            shadow = 0;
+            font = "RobotoCondensed";
+            sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
         };
 
         class MainContent: Life_RscControlsGroup {
