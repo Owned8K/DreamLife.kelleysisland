@@ -267,6 +267,13 @@ switch (_code) do {
         };
     };
 
+    //P Key (Phone)
+    case 25: {
+        if (!_alt && !_ctrlKey && !_shift && !dialog && !(player getVariable ["restrained",false]) && {!life_action_inUse}) then {
+            [] spawn life_fnc_openSmartphone;
+        };
+    };
+
     //U Key
     case 22: {
         if (!_alt && !_ctrlKey) then {

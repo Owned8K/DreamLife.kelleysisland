@@ -29,3 +29,4 @@
 #include "newsStation.hpp"
 #include "company_creation.hpp"
 #include "company_management.hpp"
+#include "smartphone.hpp"
