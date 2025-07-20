@@ -217,7 +217,7 @@ switch (_code) do {
     //Y Player Menu
     case 21: {
         if (!_alt && !_ctrlKey && !_shift && !dialog && !(player getVariable ["restrained",false]) && {!life_action_inUse}) then {
-            [] spawn life_fnc_openSmartphone;
+            [] call life_fnc_p_openMenu;
         };
     };
 
@@ -406,13 +406,6 @@ switch (_code) do {
                     };
                 };
             };
-        };
-    };
-
-    //Y Player Menu
-    case 21: { // Y
-        if (!_alt && !_ctrlKey && !_shift && !dialog) then {
-            [] spawn life_fnc_openSmartphone;
         };
     };
 };
