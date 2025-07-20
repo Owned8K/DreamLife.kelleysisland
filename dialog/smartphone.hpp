@@ -12,18 +12,18 @@ class Life_Smartphone {
         class PhoneBackground: life_RscPicture {
             idc = -1;
             text = "textures\phone\phone.paa";
-            x = 0.386562 * safezoneW + safezoneX;
+            x = 0.3 * safezoneW + safezoneX;
             y = 0.159 * safezoneH + safezoneY;
-            w = 0.226875 * safezoneW;
+            w = 0.4 * safezoneW;
             h = 0.682 * safezoneH;
             colorText[] = {1,1,1,1};
         };
 
         class MainContent: Life_RscControlsGroup {
             idc = 88802;
-            x = 0.396562 * safezoneW + safezoneX;
+            x = 0.32 * safezoneW + safezoneX;
             y = 0.225 * safezoneH + safezoneY;
-            w = 0.206875 * safezoneW;
+            w = 0.36 * safezoneW;
             h = 0.55 * safezoneH;
             
             class Controls {
