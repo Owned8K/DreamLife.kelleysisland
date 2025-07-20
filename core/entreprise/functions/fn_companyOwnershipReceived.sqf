@@ -56,8 +56,7 @@ if !(_queryResult isEqualTo []) then {
     player setVariable ["company_action", _actionId];
     diag_log format ["[SUCCESS] Added menu action with ID: %1", _actionId];
     
-    hint parseText format ["<t color='#00FF00'>Entreprise trouvée :</t><br/><br/>%1", _queryResult select 1];
-} else {
+    } else {
     diag_log "[INFO] No company found for player";
     life_company_data = [];
     
