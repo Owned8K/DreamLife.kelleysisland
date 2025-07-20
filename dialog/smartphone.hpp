@@ -49,7 +49,7 @@ class Life_Smartphone {
         class MessageIcon: life_RscPicture {
             idc = 88805;
             text = "textures\phone\messages.paa";
-            x = (0.6 + 0.22) * safezoneW + safezoneX;
+            x = (0.6 + 0.24) * safezoneW + safezoneX;
             y = (0.418 + 0.42) * safezoneH + safezoneY;
             w = 0.035 * safezoneW;
             h = 0.035 * safezoneH;
@@ -59,7 +59,7 @@ class Life_Smartphone {
         class MessageButton: Life_RscButtonMenu {
             idc = 88806;
             style = 2;
-            x = (0.6 + 0.22) * safezoneW + safezoneX;
+            x = (0.6 + 0.24) * safezoneW + safezoneX;
             y = (0.418 + 0.42) * safezoneH + safezoneY;
             w = 0.035 * safezoneW;
             h = 0.035 * safezoneH;
