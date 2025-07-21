@@ -126,7 +126,7 @@ class Life_Smartphone {
             colorText[] = {0,0,0,0};
             colorDisabled[] = {0,0,0,0};
             colorBackgroundDisabled[] = {0,0,0,0};
-            onButtonClick = "ctrlShow [88808, false]; ctrlShow [88809, false]; ctrlShow [88810, false]; ctrlShow [88811, true]; ctrlShow [88812, true]; ctrlShow [88813, true]; _display = findDisplay 88800; _listBox = _display displayCtrl 88811; lbClear _listBox; _index = _listBox lbAdd 'MESSAGE DE JOHN DOE'; _listBox lbSetTextRight [_index, '10:30']; _index = _listBox lbAdd 'MESSAGE DE JANE SMITH'; _listBox lbSetTextRight [_index, '11:15']; _index = _listBox lbAdd 'MESSAGE DE BOB WILSON'; _listBox lbSetTextRight [_index, '12:45']; _index = _listBox lbAdd 'MESSAGE DU MAIRE'; _listBox lbSetTextRight [_index, '14:20'];";
+            onButtonClick = "ctrlShow [88808, false]; ctrlShow [88809, false]; ctrlShow [88810, false]; ctrlShow [88811, true]; ctrlShow [88812, true]; ctrlShow [88813, true]; _display = findDisplay 88800; _listBox = _display displayCtrl 88811; lbClear _listBox;";
             tooltip = "Nouveau message";
             show = 0;
         };
