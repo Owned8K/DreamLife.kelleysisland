@@ -69,7 +69,7 @@ class Life_Smartphone {
             colorText[] = {0,0,0,0};
             colorDisabled[] = {0,0,0,0};
             colorBackgroundDisabled[] = {0,0,0,0};
-            onButtonClick = "ctrlShow [88803, false]; ctrlShow [88804, false]; ctrlShow [88805, false]; ctrlShow [88806, false]; ctrlShow [88807, true]; ctrlShow [88808, true]; ctrlShow [88809, true]; ctrlShow [88810, true]; _display = findDisplay 88800; _listBox = _display displayCtrl 88808; lbClear _listBox; _index = _listBox lbAdd 'MESSAGE DE JOHN DOE'; _listBox lbSetTextRight [_index, '10:30']; _index = _listBox lbAdd 'MESSAGE DE JANE SMITH'; _listBox lbSetTextRight [_index, '11:15']; _index = _listBox lbAdd 'MESSAGE DE BOB WILSON'; _listBox lbSetTextRight [_index, '12:45']; _index = _listBox lbAdd 'MESSAGE DU MAIRE'; _listBox lbSetTextRight [_index, '14:20'];";
+            onButtonClick = "ctrlShow [88803, false]; ctrlShow [88804, false]; ctrlShow [88805, false]; ctrlShow [88806, false]; ctrlShow [88807, true]; ctrlShow [88808, true]; ctrlShow [88809, true]; ctrlShow [88810, true]; ctrlShow [88814, true]; ctrlShow [88815, true]; _display = findDisplay 88800; _listBox = _display displayCtrl 88808; lbClear _listBox; _index = _listBox lbAdd 'MESSAGE DE JOHN DOE'; _listBox lbSetTextRight [_index, '10:30']; _index = _listBox lbAdd 'MESSAGE DE JANE SMITH'; _listBox lbSetTextRight [_index, '11:15']; _index = _listBox lbAdd 'MESSAGE DE BOB WILSON'; _listBox lbSetTextRight [_index, '12:45']; _index = _listBox lbAdd 'MESSAGE DU MAIRE'; _listBox lbSetTextRight [_index, '14:20'];";
             tooltip = "Messages";
         };
 
@@ -83,12 +83,42 @@ class Life_Smartphone {
             show = 0;
         };
 
+        class MessagesTitle: Life_RscText {
+            idc = 88814;
+            text = "Messages";
+            x = (0.6 + 0.19) * safezoneW + safezoneX;
+            y = (0.418 + 0.13) * safezoneH + safezoneY;
+            w = 0.12 * safezoneW;
+            h = 0.025 * safezoneH;
+            colorText[] = {1,1,1,1};
+            colorBackground[] = {0,0,0,0};
+            font = "RobotoCondensedBold";
+            sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+            show = 0;
+        };
+
+        class BackButton: Life_RscButtonMenu {
+            idc = 88815;
+            x = (0.6 + 0.175) * safezoneW + safezoneX;
+            y = (0.418 + 0.13) * safezoneH + safezoneY;
+            w = 0.02 * safezoneW;
+            h = 0.025 * safezoneH;
+            colorBackground[] = {0,0,0,0};
+            colorBackgroundFocused[] = {0,0,0,0};
+            colorBackground2[] = {0,0,0,0};
+            colorFocused[] = {0,0,0,0};
+            colorText[] = {1,1,1,1};
+            text = "<";
+            onButtonClick = "ctrlShow [88807, false]; ctrlShow [88808, false]; ctrlShow [88809, false]; ctrlShow [88810, false]; ctrlShow [88811, false]; ctrlShow [88812, false]; ctrlShow [88813, false]; ctrlShow [88814, false]; ctrlShow [88815, false]; ctrlShow [88803, true]; ctrlShow [88804, true]; ctrlShow [88805, true]; ctrlShow [88806, true];";
+            show = 0;
+        };
+
         class MessagesList: Life_RscListBox {
             idc = 88808;
             x = (0.6 + 0.175) * safezoneW + safezoneX;
-            y = (0.418 + 0.13) * safezoneH + safezoneY;
+            y = (0.418 + 0.16) * safezoneH + safezoneY;
             w = 0.15 * safezoneW;
-            h = 0.33 * safezoneH;
+            h = 0.30 * safezoneH;
             colorBackground[] = {0,0,0,0};
             colorSelectBackground[] = {0,0,0,0.5};
             colorSelectBackground2[] = {0,0,0,0.5};
@@ -126,7 +156,7 @@ class Life_Smartphone {
             colorText[] = {0,0,0,0};
             colorDisabled[] = {0,0,0,0};
             colorBackgroundDisabled[] = {0,0,0,0};
-            onButtonClick = "ctrlShow [88808, false]; ctrlShow [88809, false]; ctrlShow [88810, false]; ctrlShow [88811, true]; ctrlShow [88812, true]; ctrlShow [88813, true]; _display = findDisplay 88800; _listBox = _display displayCtrl 88811; lbClear _listBox;";
+            onButtonClick = "ctrlShow [88808, false]; ctrlShow [88809, false]; ctrlShow [88810, false]; ctrlShow [88811, true]; ctrlShow [88812, true]; ctrlShow [88813, true]; ctrlShow [88814, true]; ctrlShow [88815, true]; ctrlShow [88816, true]; _display = findDisplay 88800; _listBox = _display displayCtrl 88811; lbClear _listBox; _title = _display displayCtrl 88814; _title ctrlSetText 'Nouveau message';";
             tooltip = "Nouveau message";
             show = 0;
         };
@@ -164,17 +194,28 @@ class Life_Smartphone {
             show = 0;
         };
 
+        class SendIcon: life_RscPicture {
+            idc = 88816;
+            text = "textures\phone\send.paa";
+            x = (0.6 + 0.29) * safezoneW + safezoneX;
+            y = (0.418 + 0.39) * safezoneH + safezoneY;
+            w = 0.03 * safezoneW;
+            h = 0.03 * safezoneH;
+            colorText[] = {1,1,1,1};
+            show = 0;
+        };
+
         class SendButton: Life_RscButtonMenu {
             idc = 88813;
             x = (0.6 + 0.29) * safezoneW + safezoneX;
             y = (0.418 + 0.39) * safezoneH + safezoneY;
-            w = 0.035 * safezoneW;
-            h = 0.04 * safezoneH;
-            colorBackground[] = {0,0,0,0.5};
-            colorBackgroundFocused[] = {0,0,0,0.7};
-            colorBackground2[] = {0,0,0,0.7};
-            colorText[] = {1,1,1,1};
-            text = "Envoyer";
+            w = 0.03 * safezoneW;
+            h = 0.03 * safezoneH;
+            colorBackground[] = {0,0,0,0};
+            colorBackgroundFocused[] = {0,0,0,0};
+            colorBackground2[] = {0,0,0,0};
+            colorFocused[] = {0,0,0,0};
+            colorText[] = {0,0,0,0};
             onButtonClick = "hint 'Message envoyé'";
             show = 0;
         };
