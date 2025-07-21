@@ -108,8 +108,12 @@ class Life_Smartphone {
             colorBackground2[] = {0,0,0,0};
             colorFocused[] = {0,0,0,0};
             colorText[] = {1,1,1,1};
+            colorDisabled[] = {0,0,0,0};
+            colorBackgroundDisabled[] = {0,0,0,0};
             text = "<";
-            onButtonClick = "ctrlShow [88807, false]; ctrlShow [88808, false]; ctrlShow [88809, false]; ctrlShow [88810, false]; ctrlShow [88811, false]; ctrlShow [88812, false]; ctrlShow [88813, false]; ctrlShow [88814, false]; ctrlShow [88815, false]; ctrlShow [88803, true]; ctrlShow [88804, true]; ctrlShow [88805, true]; ctrlShow [88806, true];";
+            sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1.2)";
+            font = "RobotoCondensedBold";
+            onButtonClick = "ctrlShow [88807, false]; ctrlShow [88808, false]; ctrlShow [88809, false]; ctrlShow [88810, false]; ctrlShow [88811, false]; ctrlShow [88812, false]; ctrlShow [88813, false]; ctrlShow [88814, false]; ctrlShow [88815, false]; ctrlShow [88816, false]; ctrlShow [88803, true]; ctrlShow [88804, true]; ctrlShow [88805, true]; ctrlShow [88806, true];";
             show = 0;
         };
 
@@ -186,20 +190,21 @@ class Life_Smartphone {
             idc = 88812;
             x = (0.6 + 0.175) * safezoneW + safezoneX;
             y = (0.418 + 0.39) * safezoneH + safezoneY;
-            w = 0.11 * safezoneW;
-            h = 0.04 * safezoneH;
+            w = 0.09 * safezoneW;
+            h = 0.03 * safezoneH;
             colorBackground[] = {0,0,0,0.5};
             colorText[] = {1,1,1,1};
             text = "";
+            sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.7)";
             show = 0;
         };
 
         class SendIcon: life_RscPicture {
             idc = 88816;
             text = "textures\phone\send.paa";
-            x = (0.6 + 0.29) * safezoneW + safezoneX;
+            x = (0.6 + 0.27) * safezoneW + safezoneX;
             y = (0.418 + 0.39) * safezoneH + safezoneY;
-            w = 0.03 * safezoneW;
+            w = 0.025 * safezoneW;
             h = 0.03 * safezoneH;
             colorText[] = {1,1,1,1};
             show = 0;
@@ -207,9 +212,9 @@ class Life_Smartphone {
 
         class SendButton: Life_RscButtonMenu {
             idc = 88813;
-            x = (0.6 + 0.29) * safezoneW + safezoneX;
+            x = (0.6 + 0.27) * safezoneW + safezoneX;
             y = (0.418 + 0.39) * safezoneH + safezoneY;
-            w = 0.03 * safezoneW;
+            w = 0.025 * safezoneW;
             h = 0.03 * safezoneH;
             colorBackground[] = {0,0,0,0};
             colorBackgroundFocused[] = {0,0,0,0};
