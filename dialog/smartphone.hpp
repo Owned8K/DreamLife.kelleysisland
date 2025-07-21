@@ -73,6 +73,33 @@ class Life_Smartphone {
             tooltip = "Messages";
         };
 
+        class ContactIcon: life_RscPicture {
+            idc = 88818;
+            text = "textures\phone\contact.paa";
+            x = (0.6 + 0.26) * safezoneW + safezoneX;
+            y = (0.418 + 0.42) * safezoneH + safezoneY;
+            w = 0.035 * safezoneW;
+            h = 0.035 * safezoneH;
+            colorText[] = {1,1,1,1};
+        };
+
+        class ContactButton: Life_RscButtonMenu {
+            idc = 88819;
+            x = (0.6 + 0.26) * safezoneW + safezoneX;
+            y = (0.418 + 0.42) * safezoneH + safezoneY;
+            w = 0.035 * safezoneW;
+            h = 0.035 * safezoneH;
+            colorBackground[] = {0,0,0,0};
+            colorBackgroundFocused[] = {0,0,0,0};
+            colorBackground2[] = {0,0,0,0};
+            colorFocused[] = {0,0,0,0};
+            colorText[] = {0,0,0,0};
+            colorDisabled[] = {0,0,0,0};
+            colorBackgroundDisabled[] = {0,0,0,0};
+            onButtonClick = "hint 'Nouveau contact'";
+            tooltip = "Contact";
+        };
+
         class MessagesFrame: Life_RscText {
             idc = 88807;
             x = (0.6 + 0.17) * safezoneW + safezoneX;
@@ -260,4 +287,4 @@ class Life_Smartphone {
             };
         };
     };
-}; 
+};
