@@ -86,7 +86,7 @@ class Life_Smartphone {
         class MessagesTitle: Life_RscText {
             idc = 88814;
             text = "Messages";
-            x = (0.6 + 0.19) * safezoneW + safezoneX;
+            x = (0.6 + 0.195) * safezoneW + safezoneX;
             y = (0.418 + 0.13) * safezoneH + safezoneY;
             w = 0.12 * safezoneW;
             h = 0.025 * safezoneH;
@@ -100,16 +100,18 @@ class Life_Smartphone {
         class BackButton: Life_RscButtonMenu {
             idc = 88815;
             x = (0.6 + 0.175) * safezoneW + safezoneX;
-            y = (0.418 + 0.13) * safezoneH + safezoneY;
+            y = (0.418 + 0.1275) * safezoneH + safezoneY;
             w = 0.02 * safezoneW;
-            h = 0.025 * safezoneH;
+            h = 0.03 * safezoneH;
             style = 2;
             colorBackground[] = {0,0,0,0};
             colorBackgroundFocused[] = {0,0,0,0};
             colorBackground2[] = {0,0,0,0};
             colorFocused[] = {0,0,0,0};
             colorText[] = {1,1,1,1};
-            colorDisabled[] = {0,0,0,0};
+            color[] = {1,1,1,1};
+            colorActive[] = {1,1,1,1};
+            colorDisabled[] = {1,1,1,1};
             colorBackgroundDisabled[] = {0,0,0,0};
             text = "←";
             sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1.5)";
