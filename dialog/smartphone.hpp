@@ -76,10 +76,10 @@ class Life_Smartphone {
         // Cadre des messages (initialement caché)
         class MessagesFrame: Life_RscText {
             idc = 88807;
-            x = 0.62 * safezoneW + safezoneX;
-            y = 0.464 * safezoneH + safezoneY;
-            w = 0.46 * safezoneW;
-            h = 0.4 * safezoneH;
+            x = (0.6 + 0.15) * safezoneW + safezoneX;
+            y = (0.418 + 0.15) * safezoneH + safezoneY;
+            w = 0.2 * safezoneW;
+            h = 0.25 * safezoneH;
             colorBackground[] = {0,0,0,0.8};
             show = 0;
         };
@@ -87,11 +87,11 @@ class Life_Smartphone {
         // Exemple de boutons de messages (initialement cachés)
         class MessageItem1: Life_RscButtonMenu {
             idc = 88808;
-            text = "Message de John Doe";
-            x = 0.63 * safezoneW + safezoneX;
-            y = 0.48 * safezoneH + safezoneY;
-            w = 0.44 * safezoneW;
-            h = 0.04 * safezoneH;
+            text = "MESSAGE DE JOHN DOE";
+            x = (0.6 + 0.155) * safezoneW + safezoneX;
+            y = (0.418 + 0.16) * safezoneH + safezoneY;
+            w = 0.19 * safezoneW;
+            h = 0.03 * safezoneH;
             colorBackground[] = {0,0,0,0.5};
             colorBackgroundFocused[] = {0,0,0,0.7};
             colorText[] = {1,1,1,1};
@@ -100,11 +100,11 @@ class Life_Smartphone {
 
         class MessageItem2: Life_RscButtonMenu {
             idc = 88809;
-            text = "Message de Jane Smith";
-            x = 0.63 * safezoneW + safezoneX;
-            y = (0.48 + 0.05) * safezoneH + safezoneY;
-            w = 0.44 * safezoneW;
-            h = 0.04 * safezoneH;
+            text = "MESSAGE DE JANE SMITH";
+            x = (0.6 + 0.155) * safezoneW + safezoneX;
+            y = (0.418 + 0.20) * safezoneH + safezoneY;
+            w = 0.19 * safezoneW;
+            h = 0.03 * safezoneH;
             colorBackground[] = {0,0,0,0.5};
             colorBackgroundFocused[] = {0,0,0,0.7};
             colorText[] = {1,1,1,1};
@@ -113,11 +113,11 @@ class Life_Smartphone {
 
         class MessageItem3: Life_RscButtonMenu {
             idc = 88810;
-            text = "Message de Bob Wilson";
-            x = 0.63 * safezoneW + safezoneX;
-            y = (0.48 + 0.10) * safezoneH + safezoneY;
-            w = 0.44 * safezoneW;
-            h = 0.04 * safezoneH;
+            text = "MESSAGE DE BOB WILSON";
+            x = (0.6 + 0.155) * safezoneW + safezoneX;
+            y = (0.418 + 0.24) * safezoneH + safezoneY;
+            w = 0.19 * safezoneW;
+            h = 0.03 * safezoneH;
             colorBackground[] = {0,0,0,0.5};
             colorBackgroundFocused[] = {0,0,0,0.7};
             colorText[] = {1,1,1,1};
