@@ -75,6 +75,35 @@ class Life_Smartphone {
             show = 0;
         };
 
+        class PlusIcon: life_RscPicture {
+            idc = 88809;
+            text = "textures\phone\plus.paa";
+            x = (0.6 + 0.28) * safezoneW + safezoneX;
+            y = (0.418 + 0.41) * safezoneH + safezoneY;
+            w = 0.035 * safezoneW;
+            h = 0.035 * safezoneH;
+            colorText[] = {1,1,1,1};
+            show = 0;
+        };
+
+        class PlusButton: Life_RscButtonMenu {
+            idc = 88810;
+            x = (0.6 + 0.28) * safezoneW + safezoneX;
+            y = (0.418 + 0.41) * safezoneH + safezoneY;
+            w = 0.035 * safezoneW;
+            h = 0.035 * safezoneH;
+            colorBackground[] = {0,0,0,0};
+            colorBackgroundFocused[] = {0,0,0,0};
+            colorBackground2[] = {0,0,0,0};
+            colorFocused[] = {0,0,0,0};
+            colorText[] = {0,0,0,0};
+            colorDisabled[] = {0,0,0,0};
+            colorBackgroundDisabled[] = {0,0,0,0};
+            onButtonClick = "hint 'Nouveau message'";
+            tooltip = "Nouveau message";
+            show = 0;
+        };
+
         class MessageButton: Life_RscButtonMenu {
             idc = 88806;
             x = (0.6 + 0.24) * safezoneW + safezoneX;
@@ -88,7 +117,7 @@ class Life_Smartphone {
             colorText[] = {0,0,0,0};
             colorDisabled[] = {0,0,0,0};
             colorBackgroundDisabled[] = {0,0,0,0};
-            onButtonClick = "ctrlShow [88803, false]; ctrlShow [88804, false]; ctrlShow [88805, false]; ctrlShow [88806, false]; ctrlShow [88807, true]; ctrlShow [88808, true]; _display = findDisplay 88800; _listBox = _display displayCtrl 88808; lbClear _listBox; _index = _listBox lbAdd 'MESSAGE DE JOHN DOE'; _listBox lbSetTextRight [_index, '10:30']; _index = _listBox lbAdd 'MESSAGE DE JANE SMITH'; _listBox lbSetTextRight [_index, '11:15']; _index = _listBox lbAdd 'MESSAGE DE BOB WILSON'; _listBox lbSetTextRight [_index, '12:45']; _index = _listBox lbAdd 'MESSAGE DU MAIRE'; _listBox lbSetTextRight [_index, '14:20'];";
+            onButtonClick = "ctrlShow [88803, false]; ctrlShow [88804, false]; ctrlShow [88805, false]; ctrlShow [88806, false]; ctrlShow [88807, true]; ctrlShow [88808, true]; ctrlShow [88809, true]; ctrlShow [88810, true]; _display = findDisplay 88800; _listBox = _display displayCtrl 88808; lbClear _listBox; _index = _listBox lbAdd 'MESSAGE DE JOHN DOE'; _listBox lbSetTextRight [_index, '10:30']; _index = _listBox lbAdd 'MESSAGE DE JANE SMITH'; _listBox lbSetTextRight [_index, '11:15']; _index = _listBox lbAdd 'MESSAGE DE BOB WILSON'; _listBox lbSetTextRight [_index, '12:45']; _index = _listBox lbAdd 'MESSAGE DU MAIRE'; _listBox lbSetTextRight [_index, '14:20'];";
             tooltip = "Messages";
         };
 
