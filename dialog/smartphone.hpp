@@ -96,7 +96,7 @@ class Life_Smartphone {
             colorText[] = {0,0,0,0};
             colorDisabled[] = {0,0,0,0};
             colorBackgroundDisabled[] = {0,0,0,0};
-            onButtonClick = "hint 'Nouveau contact'";
+            onButtonClick = "ctrlShow [88803, false]; ctrlShow [88804, false]; ctrlShow [88805, false]; ctrlShow [88806, false]; ctrlShow [88818, false]; ctrlShow [88819, false]; ctrlShow [88820, true]; ctrlShow [88821, true]; ctrlShow [88822, true]; _display = findDisplay 88800; _listBox = _display displayCtrl 88821; lbClear _listBox; { _index = _listBox lbAdd _x; } forEach (sort contacts_player);";
             tooltip = "Contact";
         };
 
