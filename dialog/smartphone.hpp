@@ -69,7 +69,7 @@ class Life_Smartphone {
             colorText[] = {0,0,0,0};
             colorDisabled[] = {0,0,0,0};
             colorBackgroundDisabled[] = {0,0,0,0};
-            onButtonClick = "ctrlShow [88803, false]; ctrlShow [88804, false]; ctrlShow [88805, false]; ctrlShow [88806, false]; ctrlShow [88807, true]; ctrlShow [88808, true];";
+            onButtonClick = "ctrlShow [88803, false]; ctrlShow [88804, false]; ctrlShow [88805, false]; ctrlShow [88806, false]; ctrlShow [88807, true]; ctrlShow [88808, true]; _display = findDisplay 88800; _listBox = _display displayCtrl 88808; lbClear _listBox; _listBox lbAdd 'MESSAGE DE JOHN DOE'; _listBox lbAdd 'MESSAGE DE JANE SMITH'; _listBox lbAdd 'MESSAGE DE BOB WILSON'; _listBox lbAdd 'MESSAGE DU MAIRE'; _listBox lbAdd 'MESSAGE DE LA POLICE'; _listBox lbAdd 'MESSAGE DU GARAGE'; _listBox lbAdd 'MESSAGE DE L''HOPITAL';";
             tooltip = "Messages";
         };
 
