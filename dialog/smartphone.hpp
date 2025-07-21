@@ -79,7 +79,7 @@ class Life_Smartphone {
             x = (0.6 + 0.17) * safezoneW + safezoneX;
             y = (0.418 + 0.05) * safezoneH + safezoneY;
             w = 0.16 * safezoneW;
-            h = 0.45 * safezoneH;
+            h = 0.35 * safezoneH;
             colorBackground[] = {0,0,0,0.8};
             show = 0;
         };
@@ -91,7 +91,7 @@ class Life_Smartphone {
             x = (0.6 + 0.175) * safezoneW + safezoneX;
             y = (0.418 + 0.06) * safezoneH + safezoneY;
             w = 0.15 * safezoneW;
-            h = 0.04 * safezoneH;
+            h = 0.035 * safezoneH;
             colorBackground[] = {0,0,0,0.5};
             colorBackgroundFocused[] = {0,0,0,0.7};
             colorText[] = {1,1,1,1};
@@ -100,11 +100,11 @@ class Life_Smartphone {
 
         class MessageItem2: Life_RscButtonMenu {
             idc = 88809;
-            text = "MESSAGE DE JANE SMITH";
+            text = "MESSAGE DE JANE";
             x = (0.6 + 0.175) * safezoneW + safezoneX;
-            y = (0.418 + 0.11) * safezoneH + safezoneY;
+            y = (0.418 + 0.10) * safezoneH + safezoneY;
             w = 0.15 * safezoneW;
-            h = 0.04 * safezoneH;
+            h = 0.035 * safezoneH;
             colorBackground[] = {0,0,0,0.5};
             colorBackgroundFocused[] = {0,0,0,0.7};
             colorText[] = {1,1,1,1};
@@ -113,11 +113,11 @@ class Life_Smartphone {
 
         class MessageItem3: Life_RscButtonMenu {
             idc = 88810;
-            text = "MESSAGE DE BOB WILSON";
+            text = "MESSAGE DE BOB";
             x = (0.6 + 0.175) * safezoneW + safezoneX;
-            y = (0.418 + 0.16) * safezoneH + safezoneY;
+            y = (0.418 + 0.14) * safezoneH + safezoneY;
             w = 0.15 * safezoneW;
-            h = 0.04 * safezoneH;
+            h = 0.035 * safezoneH;
             colorBackground[] = {0,0,0,0.5};
             colorBackgroundFocused[] = {0,0,0,0.7};
             colorText[] = {1,1,1,1};
