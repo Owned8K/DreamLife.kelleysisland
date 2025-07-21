@@ -69,7 +69,7 @@ class Life_Smartphone {
             colorText[] = {0,0,0,0};
             colorDisabled[] = {0,0,0,0};
             colorBackgroundDisabled[] = {0,0,0,0};
-            onButtonClick = "ctrlShow [88803, false]; ctrlShow [88804, false]; ctrlShow [88805, false]; ctrlShow [88806, false]; ctrlShow [88807, true]; ctrlShow [88808, true]; _display = findDisplay 88800; _listBox = _display displayCtrl 88808; lbClear _listBox; _listBox lbAdd 'MESSAGE DE JOHN DOE'; _listBox lbAdd 'MESSAGE DE JANE SMITH'; _listBox lbAdd 'MESSAGE DE BOB WILSON'; _listBox lbAdd 'MESSAGE DU MAIRE'; _listBox lbAdd 'MESSAGE DE LA POLICE'; _listBox lbAdd 'MESSAGE DU GARAGE'; _listBox lbAdd 'MESSAGE DE L''HOPITAL';";
+            onButtonClick = "ctrlShow [88803, false]; ctrlShow [88804, false]; ctrlShow [88805, false]; ctrlShow [88806, false]; ctrlShow [88807, true]; ctrlShow [88808, true]; _display = findDisplay 88800; _listBox = _display displayCtrl 88808; lbClear _listBox; _listBox lbAdd format['MESSAGE DE JOHN DOE\n%1', 'Salut, j''ai une mission pour toi...']; _listBox lbAdd format['MESSAGE DE JANE SMITH\n%1', 'As-tu les documents demandés ?']; _listBox lbAdd format['MESSAGE DE BOB WILSON\n%1', 'RDV au garage dans 10min']; _listBox lbAdd format['MESSAGE DU MAIRE\n%1', 'Réunion importante à la mairie...']; _listBox lbAdd format['MESSAGE DE LA POLICE\n%1', 'Votre véhicule a été mis en fourrière']; _listBox lbAdd format['MESSAGE DU GARAGE\n%1', 'Votre véhicule est prêt !']; _listBox lbAdd format['MESSAGE DE L''HOPITAL\n%1', 'Rappel: Visite médicale demain'];";
             tooltip = "Messages";
         };
 
@@ -97,6 +97,8 @@ class Life_Smartphone {
             colorSelect[] = {1,1,1,1};
             colorSelect2[] = {1,1,1,1};
             colorScrollbar[] = {0.95,0.95,0.95,1};
+            sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
+            rowHeight = 0.07;
             show = 0;
         };
 
