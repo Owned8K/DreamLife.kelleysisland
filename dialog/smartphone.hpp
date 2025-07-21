@@ -77,7 +77,7 @@ class Life_Smartphone {
         class MessagesFrame: Life_RscText {
             idc = 88807;
             x = (0.6 + 0.17) * safezoneW + safezoneX;
-            y = (0.418 + 0.05) * safezoneH + safezoneY;
+            y = (0.418 + 0.12) * safezoneH + safezoneY;
             w = 0.16 * safezoneW;
             h = 0.35 * safezoneH;
             colorBackground[] = {0,0,0,0.8};
@@ -89,7 +89,7 @@ class Life_Smartphone {
             idc = 88808;
             text = "MESSAGE DE JOHN DOE";
             x = (0.6 + 0.175) * safezoneW + safezoneX;
-            y = (0.418 + 0.06) * safezoneH + safezoneY;
+            y = (0.418 + 0.13) * safezoneH + safezoneY;
             w = 0.15 * safezoneW;
             h = 0.035 * safezoneH;
             colorBackground[] = {0,0,0,0.5};
@@ -102,7 +102,7 @@ class Life_Smartphone {
             idc = 88809;
             text = "MESSAGE DE JANE";
             x = (0.6 + 0.175) * safezoneW + safezoneX;
-            y = (0.418 + 0.10) * safezoneH + safezoneY;
+            y = (0.418 + 0.17) * safezoneH + safezoneY;
             w = 0.15 * safezoneW;
             h = 0.035 * safezoneH;
             colorBackground[] = {0,0,0,0.5};
@@ -115,7 +115,7 @@ class Life_Smartphone {
             idc = 88810;
             text = "MESSAGE DE BOB";
             x = (0.6 + 0.175) * safezoneW + safezoneX;
-            y = (0.418 + 0.14) * safezoneH + safezoneY;
+            y = (0.418 + 0.21) * safezoneH + safezoneY;
             w = 0.15 * safezoneW;
             h = 0.035 * safezoneH;
             colorBackground[] = {0,0,0,0.5};
