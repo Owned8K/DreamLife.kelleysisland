@@ -56,22 +56,22 @@ class Life_Smartphone {
             colorText[] = {1,1,1,1};
         };
 
-        class MessagesList: Life_RscStructuredText {
+        class MessagesList: Life_RscListBox {
             idc = 88808;
             x = (0.6 + 0.175) * safezoneW + safezoneX;
             y = (0.418 + 0.13) * safezoneH + safezoneY;
             w = 0.15 * safezoneW;
             h = 0.33 * safezoneH;
             colorBackground[] = {0,0,0,0};
-            text = "";
-            size = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
-            class Attributes {
-                font = "RobotoCondensed";
-                color = "#ffffff";
-                colorLink = "#D09B43";
-                align = "left";
-                shadow = 1;
-            };
+            colorSelectBackground[] = {0,0,0,0.5};
+            colorSelectBackground2[] = {0,0,0,0.5};
+            colorText[] = {1,1,1,1};
+            colorSelect[] = {1,1,1,1};
+            colorSelect2[] = {1,1,1,1};
+            colorScrollbar[] = {0.95,0.95,0.95,1};
+            sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.7)";
+            rowHeight = 0.06;
+            style = 16;
             show = 0;
         };
 
@@ -88,7 +88,7 @@ class Life_Smartphone {
             colorText[] = {0,0,0,0};
             colorDisabled[] = {0,0,0,0};
             colorBackgroundDisabled[] = {0,0,0,0};
-            onButtonClick = "ctrlShow [88803, false]; ctrlShow [88804, false]; ctrlShow [88805, false]; ctrlShow [88806, false]; ctrlShow [88807, true]; ctrlShow [88808, true]; _display = findDisplay 88800; _text = _display displayCtrl 88808; _text ctrlSetStructuredText parseText format['<t size=''1.2''>MESSAGE DE JOHN DOE</t><br/><t size=''0.8'' color=''#a9a9a9''>Salut, j''ai une mission pour toi...</t><br/><br/><t size=''1.2''>MESSAGE DE JANE SMITH</t><br/><t size=''0.8'' color=''#a9a9a9''>As-tu les documents demandés ?</t><br/><br/><t size=''1.2''>MESSAGE DE BOB WILSON</t><br/><t size=''0.8'' color=''#a9a9a9''>RDV au garage dans 10min</t><br/><br/><t size=''1.2''>MESSAGE DU MAIRE</t><br/><t size=''0.8'' color=''#a9a9a9''>Réunion importante à la mairie...</t>'];";
+            onButtonClick = "ctrlShow [88803, false]; ctrlShow [88804, false]; ctrlShow [88805, false]; ctrlShow [88806, false]; ctrlShow [88807, true]; ctrlShow [88808, true]; _display = findDisplay 88800; _listBox = _display displayCtrl 88808; lbClear _listBox; _index = _listBox lbAdd 'MESSAGE DE JOHN DOE'; _listBox lbSetColor [_index, [1,1,1,1]]; _index = _listBox lbAdd '   Salut, j''ai une mission pour toi...'; _listBox lbSetColor [_index, [0.7,0.7,0.7,1]]; _index = _listBox lbAdd ''; _index = _listBox lbAdd 'MESSAGE DE JANE SMITH'; _listBox lbSetColor [_index, [1,1,1,1]]; _index = _listBox lbAdd '   As-tu les documents demandés ?'; _listBox lbSetColor [_index, [0.7,0.7,0.7,1]]; _index = _listBox lbAdd ''; _index = _listBox lbAdd 'MESSAGE DE BOB WILSON'; _listBox lbSetColor [_index, [1,1,1,1]]; _index = _listBox lbAdd '   RDV au garage dans 10min'; _listBox lbSetColor [_index, [0.7,0.7,0.7,1]]; _index = _listBox lbAdd ''; _index = _listBox lbAdd 'MESSAGE DU MAIRE'; _listBox lbSetColor [_index, [1,1,1,1]]; _index = _listBox lbAdd '   Réunion importante à la mairie...'; _listBox lbSetColor [_index, [0.7,0.7,0.7,1]];";
             tooltip = "Messages";
         };
 
