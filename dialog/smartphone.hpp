@@ -56,6 +56,25 @@ class Life_Smartphone {
             colorText[] = {1,1,1,1};
         };
 
+        class MessagesList: Life_RscStructuredText {
+            idc = 88808;
+            x = (0.6 + 0.175) * safezoneW + safezoneX;
+            y = (0.418 + 0.13) * safezoneH + safezoneY;
+            w = 0.15 * safezoneW;
+            h = 0.33 * safezoneH;
+            colorBackground[] = {0,0,0,0};
+            text = "";
+            size = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
+            class Attributes {
+                font = "RobotoCondensed";
+                color = "#ffffff";
+                colorLink = "#D09B43";
+                align = "left";
+                shadow = 1;
+            };
+            show = 0;
+        };
+
         class MessageButton: Life_RscButtonMenu {
             idc = 88806;
             x = (0.6 + 0.24) * safezoneW + safezoneX;
@@ -69,7 +88,7 @@ class Life_Smartphone {
             colorText[] = {0,0,0,0};
             colorDisabled[] = {0,0,0,0};
             colorBackgroundDisabled[] = {0,0,0,0};
-            onButtonClick = "ctrlShow [88803, false]; ctrlShow [88804, false]; ctrlShow [88805, false]; ctrlShow [88806, false]; ctrlShow [88807, true]; ctrlShow [88808, true]; _display = findDisplay 88800; _listBox = _display displayCtrl 88808; lbClear _listBox; _index = _listBox lbAdd 'MESSAGE DE JOHN DOE'; _listBox lbSetTextRight [_index, 'Mission']; _index = _listBox lbAdd 'MESSAGE DE JANE SMITH'; _listBox lbSetTextRight [_index, 'Documents']; _index = _listBox lbAdd 'MESSAGE DE BOB WILSON'; _listBox lbSetTextRight [_index, 'RDV']; _index = _listBox lbAdd 'MESSAGE DU MAIRE'; _listBox lbSetTextRight [_index, 'Réunion']; _index = _listBox lbAdd 'MESSAGE DE LA POLICE'; _listBox lbSetTextRight [_index, 'Fourrière']; _index = _listBox lbAdd 'MESSAGE DU GARAGE'; _listBox lbSetTextRight [_index, 'Réparation']; _index = _listBox lbAdd 'MESSAGE DE L''HOPITAL'; _listBox lbSetTextRight [_index, 'Visite'];";
+            onButtonClick = "ctrlShow [88803, false]; ctrlShow [88804, false]; ctrlShow [88805, false]; ctrlShow [88806, false]; ctrlShow [88807, true]; ctrlShow [88808, true]; _display = findDisplay 88800; _text = _display displayCtrl 88808; _text ctrlSetStructuredText parseText format['<t size=''1.2''>MESSAGE DE JOHN DOE</t><br/><t size=''0.8'' color=''#a9a9a9''>Salut, j''ai une mission pour toi...</t><br/><br/><t size=''1.2''>MESSAGE DE JANE SMITH</t><br/><t size=''0.8'' color=''#a9a9a9''>As-tu les documents demandés ?</t><br/><br/><t size=''1.2''>MESSAGE DE BOB WILSON</t><br/><t size=''0.8'' color=''#a9a9a9''>RDV au garage dans 10min</t><br/><br/><t size=''1.2''>MESSAGE DU MAIRE</t><br/><t size=''0.8'' color=''#a9a9a9''>Réunion importante à la mairie...</t>'];";
             tooltip = "Messages";
         };
 
@@ -81,25 +100,6 @@ class Life_Smartphone {
             w = 0.16 * safezoneW;
             h = 0.35 * safezoneH;
             colorBackground[] = {0,0,0,0.8};
-            show = 0;
-        };
-
-        class MessagesList: Life_RscListBox {
-            idc = 88808;
-            x = (0.6 + 0.175) * safezoneW + safezoneX;
-            y = (0.418 + 0.13) * safezoneH + safezoneY;
-            w = 0.15 * safezoneW;
-            h = 0.33 * safezoneH;
-            colorBackground[] = {0,0,0,0};
-            colorSelectBackground[] = {0,0,0,0.5};
-            colorSelectBackground2[] = {0,0,0,0.5};
-            colorText[] = {1,1,1,1};
-            colorSelect[] = {1,1,1,1};
-            colorSelect2[] = {1,1,1,1};
-            colorScrollbar[] = {0.95,0.95,0.95,1};
-            style = 16 + 0x200; // ST_MULTI + LB_TEXTURES
-            sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
-            rowHeight = 0.04;
             show = 0;
         };
 
