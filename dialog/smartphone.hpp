@@ -70,8 +70,8 @@ class Life_Smartphone {
             colorSelect2[] = {1,1,1,1};
             colorScrollbar[] = {0.95,0.95,0.95,1};
             sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.7)";
-            rowHeight = 0.04;
-            style = 16;
+            rowHeight = 0.08;
+            style = 16 + 0x10;
             show = 0;
         };
 
@@ -88,7 +88,7 @@ class Life_Smartphone {
             colorText[] = {0,0,0,0};
             colorDisabled[] = {0,0,0,0};
             colorBackgroundDisabled[] = {0,0,0,0};
-            onButtonClick = "ctrlShow [88803, false]; ctrlShow [88804, false]; ctrlShow [88805, false]; ctrlShow [88806, false]; ctrlShow [88807, true]; ctrlShow [88808, true]; _display = findDisplay 88800; _listBox = _display displayCtrl 88808; lbClear _listBox; _listBox lbAdd 'MESSAGE DE JOHN DOE'; _listBox lbAdd '   Salut, j''ai une mission pour toi...'; _listBox lbSetData [(lbSize _listBox)-1, 'msg_1']; _listBox lbSetData [(lbSize _listBox)-2, 'msg_1']; _listBox lbAdd 'MESSAGE DE JANE SMITH'; _listBox lbAdd '   As-tu les documents demandés ?'; _listBox lbSetData [(lbSize _listBox)-1, 'msg_2']; _listBox lbSetData [(lbSize _listBox)-2, 'msg_2']; _listBox lbAdd 'MESSAGE DE BOB WILSON'; _listBox lbAdd '   RDV au garage dans 10min'; _listBox lbSetData [(lbSize _listBox)-1, 'msg_3']; _listBox lbSetData [(lbSize _listBox)-2, 'msg_3']; _listBox lbAdd 'MESSAGE DU MAIRE'; _listBox lbAdd '   Réunion importante à la mairie...'; _listBox lbSetData [(lbSize _listBox)-1, 'msg_4']; _listBox lbSetData [(lbSize _listBox)-2, 'msg_4'];";
+            onButtonClick = "ctrlShow [88803, false]; ctrlShow [88804, false]; ctrlShow [88805, false]; ctrlShow [88806, false]; ctrlShow [88807, true]; ctrlShow [88808, true]; _display = findDisplay 88800; _listBox = _display displayCtrl 88808; lbClear _listBox; _listBox lbAdd 'MESSAGE DE JOHN DOE<br/>   Salut, j''ai une mission pour toi...'; _listBox lbAdd 'MESSAGE DE JANE SMITH<br/>   As-tu les documents demandés ?'; _listBox lbAdd 'MESSAGE DE BOB WILSON<br/>   RDV au garage dans 10min'; _listBox lbAdd 'MESSAGE DU MAIRE<br/>   Réunion importante à la mairie...';";
             tooltip = "Messages";
         };
 
