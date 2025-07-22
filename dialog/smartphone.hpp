@@ -411,6 +411,23 @@ class Life_Smartphone {
             show = 0;
         };
 
+        class AddContactButton: Life_RscButtonMenu {
+            idc = 88822;
+            x = (0.6 + 0.29) * safezoneW + safezoneX;
+            y = (0.418 + 0.44) * safezoneH + safezoneY;
+            w = 0.04 * safezoneW;
+            h = 0.04 * safezoneH;
+            colorBackground[] = {0,0,0,0.7};
+            colorBackgroundFocused[] = {0,0,0,0.8};
+            colorBackground2[] = {0,0,0,0.7};
+            colorFocused[] = {0,0,0,0.8};
+            colorText[] = {1,1,1,1};
+            text = "+";
+            onButtonClick = "ctrlShow [88820, false]; ctrlShow [88821, false]; ctrlShow [88822, false]; ctrlShow [88823, false]; ctrlShow [88824, false]; ctrlShow [88825, true]; ctrlShow [88826, true]; ctrlShow [88827, true]; ctrlShow [88828, true]; ctrlShow [88829, true]; ctrlShow [88830, true]; ctrlShow [88831, true];";
+            tooltip = "Ajouter un contact";
+            show = 0;
+        };
+
         class AddContactNameInput: Life_RscEdit {
             idc = 88829;
             x = (0.6 + 0.175) * safezoneW + safezoneX;
