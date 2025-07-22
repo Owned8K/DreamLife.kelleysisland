@@ -69,7 +69,7 @@ class Life_Smartphone {
             colorText[] = {0,0,0,0};
             colorDisabled[] = {0,0,0,0};
             colorBackgroundDisabled[] = {0,0,0,0};
-            onButtonClick = "ctrlShow [88803, false]; ctrlShow [88804, false]; ctrlShow [88805, false]; ctrlShow [88806, false]; ctrlShow [88807, true]; ctrlShow [88808, true]; ctrlShow [88809, true]; ctrlShow [88810, true]; ctrlShow [88814, true]; ctrlShow [88815, true]; _display = findDisplay 88800; _listBox = _display displayCtrl 88808; lbClear _listBox; _index = _listBox lbAdd 'MESSAGE DE JOHN DOE'; _listBox lbSetTextRight [_index, '10:30']; _index = _listBox lbAdd 'MESSAGE DE JANE SMITH'; _listBox lbSetTextRight [_index, '11:15']; _index = _listBox lbAdd 'MESSAGE DE BOB WILSON'; _listBox lbSetTextRight [_index, '12:45']; _index = _listBox lbAdd 'MESSAGE DU MAIRE'; _listBox lbSetTextRight [_index, '14:20'];";
+            onButtonClick = "ctrlShow [88803, false]; ctrlShow [88804, false]; ctrlShow [88805, false]; ctrlShow [88806, false]; ctrlShow [88807, true]; ctrlShow [88808, true]; ctrlShow [88809, true]; ctrlShow [88810, true]; ctrlShow [88814, true]; ctrlShow [88815, true]; ctrlShow [88819, false]; ctrlShow [88817, true];; _display = findDisplay 88800; _listBox = _display displayCtrl 88808; lbClear _listBox; _index = _listBox lbAdd 'MESSAGE DE JOHN DOE'; _listBox lbSetTextRight [_index, '10:30']; _index = _listBox lbAdd 'MESSAGE DE JANE SMITH'; _listBox lbSetTextRight [_index, '11:15']; _index = _listBox lbAdd 'MESSAGE DE BOB WILSON'; _listBox lbSetTextRight [_index, '12:45']; _index = _listBox lbAdd 'MESSAGE DU MAIRE'; _listBox lbSetTextRight [_index, '14:20'];";
             tooltip = "Messages";
         };
 
