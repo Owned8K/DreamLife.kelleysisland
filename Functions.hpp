@@ -347,6 +347,8 @@ class Life_Client_Core {
         class wantedInfo {};
         class wantedList {};
         class wantedMenu {};
+        class fetchMessages {};
+        class fetchContacts {};
     };
 
     class Shops {
