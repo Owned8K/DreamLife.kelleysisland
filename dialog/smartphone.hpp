@@ -347,7 +347,7 @@ class Life_Smartphone {
             x = (0.6 + 0.17) * safezoneW + safezoneX;
             y = (0.418 + 0.12) * safezoneH + safezoneY;
             w = 0.16 * safezoneW;
-            h = 0.18 * safezoneH;
+            h = 0.20 * safezoneH;
             colorBackground[] = {0,0,0,0.8};
             show = 0;
         };
@@ -393,7 +393,7 @@ class Life_Smartphone {
             idc = 88832;
             text = "textures\phone\plus.paa";
             x = (0.6 + 0.29) * safezoneW + safezoneX;
-            y = (0.418 + 0.44) * safezoneH + safezoneY;
+            y = (0.418 + 0.41) * safezoneH + safezoneY;
             w = 0.04 * safezoneW;
             h = 0.04 * safezoneH;
             colorText[] = {1,1,1,1};
@@ -403,11 +403,11 @@ class Life_Smartphone {
         class AddContactButton: Life_RscButtonMenu {
             idc = 88822;
             x = (0.6 + 0.29) * safezoneW + safezoneX;
-            y = (0.418 + 0.44) * safezoneH + safezoneY;
+            y = (0.418 + 0.41) * safezoneH + safezoneY;
             w = 0.04 * safezoneW;
             h = 0.04 * safezoneH;
             colorBackground[] = {0,0,0,0};
-            colorBackgroundFocused[] = {0,0,0,0.8};
+            colorBackgroundFocused[] = {0,0,0,0};
             colorBackground2[] = {0,0,0,0};
             colorFocused[] = {0,0,0,0};
             colorText[] = {0,0,0,0};
@@ -422,7 +422,7 @@ class Life_Smartphone {
         class AddContactNameInput: Life_RscEdit {
             idc = 88829;
             x = (0.6 + 0.175) * safezoneW + safezoneX;
-            y = (0.418 + 0.15) * safezoneH + safezoneY;
+            y = (0.418 + 0.17) * safezoneH + safezoneY;
             w = 0.13 * safezoneW;
             h = 0.03 * safezoneH;
             colorBackground[] = {0,0,0,0.5};
@@ -435,7 +435,7 @@ class Life_Smartphone {
         class AddContactPhoneInput: Life_RscEdit {
             idc = 88830;
             x = (0.6 + 0.175) * safezoneW + safezoneX;
-            y = (0.418 + 0.19) * safezoneH + safezoneY;
+            y = (0.418 + 0.21) * safezoneH + safezoneY;
             w = 0.13 * safezoneW;
             h = 0.03 * safezoneH;
             colorBackground[] = {0,0,0,0.5};
@@ -448,7 +448,7 @@ class Life_Smartphone {
         class SaveContactButton: Life_RscButtonMenu {
             idc = 88831;
             x = (0.6 + 0.175) * safezoneW + safezoneX;
-            y = (0.418 + 0.23) * safezoneH + safezoneY;
+            y = (0.418 + 0.25) * safezoneH + safezoneY;
             w = 0.13 * safezoneW;
             h = 0.03 * safezoneH;
             colorBackground[] = {0,0,0,0.7};
