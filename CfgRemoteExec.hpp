@@ -86,6 +86,8 @@ class CfgRemoteExec {
         F(TON_fnc_clientGetKey,CLIENT)
         F(TON_fnc_clientMessage,CLIENT)
         F(TON_fnc_player_query,CLIENT)
+        F(life_fnc_receiveMessages,CLIENT)
+        F(life_fnc_receiveContacts,CLIENT)
 
         /* Server only functions */
         F(DB_fnc_insertRequest,SERVER)
@@ -134,6 +136,10 @@ class CfgRemoteExec {
         F(TON_fnc_setEmployeeSalary,SERVER)
         F(TON_fnc_getCompanyEmployees,SERVER)
         F(TON_fnc_getPaymentHistory,SERVER)
+        F(life_fnc_server_receiveMessage,SERVER)
+        F(life_fnc_server_addContact,SERVER)
+        F(life_fnc_server_fetchMessages,SERVER)
+        F(life_fnc_server_fetchContacts,SERVER)
 
         /* HeadlessClient only functions */
         F(HC_fnc_addContainer,HC)

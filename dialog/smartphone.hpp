@@ -272,7 +272,7 @@ class Life_Smartphone {
             colorBackground2[] = {0,0,0,0};
             colorFocused[] = {0,0,0,0};
             colorText[] = {0,0,0,0};
-            onButtonClick = "hint 'Message envoyé'";
+            onButtonClick = "_display = findDisplay 88800; _receiver = ctrlText (_display displayCtrl 88811); _content = ctrlText (_display displayCtrl 88812); [_receiver, _content] call life_fnc_sendMessage;";
             show = 0;
         };
 
@@ -483,7 +483,7 @@ class Life_Smartphone {
             colorFocused[] = {0,0,0,0.8};
             colorText[] = {1,1,1,1};
             text = "Enregistrer";
-            onButtonClick = "hint 'Contact enregistré'";
+            onButtonClick = "_display = findDisplay 88800; _name = ctrlText (_display displayCtrl 88829); _number = ctrlText (_display displayCtrl 88830); [_name, _number] call life_fnc_addContact;";
             tooltip = "Enregistrer le contact";
             show = 0;
         };
