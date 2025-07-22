@@ -286,5 +286,99 @@ class Life_Smartphone {
             class Controls {
             };
         };
+
+        class ContactsFrame: Life_RscText {
+            idc = 88820;
+            x = (0.6 + 0.17) * safezoneW + safezoneX;
+            y = (0.418 + 0.12) * safezoneH + safezoneY;
+            w = 0.16 * safezoneW;
+            h = 0.35 * safezoneH;
+            colorBackground[] = {0,0,0,0.8};
+            show = 0;
+        };
+
+        class ContactsTitle: Life_RscText {
+            idc = 88823;
+            text = "Contacts";
+            x = (0.6 + 0.195) * safezoneW + safezoneX;
+            y = (0.418 + 0.13) * safezoneH + safezoneY;
+            w = 0.12 * safezoneW;
+            h = 0.025 * safezoneH;
+            colorText[] = {1,1,1,1};
+            colorBackground[] = {0,0,0,0};
+            font = "RobotoCondensedBold";
+            sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+            show = 0;
+        };
+
+        class ContactsBackButton: Life_RscButtonMenu {
+            idc = 88824;
+            x = (0.6 + 0.175) * safezoneW + safezoneX;
+            y = (0.418 + 0.1275) * safezoneH + safezoneY;
+            w = 0.02 * safezoneW;
+            h = 0.03 * safezoneH;
+            style = 2;
+            colorBackground[] = {0,0,0,0};
+            colorBackgroundFocused[] = {0,0,0,0};
+            colorBackground2[] = {0,0,0,0};
+            colorFocused[] = {0,0,0,0};
+            colorText[] = {1,1,1,1};
+            color[] = {1,1,1,1};
+            colorActive[] = {1,1,1,1};
+            colorDisabled[] = {1,1,1,1};
+            colorBackgroundDisabled[] = {0,0,0,0};
+            text = "←";
+            sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1.5)";
+            font = "PuristaBold";
+            onButtonClick = "ctrlShow [88820, false]; ctrlShow [88821, false]; ctrlShow [88822, false]; ctrlShow [88823, false]; ctrlShow [88824, false]; ctrlShow [88818, true]; ctrlShow [88819, true]; ctrlShow [88803, true]; ctrlShow [88804, true]; ctrlShow [88805, true]; ctrlShow [88806, true];";
+            show = 0;
+        };
+
+        class ContactsList: Life_RscListBox {
+            idc = 88821;
+            x = (0.6 + 0.175) * safezoneW + safezoneX;
+            y = (0.418 + 0.16) * safezoneH + safezoneY;
+            w = 0.15 * safezoneW;
+            h = 0.30 * safezoneH;
+            colorBackground[] = {0,0,0,0};
+            colorSelectBackground[] = {0,0,0,0.5};
+            colorSelectBackground2[] = {0,0,0,0.5};
+            colorText[] = {1,1,1,1};
+            colorSelect[] = {1,1,1,1};
+            colorSelect2[] = {1,1,1,1};
+            colorScrollbar[] = {0.95,0.95,0.95,1};
+            sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.7)";
+            rowHeight = 0.04;
+            style = 16;
+            show = 0;
+        };
+
+        class AddContactButton: Life_RscButtonMenu {
+            idc = 88822;
+            x = (0.6 + 0.29) * safezoneW + safezoneX;
+            y = (0.418 + 0.44) * safezoneH + safezoneY;
+            w = 0.04 * safezoneW;
+            h = 0.04 * safezoneH;
+            colorBackground[] = {0,0,0,0.7};
+            colorBackgroundFocused[] = {0,0,0,0.8};
+            colorBackground2[] = {0,0,0,0.7};
+            colorFocused[] = {0,0,0,0.8};
+            colorText[] = {1,1,1,1};
+            text = "+";
+            onButtonClick = "hint 'Ajouter un contact'";
+            tooltip = "Ajouter un contact";
+            show = 0;
+        };
+
+        class MainContent: Life_RscControlsGroup {
+            idc = 88802;
+            x = 1 * safezoneW + safezoneX;
+            y = 1 * safezoneH + safezoneY;
+            w = 1 * safezoneW;
+            h = 1 * safezoneH;
+            
+            class Controls {
+            };
+        };
     };
 };
