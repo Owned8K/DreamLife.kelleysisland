@@ -483,7 +483,7 @@ class Life_Smartphone {
             colorFocused[] = {0,0,0,0.8};
             colorText[] = {1,1,1,1};
             text = "Enregistrer";
-            onButtonClick = "_display = findDisplay 88800; _name = ctrlText (_display displayCtrl 88829); _number = ctrlText (_display displayCtrl 88830); [_name, _number] call life_fnc_addContact;";
+            onButtonClick = "systemChat '[SMARTPHONE][UI] Bouton Enregistrer cliqué'; _display = findDisplay 88800; _name = ctrlText (_display displayCtrl 88829); _number = ctrlText (_display displayCtrl 88830); [_name, _number] call life_fnc_addContact;";
             tooltip = "Enregistrer le contact";
             show = 0;
         };
