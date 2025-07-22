@@ -5,6 +5,7 @@ class Life_Smartphone {
     name = "Life_Smartphone";
     movingEnable = false;
     enableSimulation = true;
+    onLoad = "[] spawn {systemChat '[CONTACTS] Initialisation...'; [] call life_fnc_fetchContacts;};";
     
     class controlsBackground {
         class PhoneBackground: life_RscPicture {
