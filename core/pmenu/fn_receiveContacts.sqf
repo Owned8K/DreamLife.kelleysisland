@@ -5,7 +5,7 @@
 */
 params [["_contacts", [], [[]]]];
 
-diag_log format ["[CONTACTS][CLIENT] Contacts reçus (brut): %1", _contacts];
+diag_log format ["[CONTACTS][CLIENT] Contacts reçus: %1", _contacts];
 
 disableSerialization;
 private _display = findDisplay 88800;
