@@ -96,7 +96,7 @@ class Life_Smartphone {
             colorText[] = {0,0,0,0};
             colorDisabled[] = {0,0,0,0};
             colorBackgroundDisabled[] = {0,0,0,0};
-            onButtonClick = "ctrlShow [88803, false]; ctrlShow [88804, false]; ctrlShow [88805, false]; ctrlShow [88806, false]; ctrlShow [88818, false]; ctrlShow [88819, false]; ctrlShow [88820, true]; ctrlShow [88821, true]; ctrlShow [88822, true]; ctrlShow [88823, true]; ctrlShow [88824, true]; _display = findDisplay 88800; _listBox = _display displayCtrl 88821; lbClear _listBox; { _index = _listBox lbAdd _x; } forEach (sort contacts_player);";
+            onButtonClick = "ctrlShow [88803, false]; ctrlShow [88804, false]; ctrlShow [88805, false]; ctrlShow [88806, false]; ctrlShow [88818, false]; ctrlShow [88819, false]; ctrlShow [88820, true]; ctrlShow [88821, true]; ctrlShow [88822, true]; ctrlShow [88823, true]; ctrlShow [88824, true]; ctrlShow [88832, true]; _display = findDisplay 88800; _listBox = _display displayCtrl 88821; lbClear _listBox; { _index = _listBox lbAdd _x; } forEach (sort contacts_player);";
             tooltip = "Contact";
         };
 
@@ -319,7 +319,7 @@ class Life_Smartphone {
             text = "←";
             sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1.5)";
             font = "PuristaBold";
-            onButtonClick = "ctrlShow [88820, false]; ctrlShow [88821, false]; ctrlShow [88822, false]; ctrlShow [88823, false]; ctrlShow [88824, false]; ctrlShow [88818, true]; ctrlShow [88819, true]; ctrlShow [88803, true]; ctrlShow [88804, true]; ctrlShow [88805, true]; ctrlShow [88806, true];";
+            onButtonClick = "ctrlShow [88820, false]; ctrlShow [88821, false]; ctrlShow [88822, false]; ctrlShow [88823, false]; ctrlShow [88824, false]; ctrlShow [88832, false]; ctrlShow [88818, true]; ctrlShow [88819, true]; ctrlShow [88803, true]; ctrlShow [88804, true]; ctrlShow [88805, true]; ctrlShow [88806, true];";
             show = 0;
         };
 
@@ -385,7 +385,18 @@ class Life_Smartphone {
             text = "←";
             sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1.5)";
             font = "PuristaBold";
-            onButtonClick = "ctrlShow [88825, false]; ctrlShow [88826, false]; ctrlShow [88827, false]; ctrlShow [88820, true]; ctrlShow [88821, true]; ctrlShow [88822, true]; ctrlShow [88823, true]; ctrlShow [88824, true];";
+            onButtonClick = "ctrlShow [88825, false]; ctrlShow [88826, false]; ctrlShow [88827, false]; ctrlShow [88829, false]; ctrlShow [88830, false]; ctrlShow [88831, false]; ctrlShow [88820, true]; ctrlShow [88821, true]; ctrlShow [88822, true]; ctrlShow [88823, true]; ctrlShow [88824, true]; ctrlShow [88832, true];";
+            show = 0;
+        };
+
+        class AddContactPlusIcon: life_RscPicture {
+            idc = 88832;
+            text = "textures\phone\plus.paa";
+            x = (0.6 + 0.29) * safezoneW + safezoneX;
+            y = (0.418 + 0.44) * safezoneH + safezoneY;
+            w = 0.04 * safezoneW;
+            h = 0.04 * safezoneH;
+            colorText[] = {1,1,1,1};
             show = 0;
         };
 
@@ -395,13 +406,15 @@ class Life_Smartphone {
             y = (0.418 + 0.44) * safezoneH + safezoneY;
             w = 0.04 * safezoneW;
             h = 0.04 * safezoneH;
-            colorBackground[] = {0,0,0,0.7};
+            colorBackground[] = {0,0,0,0};
             colorBackgroundFocused[] = {0,0,0,0.8};
-            colorBackground2[] = {0,0,0,0.7};
-            colorFocused[] = {0,0,0,0.8};
-            colorText[] = {1,1,1,1};
-            text = "+";
-            onButtonClick = "ctrlShow [88820, false]; ctrlShow [88821, false]; ctrlShow [88822, false]; ctrlShow [88823, false]; ctrlShow [88824, false]; ctrlShow [88825, true]; ctrlShow [88826, true]; ctrlShow [88827, true]; ctrlShow [88829, true]; ctrlShow [88830, true]; ctrlShow [88831, true];";
+            colorBackground2[] = {0,0,0,0};
+            colorFocused[] = {0,0,0,0};
+            colorText[] = {0,0,0,0};
+            colorDisabled[] = {0,0,0,0};
+            colorBackgroundDisabled[] = {0,0,0,0};
+            text = "";
+            onButtonClick = "ctrlShow [88820, false]; ctrlShow [88821, false]; ctrlShow [88822, false]; ctrlShow [88823, false]; ctrlShow [88824, false]; ctrlShow [88832, false]; ctrlShow [88825, true]; ctrlShow [88826, true]; ctrlShow [88827, true]; ctrlShow [88829, true]; ctrlShow [88830, true]; ctrlShow [88831, true];";
             tooltip = "Ajouter un contact";
             show = 0;
         };
