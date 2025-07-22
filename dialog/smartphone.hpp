@@ -96,7 +96,7 @@ class Life_Smartphone {
             colorText[] = {0,0,0,0};
             colorDisabled[] = {0,0,0,0};
             colorBackgroundDisabled[] = {0,0,0,0};
-            onButtonClick = "ctrlShow [88803, false]; ctrlShow [88804, false]; ctrlShow [88805, false]; ctrlShow [88806, false]; ctrlShow [88818, false]; ctrlShow [88819, false]; ctrlShow [88820, true]; ctrlShow [88821, true]; ctrlShow [88822, true]; ctrlShow [88823, true]; ctrlShow [88824, true]; ctrlShow [88832, true]; [] call life_fnc_fetchContacts;";
+            onButtonClick = "systemChat '[CONTACTS] Chargement des contacts...'; ctrlShow [88803, false]; ctrlShow [88804, false]; ctrlShow [88805, false]; ctrlShow [88806, false]; ctrlShow [88818, false]; ctrlShow [88819, false]; ctrlShow [88820, true]; ctrlShow [88821, true]; ctrlShow [88822, true]; ctrlShow [88823, true]; ctrlShow [88824, true]; ctrlShow [88832, true]; [] call life_fnc_fetchContacts;";
             tooltip = "Contact";
         };
 
