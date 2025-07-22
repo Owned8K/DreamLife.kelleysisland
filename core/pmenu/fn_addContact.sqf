@@ -12,6 +12,7 @@ if (_name isEqualTo "" || _number isEqualTo "") exitWith {
     hint "Veuillez remplir tous les champs.";
 };
 
+systemChat "[SMARTPHONE][CLIENT] fn_addContact.sqf appelé";
 hint format ["[SMARTPHONE][CLIENT] addContact appelé avec: %1, %2", _name, _number];
 diag_log format ["[SMARTPHONE][CLIENT] addContact appelé avec: %1, %2", _name, _number];
 
