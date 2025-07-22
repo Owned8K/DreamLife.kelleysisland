@@ -351,6 +351,7 @@ class Life_Client_Core {
         class fetchContacts {};
         class addContact {};
         class contactAdded {};
+        class receiveContacts {};
     };
 
     class Shops {
