@@ -352,6 +352,7 @@ class Life_Client_Core {
         class addContact {};
         class contactAdded {};
         class receiveContacts {};
+        class receiveMessages {};
     };
 
     class Shops {
