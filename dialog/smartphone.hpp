@@ -96,7 +96,7 @@ class Life_Smartphone {
             colorText[] = {0,0,0,0};
             colorDisabled[] = {0,0,0,0};
             colorBackgroundDisabled[] = {0,0,0,0};
-            onButtonClick = "ctrlShow [88803, false]; ctrlShow [88804, false]; ctrlShow [88805, false]; ctrlShow [88806, false]; ctrlShow [88818, false]; ctrlShow [88819, false]; ctrlShow [88820, true]; ctrlShow [88821, true]; ctrlShow [88822, true]; _display = findDisplay 88800; _listBox = _display displayCtrl 88821; lbClear _listBox; { _index = _listBox lbAdd _x; } forEach (sort contacts_player);";
+            onButtonClick = "ctrlShow [88803, false]; ctrlShow [88804, false]; ctrlShow [88805, false]; ctrlShow [88806, false]; ctrlShow [88818, false]; ctrlShow [88819, false]; ctrlShow [88820, true]; ctrlShow [88821, true]; ctrlShow [88822, true]; ctrlShow [88823, true]; ctrlShow [88824, true]; _display = findDisplay 88800; _listBox = _display displayCtrl 88821; lbClear _listBox; { _index = _listBox lbAdd _x; } forEach (sort contacts_player);";
             tooltip = "Contact";
         };
 
@@ -276,17 +276,6 @@ class Life_Smartphone {
             show = 0;
         };
 
-        class MainContent: Life_RscControlsGroup {
-            idc = 88802;
-            x = 1 * safezoneW + safezoneX;
-            y = 1 * safezoneH + safezoneY;
-            w = 1 * safezoneW;
-            h = 1 * safezoneH;
-            
-            class Controls {
-            };
-        };
-
         class ContactsFrame: Life_RscText {
             idc = 88820;
             x = (0.6 + 0.17) * safezoneW + safezoneX;
@@ -396,18 +385,7 @@ class Life_Smartphone {
             text = "←";
             sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1.5)";
             font = "PuristaBold";
-            onButtonClick = "ctrlShow [88825, false]; ctrlShow [88826, false]; ctrlShow [88827, false]; ctrlShow [88828, false]; ctrlShow [88820, true]; ctrlShow [88821, true]; ctrlShow [88822, true]; ctrlShow [88823, true]; ctrlShow [88824, true];";
-            show = 0;
-        };
-
-        class PlusIcon: life_RscPicture {
-            idc = 88828;
-            text = "textures\\phone\\plus.paa";
-            x = (0.6 + 0.29) * safezoneW + safezoneX;
-            y = (0.418 + 0.15) * safezoneH + safezoneY;
-            w = 0.04 * safezoneW;
-            h = 0.04 * safezoneH;
-            colorText[] = {1,1,1,1};
+            onButtonClick = "ctrlShow [88825, false]; ctrlShow [88826, false]; ctrlShow [88827, false]; ctrlShow [88820, true]; ctrlShow [88821, true]; ctrlShow [88822, true]; ctrlShow [88823, true]; ctrlShow [88824, true];";
             show = 0;
         };
 
@@ -423,7 +401,7 @@ class Life_Smartphone {
             colorFocused[] = {0,0,0,0.8};
             colorText[] = {1,1,1,1};
             text = "+";
-            onButtonClick = "ctrlShow [88820, false]; ctrlShow [88821, false]; ctrlShow [88822, false]; ctrlShow [88823, false]; ctrlShow [88824, false]; ctrlShow [88825, true]; ctrlShow [88826, true]; ctrlShow [88827, true]; ctrlShow [88828, true]; ctrlShow [88829, true]; ctrlShow [88830, true]; ctrlShow [88831, true];";
+            onButtonClick = "ctrlShow [88820, false]; ctrlShow [88821, false]; ctrlShow [88822, false]; ctrlShow [88823, false]; ctrlShow [88824, false]; ctrlShow [88825, true]; ctrlShow [88826, true]; ctrlShow [88827, true]; ctrlShow [88829, true]; ctrlShow [88830, true]; ctrlShow [88831, true];";
             tooltip = "Ajouter un contact";
             show = 0;
         };
@@ -469,17 +447,6 @@ class Life_Smartphone {
             onButtonClick = "hint 'Contact enregistré'";
             tooltip = "Enregistrer le contact";
             show = 0;
-        };
-
-        class MainContent: Life_RscControlsGroup {
-            idc = 88802;
-            x = 1 * safezoneW + safezoneX;
-            y = 1 * safezoneH + safezoneY;
-            w = 1 * safezoneW;
-            h = 1 * safezoneH;
-            
-            class Controls {
-            };
         };
     };
 };
