@@ -144,7 +144,7 @@ class Life_Smartphone {
             text = "←";
             sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1.5)";
             font = "PuristaBold";
-            onButtonClick = "ctrlShow [88807, false]; ctrlShow [88808, false]; ctrlShow [88809, false]; ctrlShow [88810, false]; ctrlShow [88811, false]; ctrlShow [88812, false]; ctrlShow [88813, false]; ctrlShow [88814, false]; ctrlShow [88815, false]; ctrlShow [88816, false]; ctrlShow [88803, true]; ctrlShow [88804, true]; ctrlShow [88805, true]; ctrlShow [88806, true]; ctrlShow [88817, false];";
+            onButtonClick = "ctrlShow [88807, false]; ctrlShow [88808, false]; ctrlShow [88809, false]; ctrlShow [88810, false]; ctrlShow [88811, false]; ctrlShow [88812, false]; ctrlShow [88813, false]; ctrlShow [88814, false]; ctrlShow [88815, false]; ctrlShow [88816, false]; ctrlShow [88803, true]; ctrlShow [88804, true]; ctrlShow [88805, true]; ctrlShow [88806, true]; ctrlShow [88817, false]; ctrlShow [88818, true]; ctrlShow [88819, true];";
             show = 0;
         };
 
