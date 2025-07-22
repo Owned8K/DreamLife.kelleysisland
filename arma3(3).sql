@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 22 juil. 2025 à 10:40
+-- Généré le : mar. 22 juil. 2025 à 10:45
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.0.30
 
@@ -21,24 +21,6 @@ SET time_zone = "+00:00";
 -- Base de données : `arma3`
 --
 
-DELIMITER $$
---
--- Procédures
---
-$$
-
-$$
-
-$$
-
-$$
-
-$$
-
-$$
-
-DELIMITER ;
-
 -- --------------------------------------------------------
 
 --
@@ -52,13 +34,6 @@ CREATE TABLE `companies` (
   `owner_uid` varchar(17) NOT NULL,
   `bank` bigint(20) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Déchargement des données de la table `companies`
---
-
-INSERT INTO `companies` (`id`, `name`, `owner_name`, `owner_uid`, `bank`) VALUES
-(3, 'Test', 'Robert Fallange', '76561197991887047', 299000000);
 
 -- --------------------------------------------------------
 
@@ -87,20 +62,6 @@ CREATE TABLE `company_payments` (
   `amount` int(11) NOT NULL,
   `payment_date` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Déchargement des données de la table `company_payments`
---
-
-INSERT INTO `company_payments` (`id`, `company_id`, `player_uid`, `player_name`, `amount`, `payment_date`) VALUES
-(1, 3, '76561198135268292', 'Didou Rayz', 700, '2025-07-19 05:35:15'),
-(2, 3, '76561198135268292', 'Didou Rayz', 2000, '2025-07-19 07:00:44'),
-(3, 3, '76561198135268292', 'Didou Rayz', 2000, '2025-07-19 07:34:25'),
-(4, 3, '76561198135268292', 'Didou Rayz', 1500, '2025-07-19 07:34:53'),
-(5, 3, '76561198135268292', 'Didou Rayz', 6000, '2025-07-19 14:11:58'),
-(6, 3, '76561198135268292', 'Didou Rayz', 10000, '2025-07-19 14:12:06'),
-(7, 3, '76561198135268292', 'Didou Rayz', 7000, '2025-07-19 14:12:11'),
-(8, 3, '76561198135268292', 'Didou Rayz', 973536, '2025-07-19 14:12:47');
 
 -- --------------------------------------------------------
 
@@ -138,13 +99,6 @@ CREATE TABLE `gangs` (
   `insert_time` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Déchargement des données de la table `gangs`
---
-
-INSERT INTO `gangs` (`id`, `owner`, `name`, `members`, `maxmembers`, `bank`, `active`, `insert_time`) VALUES
-(1, '76561197991887047', 'Your Gang Name', '\"[`76561197991887047`]\"', 8, 0, 1, '2025-07-16 10:05:05');
-
 -- --------------------------------------------------------
 
 --
@@ -158,6 +112,21 @@ CREATE TABLE `houses` (
   `owned` tinyint(4) DEFAULT 0,
   `garage` tinyint(4) NOT NULL DEFAULT 0,
   `insert_time` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `messages`
+--
+
+CREATE TABLE `messages` (
+  `id` int(11) NOT NULL,
+  `sender_pid` varchar(17) NOT NULL,
+  `receiver_pid` varchar(17) NOT NULL,
+  `content` text NOT NULL,
+  `sent_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `is_read` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -195,14 +164,6 @@ CREATE TABLE `players` (
   `last_seen` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Déchargement des données de la table `players`
---
-
-INSERT INTO `players` (`uid`, `pid`, `name`, `aliases`, `cash`, `bankacc`, `coplevel`, `mediclevel`, `civ_licenses`, `cop_licenses`, `med_licenses`, `civ_gear`, `cop_gear`, `med_gear`, `civ_stats`, `cop_stats`, `med_stats`, `arrested`, `adminlevel`, `donorlevel`, `blacklist`, `civ_alive`, `civ_position`, `playtime`, `insert_time`, `last_seen`) VALUES
-(2, '76561197991887047', 'Robert Fallange', '\"[`Robert Fallange`]\"', 132000, 29491050, '0', '0', '\"[[`license_civ_driver`,1],[`license_civ_boat`,1],[`license_civ_pilot`,1],[`license_civ_trucking`,1],[`license_civ_gun`,0],[`license_civ_dive`,0],[`license_civ_home`,1],[`license_civ_oil`,0],[`license_civ_diamond`,0],[`license_civ_salt`,0],[`license_civ_sand`,0],[`license_civ_iron`,0],[`license_civ_copper`,0],[`license_civ_cement`,0],[`license_civ_medmarijuana`,0],[`license_civ_logistician`,0],[`license_civ_cocaine`,0],[`license_civ_heroin`,0],[`license_civ_marijuana`,0],[`license_civ_rebel`,0]]\"', '\"[]\"', '\"[]\"', '\"[`U_C_Poloshirt_burgundy`,``,``,``,``,[`ItemMap`,`ItemCompass`,`ItemWatch`],``,``,[],[],[],[],[],[],[``,``,``,``],[``,``,``,``],[]]\"', '\"[]\"', '\"[]\"', '\"[100,100,0]\"', '\"[100,100,0]\"', '\"[100,100,0]\"', 0, '5', '0', 0, 1, '\"[967.791,4985.31,0.00143862]\"', '\"[]\"', '2025-07-15 23:52:42', '2025-07-18 19:51:57'),
-(3, '76561198135268292', 'Didou Rayz', '\"[`Didou Rayz`]\"', 0, 1000036, '0', '0', '\"[[`license_civ_driver`,1],[`license_civ_boat`,1],[`license_civ_pilot`,1],[`license_civ_trucking`,1],[`license_civ_gun`,0],[`license_civ_dive`,0],[`license_civ_home`,1],[`license_civ_oil`,0],[`license_civ_diamond`,0],[`license_civ_salt`,0],[`license_civ_sand`,0],[`license_civ_iron`,0],[`license_civ_copper`,0],[`license_civ_cement`,0],[`license_civ_medmarijuana`,0],[`license_civ_logistician`,0],[`license_civ_cocaine`,0],[`license_civ_heroin`,0],[`license_civ_marijuana`,0],[`license_civ_rebel`,0]]\"', '\"[]\"', '\"[]\"', '\"[`U_C_Poloshirt_tricolour`,``,``,``,``,[`ItemMap`,`ItemCompass`,`ItemWatch`],``,``,[],[],[],[],[],[],[``,``,``,``],[``,``,``,``],[]]\"', '\"[]\"', '\"[]\"', '\"[100,100,0]\"', '\"[100,100,0]\"', '\"[100,100,0]\"', 0, '5', '0', 0, 1, '\"[1654.66,1910.83,0.00143909]\"', '\"[]\"', '2025-07-18 10:29:16', '2025-07-19 14:12:47');
-
 -- --------------------------------------------------------
 
 --
@@ -218,13 +179,6 @@ CREATE TABLE `users` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `discord_username` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Déchargement des données de la table `users`
---
-
-INSERT INTO `users` (`id`, `username`, `email`, `steam_id`, `password_hash`, `created_at`, `discord_username`) VALUES
-(6, 'Owned8K', 'owned8k@gamil.com', '76561197991887047', '$2y$10$jsaJ5hGtaI.EIfsXV80C.eU9cZ/Wuudihlr0LjfFeW6/zBnCpZvy.', '2025-07-15 16:44:47', 'owned8k');
 
 -- --------------------------------------------------------
 
@@ -249,16 +203,6 @@ CREATE TABLE `vehicles` (
   `damage` varchar(256) NOT NULL,
   `insert_time` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Déchargement des données de la table `vehicles`
---
-
-INSERT INTO `vehicles` (`id`, `pid`, `side`, `classname`, `type`, `alive`, `blacklist`, `active`, `plate`, `color`, `inventory`, `gear`, `fuel`, `damage`, `insert_time`) VALUES
-(1, '76561197991887047', 'civ', 'C_SUV_01_F', 'Car', 1, 0, 0, 866506, 2, '\"[[],0]\"', '\"[]\"', 1, '\"[]\"', '2025-07-18 19:32:10'),
-(2, '76561198135268292', 'civ', 'C_Kart_01_Red_F', 'Car', 1, 0, 0, 22591, 0, '\"[[],0]\"', '\"[]\"', 1, '\"[]\"', '2025-07-18 19:38:24'),
-(3, '76561197991887047', 'civ', 'C_Kart_01_Fuel_F', 'Car', 1, 0, 0, 104384, 0, '\"[[],0]\"', '\"[]\"', 1, '\"[]\"', '2025-07-18 19:41:12'),
-(4, '76561197991887047', 'civ', 'C_Kart_01_Vrana_F', 'Car', 1, 0, 0, 780437, 0, '\"[[],0]\"', '\"[]\"', 1, '\"[]\"', '2025-07-18 19:51:57');
 
 -- --------------------------------------------------------
 
@@ -322,6 +266,14 @@ ALTER TABLE `houses`
   ADD KEY `fkIdx_players_houses` (`pid`);
 
 --
+-- Index pour la table `messages`
+--
+ALTER TABLE `messages`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `sender_pid` (`sender_pid`),
+  ADD KEY `receiver_pid` (`receiver_pid`);
+
+--
 -- Index pour la table `players`
 --
 ALTER TABLE `players`
@@ -361,13 +313,13 @@ ALTER TABLE `wanted`
 -- AUTO_INCREMENT pour la table `companies`
 --
 ALTER TABLE `companies`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `company_payments`
 --
 ALTER TABLE `company_payments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `containers`
@@ -379,7 +331,7 @@ ALTER TABLE `containers`
 -- AUTO_INCREMENT pour la table `gangs`
 --
 ALTER TABLE `gangs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `houses`
@@ -388,22 +340,28 @@ ALTER TABLE `houses`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT pour la table `messages`
+--
+ALTER TABLE `messages`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT pour la table `players`
 --
 ALTER TABLE `players`
-  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `vehicles`
 --
 ALTER TABLE `vehicles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Contraintes pour les tables déchargées
@@ -432,6 +390,13 @@ ALTER TABLE `gangs`
 --
 ALTER TABLE `houses`
   ADD CONSTRAINT `FK_players_houses` FOREIGN KEY (`pid`) REFERENCES `players` (`pid`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Contraintes pour la table `messages`
+--
+ALTER TABLE `messages`
+  ADD CONSTRAINT `messages_ibfk_1` FOREIGN KEY (`sender_pid`) REFERENCES `players` (`pid`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `messages_ibfk_2` FOREIGN KEY (`receiver_pid`) REFERENCES `players` (`pid`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `vehicles`
