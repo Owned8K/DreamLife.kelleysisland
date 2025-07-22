@@ -347,7 +347,7 @@ class Life_Smartphone {
             x = (0.6 + 0.17) * safezoneW + safezoneX;
             y = (0.418 + 0.12) * safezoneH + safezoneY;
             w = 0.16 * safezoneW;
-            h = 0.20 * safezoneH;
+            h = 0.35 * safezoneH;
             colorBackground[] = {0,0,0,0.8};
             show = 0;
         };
@@ -385,7 +385,7 @@ class Life_Smartphone {
             text = "←";
             sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1.5)";
             font = "PuristaBold";
-            onButtonClick = "ctrlShow [88825, false]; ctrlShow [88826, false]; ctrlShow [88827, false]; ctrlShow [88829, false]; ctrlShow [88830, false]; ctrlShow [88831, false]; ctrlShow [88820, true]; ctrlShow [88821, true]; ctrlShow [88822, true]; ctrlShow [88823, true]; ctrlShow [88824, true]; ctrlShow [88832, true];";
+            onButtonClick = "ctrlShow [88825, false]; ctrlShow [88826, false]; ctrlShow [88827, false]; ctrlShow [88829, false]; ctrlShow [88830, false]; ctrlShow [88831, false]; ctrlShow [88833, false]; ctrlShow [88834, false]; ctrlShow [88820, true]; ctrlShow [88821, true]; ctrlShow [88822, true]; ctrlShow [88823, true]; ctrlShow [88824, true]; ctrlShow [88832, true];";
             show = 0;
         };
 
@@ -414,41 +414,67 @@ class Life_Smartphone {
             colorDisabled[] = {0,0,0,0};
             colorBackgroundDisabled[] = {0,0,0,0};
             text = "";
-            onButtonClick = "ctrlShow [88820, false]; ctrlShow [88821, false]; ctrlShow [88822, false]; ctrlShow [88823, false]; ctrlShow [88824, false]; ctrlShow [88832, false]; ctrlShow [88825, true]; ctrlShow [88826, true]; ctrlShow [88827, true]; ctrlShow [88829, true]; ctrlShow [88830, true]; ctrlShow [88831, true];";
+            onButtonClick = "ctrlShow [88820, false]; ctrlShow [88821, false]; ctrlShow [88822, false]; ctrlShow [88823, false]; ctrlShow [88824, false]; ctrlShow [88832, false]; ctrlShow [88825, true]; ctrlShow [88826, true]; ctrlShow [88827, true]; ctrlShow [88829, true]; ctrlShow [88830, true]; ctrlShow [88831, true]; ctrlShow [88833, true]; ctrlShow [88834, true];";
             tooltip = "Ajouter un contact";
+            show = 0;
+        };
+
+        class AddContactNameLabel: Life_RscText {
+            idc = 88833;
+            text = "Nom :";
+            x = (0.6 + 0.175) * safezoneW + safezoneX;
+            y = (0.418 + 0.17) * safezoneH + safezoneY;
+            w = 0.13 * safezoneW;
+            h = 0.03 * safezoneH;
+            colorText[] = {1,1,1,1};
+            colorBackground[] = {0,0,0,0};
+            sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
             show = 0;
         };
 
         class AddContactNameInput: Life_RscEdit {
             idc = 88829;
             x = (0.6 + 0.175) * safezoneW + safezoneX;
-            y = (0.418 + 0.17) * safezoneH + safezoneY;
+            y = (0.418 + 0.20) * safezoneH + safezoneY;
             w = 0.13 * safezoneW;
             h = 0.03 * safezoneH;
             colorBackground[] = {0,0,0,0.5};
             colorText[] = {1,1,1,1};
             text = "";
-            sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.7)";
+            sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
+            show = 0;
+        };
+
+        class AddContactPhoneLabel: Life_RscText {
+            idc = 88834;
+            text = "Numéro :";
+            x = (0.6 + 0.175) * safezoneW + safezoneX;
+            y = (0.418 + 0.24) * safezoneH + safezoneY;
+            w = 0.13 * safezoneW;
+            h = 0.03 * safezoneH;
+            colorText[] = {1,1,1,1};
+            colorBackground[] = {0,0,0,0};
+            sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
             show = 0;
         };
 
         class AddContactPhoneInput: Life_RscEdit {
             idc = 88830;
             x = (0.6 + 0.175) * safezoneW + safezoneX;
-            y = (0.418 + 0.21) * safezoneH + safezoneY;
+            y = (0.418 + 0.27) * safezoneH + safezoneY;
             w = 0.13 * safezoneW;
             h = 0.03 * safezoneH;
             colorBackground[] = {0,0,0,0.5};
             colorText[] = {1,1,1,1};
             text = "";
-            sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.7)";
+            sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
             show = 0;
         };
 
         class SaveContactButton: Life_RscButtonMenu {
             idc = 88831;
             x = (0.6 + 0.175) * safezoneW + safezoneX;
-            y = (0.418 + 0.25) * safezoneH + safezoneY;
+            y = (0.418 + 0.32) * safezoneH + safezoneY;
             w = 0.13 * safezoneW;
             h = 0.03 * safezoneH;
             colorBackground[] = {0,0,0,0.7};
