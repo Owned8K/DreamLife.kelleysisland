@@ -88,6 +88,7 @@ class CfgRemoteExec {
         F(TON_fnc_player_query,CLIENT)
         F(life_fnc_receiveMessages,CLIENT)
         F(life_fnc_receiveContacts,CLIENT)
+        F(life_fnc_contactAdded,CLIENT)
 
         /* Server only functions */
         F(DB_fnc_insertRequest,SERVER)
