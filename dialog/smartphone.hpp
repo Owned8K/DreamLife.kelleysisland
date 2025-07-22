@@ -353,20 +353,104 @@ class Life_Smartphone {
             show = 0;
         };
 
-        class AddContactButton: Life_RscButtonMenu {
-            idc = 88822;
+        class AddContactFrame: Life_RscText {
+            idc = 88825;
+            x = (0.6 + 0.17) * safezoneW + safezoneX;
+            y = (0.418 + 0.12) * safezoneH + safezoneY;
+            w = 0.16 * safezoneW;
+            h = 0.18 * safezoneH;
+            colorBackground[] = {0,0,0,0.8};
+            show = 0;
+        };
+
+        class AddContactTitle: Life_RscText {
+            idc = 88826;
+            text = "Ajouter un contact";
+            x = (0.6 + 0.195) * safezoneW + safezoneX;
+            y = (0.418 + 0.13) * safezoneH + safezoneY;
+            w = 0.12 * safezoneW;
+            h = 0.025 * safezoneH;
+            colorText[] = {1,1,1,1};
+            colorBackground[] = {0,0,0,0};
+            font = "RobotoCondensedBold";
+            sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+            show = 0;
+        };
+
+        class AddContactBackButton: Life_RscButtonMenu {
+            idc = 88827;
+            x = (0.6 + 0.175) * safezoneW + safezoneX;
+            y = (0.418 + 0.1275) * safezoneH + safezoneY;
+            w = 0.02 * safezoneW;
+            h = 0.03 * safezoneH;
+            style = 2;
+            colorBackground[] = {0,0,0,0};
+            colorBackgroundFocused[] = {0,0,0,0};
+            colorBackground2[] = {0,0,0,0};
+            colorFocused[] = {0,0,0,0};
+            colorText[] = {1,1,1,1};
+            color[] = {1,1,1,1};
+            colorActive[] = {1,1,1,1};
+            colorDisabled[] = {1,1,1,1};
+            colorBackgroundDisabled[] = {0,0,0,0};
+            text = "←";
+            sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1.5)";
+            font = "PuristaBold";
+            onButtonClick = "ctrlShow [88825, false]; ctrlShow [88826, false]; ctrlShow [88827, false]; ctrlShow [88828, false]; ctrlShow [88820, true]; ctrlShow [88821, true]; ctrlShow [88822, true]; ctrlShow [88823, true]; ctrlShow [88824, true];";
+            show = 0;
+        };
+
+        class PlusIcon: life_RscPicture {
+            idc = 88828;
+            text = "textures\\phone\\plus.paa";
             x = (0.6 + 0.29) * safezoneW + safezoneX;
-            y = (0.418 + 0.44) * safezoneH + safezoneY;
+            y = (0.418 + 0.15) * safezoneH + safezoneY;
             w = 0.04 * safezoneW;
             h = 0.04 * safezoneH;
+            colorText[] = {1,1,1,1};
+            show = 0;
+        };
+
+        class AddContactNameInput: Life_RscEdit {
+            idc = 88829;
+            x = (0.6 + 0.175) * safezoneW + safezoneX;
+            y = (0.418 + 0.15) * safezoneH + safezoneY;
+            w = 0.13 * safezoneW;
+            h = 0.03 * safezoneH;
+            colorBackground[] = {0,0,0,0.5};
+            colorText[] = {1,1,1,1};
+            text = "";
+            sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.7)";
+            show = 0;
+        };
+
+        class AddContactPhoneInput: Life_RscEdit {
+            idc = 88830;
+            x = (0.6 + 0.175) * safezoneW + safezoneX;
+            y = (0.418 + 0.19) * safezoneH + safezoneY;
+            w = 0.13 * safezoneW;
+            h = 0.03 * safezoneH;
+            colorBackground[] = {0,0,0,0.5};
+            colorText[] = {1,1,1,1};
+            text = "";
+            sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.7)";
+            show = 0;
+        };
+
+        class SaveContactButton: Life_RscButtonMenu {
+            idc = 88831;
+            x = (0.6 + 0.175) * safezoneW + safezoneX;
+            y = (0.418 + 0.23) * safezoneH + safezoneY;
+            w = 0.13 * safezoneW;
+            h = 0.03 * safezoneH;
             colorBackground[] = {0,0,0,0.7};
             colorBackgroundFocused[] = {0,0,0,0.8};
             colorBackground2[] = {0,0,0,0.7};
             colorFocused[] = {0,0,0,0.8};
             colorText[] = {1,1,1,1};
-            text = "+";
-            onButtonClick = "hint 'Ajouter un contact'";
-            tooltip = "Ajouter un contact";
+            text = "Enregistrer";
+            onButtonClick = "hint 'Contact enregistré'";
+            tooltip = "Enregistrer le contact";
             show = 0;
         };
 
