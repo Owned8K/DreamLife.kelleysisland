@@ -5,6 +5,9 @@
 */
 params [["_messages", [], [[]]]];
 
+// Stockage global pour accès conversation
+_messages = _messages;
+
 diag_log format ["[MESSAGES][CLIENT] Messages reçus: %1", _messages];
 
 disableSerialization;
@@ -48,10 +51,20 @@ if (_messages isEqualTo []) then {
         private _date = _dateArr select 0;
         private _time = _dateArr select 1;
         
+        // Détermination du numéro cible (autre participant)
+        private _targetNumber = if (_isReceived) then {_senderPid} else {_receiverPid};
+        private _targetName = _targetNumber;
+        if (!isNil "life_contacts") then {
+            {
+                _x params ["_id", "_name", "_number"];
+                if (_number isEqualTo _targetNumber) exitWith {
+                    _targetName = _name;
+                };
+            } forEach life_contacts;
+        };
         // Création du texte à afficher
         private _direction = if (_isReceived) then {"De"} else {"À"};
-        private _otherName = if (_isReceived) then {_senderName} else {_receiverName};
-        private _text = format ["%1 %2 - %3 %4 - %5", _direction, _otherName, _date, _time, _content];
+        private _text = format ["%1 %2 - %3 %4 - %5", _direction, _targetName, _date, _time, _content];
         
         diag_log format ["[MESSAGES][CLIENT] Traitement message: ID=%1, %2 %3, Date=%4, Lu=%5", _id, _direction, _otherName, _sentAt, _isRead];
         

@@ -245,6 +245,8 @@ class Life_Client_Core {
         class moveIn {};
         class updateLicenseList {};
         class openSmartphone {};
+        class openConversation {};
+        class receiveConversation {};
     };
 
     class Gangs {
@@ -405,4 +407,6 @@ class Life_Client_Core {
         class vehTakeItem {};
         class vInteractionMenu {};
     };
+
+    class server_fetchConversation {};
 };

@@ -89,6 +89,9 @@ class CfgRemoteExec {
         F(life_fnc_receiveMessages,CLIENT)
         F(life_fnc_receiveContacts,CLIENT)
         F(life_fnc_contactAdded,CLIENT)
+        F(life_fnc_openConversation,CLIENT)
+        F(life_fnc_receiveConversation,CLIENT)
+        F(life_fnc_server_fetchConversation,SERVER)
 
         /* Server only functions */
         F(DB_fnc_insertRequest,SERVER)

@@ -164,8 +164,8 @@ class Life_Smartphone {
             sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.7)";
             rowHeight = 0.04;
             style = 16;
-            onLBSelChanged = "_display = findDisplay 88800; _listBox = _display displayCtrl 88808; _index = lbCurSel _listBox;";
             show = 0;
+            onLBSelChanged = "[_this] call life_fnc_openConversation";
         };
 
         class ConversationList: Life_RscListBox {

@@ -51,3 +51,6 @@ if (_contacts isEqualTo []) then {
         _listBox lbSetCurSel 0;
     };
 }; 
+
+// Stockage global des contacts pour accès par d'autres fonctions
+life_contacts = _contacts; 
