@@ -164,7 +164,7 @@ class Life_Smartphone {
             sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.7)";
             rowHeight = 0.04;
             style = 16;
-            onLBSelChanged = "_display = findDisplay 88800; _listBox = _display displayCtrl 88808; _index = lbCurSel _listBox; if (_index != -1) then { _name = _listBox lbText _index; ctrlShow [88808, false]; ctrlShow [88809, false]; ctrlShow [88810, false]; ctrlShow [88817, true]; ctrlShow [88812, true]; ctrlShow [88813, true]; ctrlShow [88814, true]; ctrlShow [88815, true]; ctrlShow [88816, true]; _title = _display displayCtrl 88814; _title ctrlSetText _name; _convList = _display displayCtrl 88817; lbClear _convList; _convList lbAdd '   Salut, comment vas-tu ?'; _convList lbSetTextRight [0, '']; _convList lbAdd ''; _convList lbSetTextRight [1, 'Très bien et toi ?   ']; _convList lbAdd '   Super ! Tu es dispo pour une mission ?'; _convList lbSetTextRight [2, '']; _convList lbAdd ''; _convList lbSetTextRight [3, 'Oui bien sûr, dis-moi   ']; _convList lbAdd '   RDV au garage dans 10min'; _convList lbSetTextRight [4, '']; _convList lbAdd ''; _convList lbSetTextRight [5, 'J''arrive !   ']; };";
+            onLBSelChanged = "_display = findDisplay 88800; _listBox = _display displayCtrl 88808; _index = lbCurSel _listBox;";
             show = 0;
         };
 
