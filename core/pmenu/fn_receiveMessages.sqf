@@ -60,7 +60,7 @@ if (_messages isEqualTo []) then {
         
         // Couleur en fonction de l'état de lecture
         private _isReadBool = _isRead isEqualTo 1;
-        if (_isReceived && !_isRead) then {
+        if (_isReceived && !_isReadBool) then {
             _listBox lbSetColor [_index, [0.9, 0.9, 0, 1]]; // Jaune pour non lu
         } else {
             _listBox lbSetColor [_index, [1, 1, 1, 1]]; // Blanc pour lu
