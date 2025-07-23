@@ -5,7 +5,7 @@ class Life_Smartphone {
     name = "Life_Smartphone";
     movingEnable = false;
     enableSimulation = true;
-    onLoad = "[] spawn {systemChat '[CONTACTS] Initialisation...'; [] call life_fnc_fetchContacts;};";
+    onLoad = "[] spawn {systemChat '[CONTACTS] Initialisation...'; [] call life_fnc_fetchContacts; [] call life_fnc_fetchMessages;};";
     
     class controlsBackground {
         class PhoneBackground: life_RscPicture {
@@ -70,8 +70,9 @@ class Life_Smartphone {
             colorText[] = {0,0,0,0};
             colorDisabled[] = {0,0,0,0};
             colorBackgroundDisabled[] = {0,0,0,0};
-            onButtonClick = "ctrlShow [88803, false]; ctrlShow [88804, false]; ctrlShow [88805, false]; ctrlShow [88806, false]; ctrlShow [88807, true]; ctrlShow [88808, true]; ctrlShow [88809, true]; ctrlShow [88810, true]; ctrlShow [88814, true]; ctrlShow [88815, true]; ctrlShow [88819, false]; ctrlShow [88817, true];ctrlShow [88818, false]; ctrlShow [88821, false]; ctrlShow [88822, false]; ctrlShow [88823, false]; ctrlShow [88824, false]; ctrlShow [88832, false]; _display = findDisplay 88800; _listBox = _display displayCtrl 88808; lbClear _listBox;";
+            onButtonClick = "ctrlShow [88803, false]; ctrlShow [88804, false]; ctrlShow [88805, false]; ctrlShow [88806, false]; ctrlShow [88807, true]; ctrlShow [88808, true]; ctrlShow [88809, true]; ctrlShow [88810, true]; ctrlShow [88814, true]; ctrlShow [88815, true]; ctrlShow [88819, false]; ctrlShow [88817, true];ctrlShow [88818, false]; ctrlShow [88821, false]; ctrlShow [88822, false]; ctrlShow [88823, false]; ctrlShow [88824, false]; ctrlShow [88832, false]; _display = findDisplay 88800; _listBox = _display displayCtrl 88808; lbClear _listBox; [] call life_fnc_fetchMessages;";
             tooltip = "Messages";
+            show = 0;
         };
 
         class ContactIcon: life_RscPicture {
