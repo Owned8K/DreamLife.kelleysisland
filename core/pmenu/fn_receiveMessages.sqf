@@ -1,12 +1,12 @@
 /*
     File: fn_receiveMessages.sqf
-    Description: Reçoit et affiche les messages dans le smartphone.
+    Description: Affiche la liste des conversations dans le smartphone.
     Params: [messages]
 */
 params [["_messages", [], [[]]]];
 
 // Stockage global pour accès conversation
-_messages = _messages;
+life_allMessages = _messages;
 
 diag_log format ["[MESSAGES][CLIENT] Messages reçus: %1", _messages];
 
@@ -27,10 +27,13 @@ lbClear _listBox;
 diag_log "[MESSAGES][CLIENT] Liste nettoyée, début du remplissage";
 
 if (_messages isEqualTo []) then {
-    _listBox lbAdd "Aucun message";
+    _listBox lbAdd "Aucune conversation";
     systemChat "[MESSAGES] Aucun message trouvé";
     diag_log "[MESSAGES][CLIENT] Aucun message à afficher";
 } else {
+    // Grouper par conversation (PID contact)
+    private _playerPid = getPlayerUID player;
+    private _conversations = [];
     {
         _x params [
             ["_id", 0, [0]],
@@ -42,50 +45,46 @@ if (_messages isEqualTo []) then {
             ["_sentAt", "", [""]],
             ["_isRead", 0, [0]]
         ];
-        
-        private _playerPid = getPlayerUID player;
-        private _isReceived = (_receiverPid isEqualTo _playerPid);
-        
-        // Format de la date pour l'affichage
-        private _dateArr = _sentAt splitString " ";
-        private _date = _dateArr select 0;
-        private _time = _dateArr select 1;
-        
-        // Détermination du numéro cible (autre participant)
-        private _targetNumber = if (_isReceived) then {_senderPid} else {_receiverPid};
-        private _targetName = _targetNumber;
+        private _contactPid = if (_senderPid isEqualTo _playerPid) then {_receiverPid} else {_senderPid};
+        private _existing = _conversations findIf {(_x select 0) isEqualTo _contactPid};
+        if (_existing > -1) then {
+            // Remplacer si ce message est plus récent
+            private _oldMsg = _conversations select _existing;
+            if (_sentAt > (_oldMsg select 2)) then {
+                _conversations set [_existing, [_contactPid, _content, _sentAt, _isRead, _senderName, _receiverName]];
+            };
+        } else {
+            _conversations pushBack [_contactPid, _content, _sentAt, _isRead, _senderName, _receiverName];
+        };
+    } forEach _messages;
+    // Affichage
+    {
+        _x params ["_contactPid", "_content", "_sentAt", "_isRead", "_senderName", "_receiverName"];
+        private _contactName = _contactPid;
+        private _isContact = false;
         if (!isNil "life_contacts") then {
             {
                 _x params ["_id", "_name", "_number"];
-                if (_number isEqualTo _targetNumber) exitWith {
-                    _targetName = _name;
+                if (_number isEqualTo _contactPid) exitWith {
+                    _contactName = _name;
+                    _isContact = true;
                 };
             } forEach life_contacts;
         };
-        // Création du texte à afficher
-        private _direction = if (_isReceived) then {"De"} else {"À"};
-        private _text = format ["%1 %2 - %3 %4 - %5", _direction, _targetName, _date, _time, _content];
-        
-        diag_log format ["[MESSAGES][CLIENT] Traitement message: ID=%1, %2 %3, Date=%4, Lu=%5", _id, _direction, _otherName, _sentAt, _isRead];
-        
+        private _displayName = if (_isContact) then {_contactName} else {format ["%1", _contactPid]};
+        private _text = format ["%1 - %2", _displayName, _content];
         private _index = _listBox lbAdd _text;
-        _listBox lbSetData [_index, str [_id, _isRead]];
-        
-        // Couleur en fonction de l'état de lecture
-        private _isReadBool = _isRead isEqualTo 1;
-        if (_isReceived && !_isReadBool) then {
-            _listBox lbSetColor [_index, [0.9, 0.9, 0, 1]]; // Jaune pour non lu
+        _listBox lbSetData [_index, _contactPid];
+        // Couleur si non lu
+        if (_isRead isEqualTo 0) then {
+            _listBox lbSetColor [_index, [0.9, 0.9, 0, 1]];
         } else {
-            _listBox lbSetColor [_index, [1, 1, 1, 1]]; // Blanc pour lu
+            _listBox lbSetColor [_index, [1, 1, 1, 1]];
         };
-        
-        diag_log format ["[MESSAGES][CLIENT] Message ajouté à l'index %1: %2", _index, _text];
-    } forEach _messages;
-    
-    systemChat format ["[MESSAGES] %1 messages affichés", count _messages];
-    diag_log format ["[MESSAGES][CLIENT] %1 messages affichés avec succès", count _messages];
-    
+    } forEach _conversations;
+    systemChat format ["[MESSAGES] %1 conversations affichées", count _conversations];
+    diag_log format ["[MESSAGES][CLIENT] %1 conversations affichées avec succès", count _conversations];
     if (lbSize _listBox > 0) then {
         _listBox lbSetCurSel 0;
     };
-}; 
+} 
