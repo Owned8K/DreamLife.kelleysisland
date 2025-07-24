@@ -99,4 +99,8 @@ if (_messages isEqualTo []) then {
     if (lbSize _listBox > 0) then {
         _listBox lbSetCurSel 0;
     };
+    // Forcer l'ouverture de la conversation si une seule est présente
+    if (lbSize _listBox == 1) then {
+        [_listBox, 0] call life_fnc_openConversation;
+    };
 } 
