@@ -10,10 +10,31 @@ if (typeName _messages == "STRING") then {
     _messages = call compile _messages;
 };
 
+// Nettoyage des données
+private _cleanMessages = [];
+{
+    private _msg = _x;
+    if (typeName _msg == "ARRAY") then {
+        _msg = _msg apply {
+            if (typeName _x == "STRING") then {
+                // Enlever les doubles guillemets
+                private _cleaned = _x;
+                _cleaned = [_cleaned, """", ""] call CBA_fnc_replace;
+                _cleaned
+            } else {
+                _x
+            };
+        };
+        _cleanMessages pushBack _msg;
+    };
+} forEach _messages;
+
+_messages = _cleanMessages;
+
 // Stockage global pour accès conversation
 life_allMessages = _messages;
 
-diag_log format ["[MESSAGES][CLIENT] Messages reçus après traitement: %1", _messages];
+diag_log format ["[MESSAGES][CLIENT] Messages reçus après nettoyage: %1", _messages];
 
 disableSerialization;
 private _display = findDisplay 88800;
@@ -63,10 +84,6 @@ if (_messages isEqualTo []) then {
             ["_sentAt", "", [""]],
             ["_isRead", 0, [0]]
         ];
-
-        // S'assurer que les PID sont des strings propres
-        _senderPid = if (typeName _senderPid == "STRING") then {_senderPid} else {str _senderPid};
-        _receiverPid = if (typeName _receiverPid == "STRING") then {_receiverPid} else {str _receiverPid};
         
         private _contactPid = if (_senderPid isEqualTo _playerPid) then {_receiverPid} else {_senderPid};
         private _existing = _conversations findIf {(_x select 0) isEqualTo _contactPid};
@@ -91,11 +108,10 @@ if (_messages isEqualTo []) then {
         if (!isNil "life_contacts") then {
             {
                 _x params ["_id", "_name", "_number"];
-                // Nettoyage du numéro pour la comparaison
-                private _cleanNumber = if (typeName _number == "STRING") then {_number} else {str _number};
-                if (_cleanNumber isEqualTo _contactPid) exitWith {
+                if (_number isEqualTo _contactPid) exitWith {
                     _contactName = _name;
                     _isContact = true;
+                    diag_log format ["[DEBUG] Contact trouvé: %1 pour PID: %2", _name, _contactPid];
                 };
             } forEach life_contacts;
         };
@@ -104,6 +120,8 @@ if (_messages isEqualTo []) then {
         private _text = format ["%1 - %2", _displayName, _content];
         private _index = _listBox lbAdd _text;
         _listBox lbSetData [_index, _contactPid];
+        
+        diag_log format ["[DEBUG] Ajout conversation: %1 avec PID: %2", _text, _contactPid];
         
         // Couleur si non lu
         if (_isRead isEqualTo 0) then {
