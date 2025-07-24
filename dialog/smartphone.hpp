@@ -165,7 +165,7 @@ class Life_Smartphone {
             rowHeight = 0.04;
             style = 16;
             show = 0;
-            onLBSelChanged = "[_this] call life_fnc_openConversation";
+            onLBSelChanged = "_this call life_fnc_openConversation";
         };
 
         class ConversationList: Life_RscListBox {
@@ -175,8 +175,8 @@ class Life_Smartphone {
             w = 0.15 * safezoneW;
             h = 0.25 * safezoneH;
             colorBackground[] = {0,0,0,0};
-            colorSelectBackground[] = {0,0,0,0};
-            colorSelectBackground2[] = {0,0,0,0};
+            colorSelectBackground[] = {0,0,0,0.5};
+            colorSelectBackground2[] = {0,0,0,0.5};
             colorText[] = {1,1,1,1};
             colorSelect[] = {1,1,1,1};
             colorSelect2[] = {1,1,1,1};
@@ -184,7 +184,7 @@ class Life_Smartphone {
             sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.7)";
             rowHeight = 0.04;
             style = 16;
-            enable = 0;
+            enable = 1;
             show = 0;
         };
 

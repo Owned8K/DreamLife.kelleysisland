@@ -5,6 +5,9 @@
 */
 params ["_messages"];
 
+systemChat format ["[DEBUG] fn_receiveConversation appelé avec %1 messages", count _messages];
+diag_log format ["[DEBUG] fn_receiveConversation appelé avec: %1", _messages];
+
 // Stockage temporaire pour navigation
 life_conversationMessages = _messages;
 
@@ -16,6 +19,10 @@ if (isNull _display) exitWith {
     diag_log "[CONV][CLIENT] ERREUR: Display smartphone non trouvé";
     systemChat "[CONV] ERREUR: Interface smartphone non trouvée";
 };
+
+// Forcer l'affichage de la ConversationList
+(_display displayCtrl 88808) ctrlShow false; // Masquer MessagesList
+(_display displayCtrl 88817) ctrlShow true;  // Afficher ConversationList
 
 private _listBox = _display displayCtrl 88817;
 if (isNull _listBox) exitWith {
