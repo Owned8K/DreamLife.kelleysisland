@@ -245,7 +245,6 @@ class Life_Client_Core {
         class moveIn {};
         class updateLicenseList {};
         class openSmartphone {};
-        class receiveConversation {};
     };
 
     class Gangs {
@@ -355,6 +354,7 @@ class Life_Client_Core {
         class receiveContacts {};
         class receiveMessages {};
         class openConversation {};
+        class receiveConversation {};
     };
 
     class Shops {
