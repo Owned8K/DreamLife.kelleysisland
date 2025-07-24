@@ -31,6 +31,13 @@ if (_messages isEqualTo []) then {
     systemChat "[MESSAGES] Aucun message trouvé";
     diag_log "[MESSAGES][CLIENT] Aucun message à afficher";
 } else {
+    // Fonction locale pour convertir une date string en nombre (ex: 2024-06-07 11:14:15 -> 20240607111415)
+    private _dateToNumber = {
+        params ["_dateStr"];
+        if (_dateStr isEqualTo "" || isNil "_dateStr") exitWith {0};
+        private _clean = _dateStr select [0,4] + _dateStr select [5,2] + _dateStr select [8,2] + _dateStr select [11,2] + _dateStr select [14,2] + _dateStr select [17,2];
+        parseNumber _clean
+    };
     // Grouper par conversation (PID contact)
     private _playerPid = getPlayerUID player;
     private _conversations = [];
@@ -51,10 +58,10 @@ if (_messages isEqualTo []) then {
             // Remplacer si ce message est plus récent
             private _oldMsg = _conversations select _existing;
             private _oldDate = _oldMsg select 2;
-            if (!isNil "_oldDate" && {_oldDate != ""} && {_sentAt != ""}) then {
-                if (_sentAt > _oldDate) then {
-                    _conversations set [_existing, [_contactPid, _content, _sentAt, _isRead, _senderName, _receiverName]];
-                };
+            private _sentAtNum = [_sentAt] call _dateToNumber;
+            private _oldDateNum = [_oldDate] call _dateToNumber;
+            if (_sentAtNum > _oldDateNum) then {
+                _conversations set [_existing, [_contactPid, _content, _sentAt, _isRead, _senderName, _receiverName]];
             };
         } else {
             _conversations pushBack [_contactPid, _content, _sentAt, _isRead, _senderName, _receiverName];
