@@ -35,7 +35,8 @@ if (_messages isEqualTo []) then {
     private _dateToNumber = {
         params ["_dateStr"];
         if (_dateStr isEqualTo "" || isNil "_dateStr") exitWith {0};
-        private _clean = _dateStr select [0,4] + _dateStr select [5,2] + _dateStr select [8,2] + _dateStr select [11,2] + _dateStr select [14,2] + _dateStr select [17,2];
+        if ((count _dateStr) < 19) exitWith {0}; // Format attendu: "YYYY-MM-DD HH:MM:SS"
+        private _clean = (_dateStr select [0,4]) + (_dateStr select [5,2]) + (_dateStr select [8,2]) + (_dateStr select [11,2]) + (_dateStr select [14,2]) + (_dateStr select [17,2]);
         parseNumber _clean
     };
     // Grouper par conversation (PID contact)
