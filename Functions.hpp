@@ -355,8 +355,6 @@ class Life_Client_Core {
         class contactAdded {};
         class receiveContacts {};
         class receiveMessages {};
-        class openConversation {};
-        class receiveConversation {};
     };
 
     class Shops {
