@@ -3,9 +3,18 @@
     Description: Ouvre la conversation avec le contact sélectionné dans MessagesList.
     Params: _this (event params de onLBSelChanged)
 */
-// Correction de la récupération des paramètres
-private _control = _this select 0;
-private _selectedIndex = _this select 1;
+// Correction robuste de la récupération des paramètres
+private _control = controlNull;
+private _selectedIndex = -1;
+if ((count _this > 0) && {typeName (_this select 0) == "ARRAY"}) then {
+    // Cas où _this = [[control, index]]
+    _control = (_this select 0) select 0;
+    _selectedIndex = (_this select 0) select 1;
+} else {
+    // Cas normal _this = [control, index]
+    _control = _this select 0;
+    _selectedIndex = _this select 1;
+}
 
 // Récupérer le PID du contact sélectionné
 private _contactPid = _control lbData _selectedIndex;
