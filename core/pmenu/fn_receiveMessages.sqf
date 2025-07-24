@@ -50,8 +50,11 @@ if (_messages isEqualTo []) then {
         if (_existing > -1) then {
             // Remplacer si ce message est plus récent
             private _oldMsg = _conversations select _existing;
-            if (_sentAt > (_oldMsg select 2)) then {
-                _conversations set [_existing, [_contactPid, _content, _sentAt, _isRead, _senderName, _receiverName]];
+            private _oldDate = _oldMsg select 2;
+            if (!isNil "_oldDate" && {_oldDate != ""} && {_sentAt != ""}) then {
+                if (_sentAt > _oldDate) then {
+                    _conversations set [_existing, [_contactPid, _content, _sentAt, _isRead, _senderName, _receiverName]];
+                };
             };
         } else {
             _conversations pushBack [_contactPid, _content, _sentAt, _isRead, _senderName, _receiverName];
