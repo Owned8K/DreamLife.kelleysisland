@@ -7,6 +7,8 @@ params ["_control", "_selectedIndex"];
 
 // Récupérer le PID du contact sélectionné
 private _contactPid = _control lbData _selectedIndex;
+systemChat format ["[DEBUG] Ouverture conversation avec: %1", _contactPid];
+diag_log format ["[DEBUG] fn_openConversation appelé avec contactPid: %1", _contactPid];
 if (_contactPid isEqualTo "") exitWith {
     systemChat "[CONV] Aucun contact sélectionné.";
 };

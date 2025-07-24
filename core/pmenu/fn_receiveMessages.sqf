@@ -76,7 +76,8 @@ if (_messages isEqualTo []) then {
         if (!isNil "life_contacts") then {
             {
                 _x params ["_id", "_name", "_number"];
-                if (_number isEqualTo _contactPid) exitWith {
+                // Correspondance sur le numéro OU sur le PID (pour compatibilité)
+                if (_number isEqualTo _contactPid || {_id isEqualTo _contactPid}) exitWith {
                     _contactName = _name;
                     _isContact = true;
                 };
