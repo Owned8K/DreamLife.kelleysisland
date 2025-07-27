@@ -91,7 +91,14 @@ class CfgRemoteExec {
         F(life_fnc_contactAdded,CLIENT)
         F(life_fnc_openConversation,CLIENT)
         F(life_fnc_receiveConversation,CLIENT)
+        F(life_fnc_receiveDistributeurs,CLIENT)
+        F(life_fnc_openDistributeur,CLIENT)
         F(life_fnc_server_fetchConversation,SERVER)
+        F(TON_fnc_server_fetchDistributeurs,SERVER)
+        F(TON_fnc_server_sendDistributeursToClient,SERVER)
+        F(TON_fnc_server_spawnDistributeurs,SERVER)
+        F(TON_fnc_server_buyDistributeurItem,SERVER)
+        F(life_fnc_distributeurBuyResult,CLIENT)
 
         /* Server only functions */
         F(DB_fnc_insertRequest,SERVER)

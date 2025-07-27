@@ -378,6 +378,30 @@
             <Polish>Skup soli</Polish>
 			<Chinesesimp>食盐贸易商</Chinesesimp>
         </Key>
+        <Key ID="STR_Shops_Electronics">
+            <Original>Electronics Store</Original>
+            <Czech>Elektronika Obchod</Czech>
+            <Spanish>Tienda de Electrónicos</Spanish>
+            <Russian>Магазин электроники</Russian>
+            <German>Elektronikgeschäft</German>
+            <French>Magasin d'Électronique</French>
+            <Italian>Negozio di Elettronica</Italian>
+            <Portuguese>Loja de Eletrônicos</Portuguese>
+            <Polish>Sklep Elektroniczny</Polish>
+			<Chinesesimp>电子产品商店</Chinesesimp>
+        </Key>
+        <Key ID="STR_Shops_DreamTelecom">
+            <Original>Dream Télécom</Original>
+            <Czech>Dream Telekom</Czech>
+            <Spanish>Dream Telecom</Spanish>
+            <Russian>Дрим Телеком</Russian>
+            <German>Dream Telekom</German>
+            <French>Dream Télécom</French>
+            <Italian>Dream Telecom</Italian>
+            <Portuguese>Dream Telecom</Portuguese>
+            <Polish>Dream Telekom</Polish>
+            <Chinesesimp>梦想电信</Chinesesimp>
+        </Key>
         <Key ID="STR_Shop_Station_Coffee">
             <Original>Fuel Station Coffee</Original>
             <Czech>Palivo Coffee Station</Czech>
@@ -7730,6 +7754,18 @@
             <Portuguese>Tapete de Espinhos</Portuguese>
             <Polish>Kolczatka drogowa</Polish>
 			<Chinesesimp>钉刺带</Chinesesimp>
+        </Key>
+        <Key ID="STR_Item_Smartphone">
+            <Original>Smartphone</Original>
+            <Czech>Smartphone</Czech>
+            <Spanish>Smartphone</Spanish>
+            <Russian>Смартфон</Russian>
+            <German>Smartphone</German>
+            <French>Smartphone</French>
+            <Italian>Smartphone</Italian>
+            <Portuguese>Smartphone</Portuguese>
+            <Polish>Smartfon</Polish>
+			<Chinesesimp>智能手机</Chinesesimp>
         </Key>
     </Package>
     <Package name="Life_License">

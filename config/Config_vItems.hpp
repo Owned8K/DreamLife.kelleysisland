@@ -193,6 +193,20 @@ class VirtualShops {
         conditions = "";
         items[] = { "donuts", "coffee", "spikeStrip", "waterBottle", "rabbit", "apple", "redgull", "toolkit", "fuelFull", "defusekit", "defibrillator" };
     };
+
+    class electronics {
+        name = "STR_Shops_Electronics";
+        side = "civ";
+        conditions = "";
+        items[] = { };
+    };
+
+    class dreamtelecom {
+        name = "STR_Shops_DreamTelecom";
+        side = "civ";
+        conditions = "";
+        items[] = { "smartphone" };
+    };
 };
 
 /*
@@ -985,5 +999,18 @@ class VirtualItems {
         edible = 100;
         drinkable = -1;
         icon = "icons\ico_muttonLeg.paa";
+    };
+
+    // Communication & Electronics
+    class smartphone {
+        variable = "smartphone";
+        displayName = "STR_Item_Smartphone";
+        weight = 1;
+        buyPrice = 2500;
+        sellPrice = 1200;
+        illegal = false;
+        edible = -1;
+        drinkable = -1;
+        icon = "textures\phone\phone.paa";
     };
 };

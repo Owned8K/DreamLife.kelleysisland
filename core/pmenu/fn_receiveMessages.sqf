@@ -49,9 +49,9 @@ if (isNull _listBox) exitWith {
     systemChat "[MESSAGES] ERREUR: Liste des messages non trouvée";
 };
 
-// S'assurer que MessagesList est visible et ConversationList est cachée
-(_display displayCtrl 88808) ctrlShow true;  // MessagesList
-(_display displayCtrl 88817) ctrlShow false; // ConversationList
+// Ne pas forcer l'affichage de MessagesList ici, laisser l'interface gérer l'affichage
+// (_display displayCtrl 88808) ctrlShow true;  // MessagesList
+// (_display displayCtrl 88817) ctrlShow false; // ConversationList
 
 lbClear _listBox;
 diag_log "[MESSAGES][CLIENT] Liste nettoyée, début du remplissage";

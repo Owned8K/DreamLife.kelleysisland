@@ -39,7 +39,7 @@ if (_contacts isEqualTo []) then {
         
         private _text = format ["%1 - %2", _name, _number];
         private _index = _listBox lbAdd _text;
-        _listBox lbSetData [_index, str _id];
+        _listBox lbSetData [_index, _number];
         
         diag_log format ["[CONTACTS][CLIENT] Contact ajouté à l'index %1: %2", _index, _text];
     } forEach _contacts;

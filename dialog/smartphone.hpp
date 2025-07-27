@@ -5,7 +5,7 @@ class Life_Smartphone {
     name = "Life_Smartphone";
     movingEnable = false;
     enableSimulation = true;
-    onLoad = "[] spawn {systemChat '[CONTACTS] Initialisation...'; [] call life_fnc_fetchContacts; [] call life_fnc_fetchMessages;};";
+    onLoad = "[] spawn life_fnc_fetchContacts;";
     
     class controlsBackground {
         class PhoneBackground: life_RscPicture {
@@ -273,7 +273,7 @@ class Life_Smartphone {
             colorBackground2[] = {0,0,0,0};
             colorFocused[] = {0,0,0,0};
             colorText[] = {0,0,0,0};
-            onButtonClick = "_display = findDisplay 88800; _receiver = ctrlText (_display displayCtrl 88811); _content = ctrlText (_display displayCtrl 88812); [_receiver, _content] call life_fnc_sendMessage;";
+            onButtonClick = "_display = findDisplay 88800; _receiver = ctrlText (_display displayCtrl 88811); _content = ctrlText (_display displayCtrl 88812); [_receiver, _content] call life_fnc_sendMessage; ctrlShow [88811, false]; ctrlShow [88812, false]; ctrlShow [88813, false]; ctrlShow [88816, false]; ctrlShow [88808, true]; ctrlShow [88809, true]; ctrlShow [88810, true]; ctrlShow [88814, true]; ctrlShow [88815, true]; _title = _display displayCtrl 88814; _title ctrlSetText 'Messages';";
             show = 0;
         };
 
@@ -484,7 +484,7 @@ class Life_Smartphone {
             colorFocused[] = {0,0,0,0.8};
             colorText[] = {1,1,1,1};
             text = "Enregistrer";
-            onButtonClick = "systemChat '[SMARTPHONE][UI] Bouton Enregistrer cliqué'; _display = findDisplay 88800; _name = ctrlText (_display displayCtrl 88829); _number = ctrlText (_display displayCtrl 88830); [_name, _number] call life_fnc_addContact;";
+            onButtonClick = "systemChat '[SMARTPHONE][UI] Bouton Enregistrer cliqué'; _display = findDisplay 88800; _name = ctrlText (_display displayCtrl 88829); _number = ctrlText (_display displayCtrl 88830); [_name, _number] call life_fnc_addContact; ctrlShow [88825, false]; ctrlShow [88826, false]; ctrlShow [88827, false]; ctrlShow [88829, false]; ctrlShow [88830, false]; ctrlShow [88831, false]; ctrlShow [88833, false]; ctrlShow [88834, false]; ctrlShow [88820, true]; ctrlShow [88821, true]; ctrlShow [88822, true]; ctrlShow [88823, true]; ctrlShow [88824, true]; ctrlShow [88832, true];";
             tooltip = "Enregistrer le contact";
             show = 0;
         };

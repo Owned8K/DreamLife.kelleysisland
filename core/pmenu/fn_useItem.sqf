@@ -99,6 +99,11 @@ switch (_item) do {
         closeDialog 0;
     };
 
+    case "smartphone": {
+        [] call life_fnc_openSmartphone;
+        closeDialog 0;
+    };
+
     default {
         hint localize "STR_ISTR_NotUsable";
     };

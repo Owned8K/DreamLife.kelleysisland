@@ -245,6 +245,17 @@ class Life_Client_Core {
         class moveIn {};
         class updateLicenseList {};
         class openSmartphone {};
+        class openDistributeur {};
+        class fetchDistributeurs {};
+        class receiveDistributeurs {};
+        class distributeursConfig {};
+        class distributeurUtils {};
+        class createDistributeurMarkers {};
+        class addDistributeurActions {};
+        class selectDistributeurItem {};
+        class buyDistributeurItem {};
+        class distributeurBuyResult {};
+        class testDistributeurSystem {};
     };
 
     class Gangs {

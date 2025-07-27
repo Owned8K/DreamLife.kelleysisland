@@ -59,3 +59,15 @@ diag_log "[INIT CIV] Company ownership check sent to server";
 [] call life_fnc_playerSkins;
 [] call life_fnc_setupActions;
 [] call life_fnc_hudSetup;
+
+// Les distributeurs sont maintenant créés côté serveur au démarrage
+diag_log "[INIT CIV] Les distributeurs sont créés côté serveur";
+
+// Créer les marqueurs sur la carte
+[] spawn life_fnc_createDistributeurMarkers;
+
+// Ajouter les actions si nécessaire
+[] spawn {
+    sleep 5; // Attendre que les objets soient synchronisés
+    [] call life_fnc_addDistributeurActions;
+};

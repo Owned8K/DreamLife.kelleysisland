@@ -38,20 +38,7 @@ if !(_queryResult isEqualTo []) then {
         diag_log "[INFO] Removed old action";
     };
     
-    private _actionId = player addAction [
-        "<t color='#FF8C00'>Gestion d'Entreprise</t>",
-        {
-            if (!dialog) then {
-                createDialog "Life_company_management";
-            };
-        },
-        "",
-        0,
-        false,
-        false,
-        "",
-        "!dialog"
-    ];
+    
     
     player setVariable ["company_action", _actionId];
     diag_log format ["[SUCCESS] Added menu action with ID: %1", _actionId];
